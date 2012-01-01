@@ -1,0 +1,25 @@
+title : API Commons
+
+markdown: kramdown
+
+safe: true
+lsi: false
+pygments: true
+auto: true
+
+source: api-commons
+destination: api-commons
+
+permalink: /:categories/:year/:month/:day/:title 
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+
+paginate: 500
+paginate_path: "/blog/page:num"
+
+production_url : http://apicommons.org
+
+BASE_PATH : http://apicommons.org
+
+archive_path: /archive.html
+categories_path : /categories.html
+tags_path : /tags.html

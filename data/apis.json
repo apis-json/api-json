@@ -1,0 +1,263 @@
+{
+  "apis": [
+    {
+      "name": "Businesses",
+      "description": "This is a simple API specification for a listing of businesses.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-business-icon.png",
+      "keywords": "business, directory",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/businesses/blob/gh-pages/businesses"
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "description": "This is a simple API specification for a listing of events.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-calendar.png",
+      "keywords": "events, directory",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/events/blob/gh-pages/events"
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "description": "This is a simple API specification for a listing of photos and images.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-camera.jpg",
+      "keywords": "images, photo, gallery",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/images/blob/gh-pages/images"
+        }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "description": "This is a simple API specification for a listing of jobs.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-job.jpg",
+      "keywords": "jobs, employment",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/jobs/blob/gh-pages/jobs"
+        }
+      ]
+    },
+    {
+      "name": "Offices",
+      "description": "This is a simple API specification for a listing of offices.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-office.png",
+      "keywords": "offices, locations",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/offices/blob/gh-pages/offices"
+        }
+      ]
+    },
+    {
+      "name": "Places",
+      "description": "This is a simple API specification for a listing of places.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-places.png",
+      "keywords": "places, locations",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/places/blob/gh-pages/places"
+        }
+      ]
+    },
+    {
+      "name": "People",
+      "description": "This is a simple API specification for a listing of people.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-people.png",
+      "keywords": "people, person",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/people/blob/gh-pages/people"
+        }
+      ]
+    },
+    {
+      "name": "Press",
+      "description": "This is a simple API specification for a listing of news and press releases.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-news-icon.png",
+      "keywords": "press, news",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/press/blob/gh-pages/press"
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "description": "This is a simple API specification for a listing of products.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-products.png",
+      "keywords": "products, goods",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/products/blob/gh-pages/products"
+        }
+      ]
+    },
+    {
+      "name": "Programs",
+      "description": "This is a simple API specification for a listing of programs.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-programs.png",
+      "keywords": "programs, services",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/programs/blob/gh-pages/programs"
+        }
+      ]
+    },
+    {
+      "name": "Videos",
+      "description": "This is a simple API specification for a listing of videos.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-video.png",
+      "keywords": "movies, videos",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Kin Lane",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/ongithub/videos/blob/gh-pages/videos"
+        }
+      ]
+    },
+    {
+      "name": "Court Listener API",
+      "description": "U.S. court opinions API as part of the CourtListener project, which currently aggregates more than 2,204,339 court opinions, from over 350 jurisdictions.",
+      "image": "https://2.gravatar.com/avatar/87d484ca9ada35fd56c0c097a3bd88c9?d=https%3A%2F%2Fidenticons.github.com%2F635ccb973201d401a01de2e96638acd7.png&r=x&s=440",
+      "keywords": "legal,opinion,court,citations,US",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Free Law Project",
+      "url": "https://raw.github.com/freelawproject/court-listener-api-definition/master/api-commons-manifest.json",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://raw.github.com/freelawproject/court-listener-api-definition/master/court-listener-api.json"
+        }
+      ]
+    },
+    {
+      "name": "Avoindata.net RESTful API",
+      "description": "API provides JSON formatted avoindata.net - Finnish Open data question-answer - service data including the questions, answers, categories and tags.",
+      "image": "http://avoindata.net/qa-theme/tovolt/images/opendata.png",
+      "keywords": "open data, Finland, community, question, answer",
+      "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "attribution": "Sisu00e4ltu00f6 on Suomen avoimen datan yhteisu00f6n tuottamaa, avoindata.net",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://github.com/locationofdefinition"
+        }
+      ]
+    },
+    {
+      "name": "OpenEd API",
+      "description": "Search for resources for standards or by topic.  Get information on standards.  Get information on our area/subject taxonomy of resources.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/open-ed/open-ed-logo-2.png",
+      "keywords": "ed tech, resources, videos, games, K-12, flipped classroom, Common Core",
+      "license": "http://opensource.org/licenses/MIT",
+      "attribution": "OpenEd, Inc.",
+      "url": "http://docs.opened.apiary.io",
+      "definitions": [
+        {
+          "type": "[API Blueprint]",
+          "url": "https://github.com/apiaryio/api-blueprint"
+        }
+      ]
+    },
+    {
+      "name": "Free Application for Federal Student Aid (FAFSA) API",
+      "description": "An API interface for the Free Application for Federal Student Aid (FAFSA) form.",
+      "image": "https://2.gravatar.com/avatar/a4fe18d810096d5c7f6995dd5a2dd95c?d=https%3A%2F%2Fidenticons.github.com%2F45eb0bb660526b4e846b21c26bc199eb.png&r=x&s=440",
+      "keywords": "fafsa,financial aid, student aid, form",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Ed Data",
+      "url": "https://raw2.github.com/ed-data/fafsa-api/master/api-commons-manifest.json",
+      "definitions": [
+        {
+          "type": "Swagger",
+          "url": "https://raw2.github.com/ed-data/fafsa-api/master/Applications"
+        }
+      ]
+    },
+    {
+      "name": "Evercam.io",
+      "description": "Evercam.io makes it easier for you to connect your camera and share it with the world.",
+      "image": "http://www.evercam.io/img/logo.png",
+      "keywords": "video, camera, security",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "Evercam.io",
+      "url": "https://api.evercam.io/docs/api/v1/swagger",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "https://api.evercam.io/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "name": "Green Button API",
+      "description": "The Green Button API provides access to RESTful services provided by Data Custodian and Third Party Applications. These APIs allow application developers full access, in Green Button Format, to Energy Usage Information for the purpose of developing new Green Button Applications.",
+      "image": "http://services.greenbuttondata.org/resources/ico/favicon.png",
+      "keywords": "energy, power, electricity",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "EnergyOS",
+      "url": "http://www.energyos.org",
+      "definitions": [
+        {
+          "type": "Swagger",
+          "url": "http://energyos.github.io/OpenESPI-GreenButton-API-Documentation/API/api-docs"
+        }
+      ]
+    },
+    {
+      "name": "SensorDefinitionAPI",
+      "description": "An API for defining sensors. It creates an abstraction for sensor manufacturers to describe the physical and data features of a connected sensor",
+      "image": "https://raw.githubusercontent.com/relayr/SensorDefinitionAPI/master/Weather-Thermometer-icon.png",
+      "keywords": "Sensor, Hardware, Firmware, Readings, Connected, Internet of Things, IoT, M2M",
+      "license": "http://creativecommons.org/licenses/by/4.0/",
+      "attribution": "relayr (iThings4U GmbH)",
+      "url": "https://github.com/relayr/SensorDefinitionAPI/api-commons-manifest.json",
+      "definitions": [
+        {
+          "type": "API Blueprint",
+          "url": "https://raw.githubusercontent.com/relayr/SensorDefinitionAPI/master/apiary.apib"
+        }
+      ]
+    }
+  ],
+  "updated": "05/07/2014"
+}

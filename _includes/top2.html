@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{ page.title }}</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Open+Sans+Condensed:300,700" rel="stylesheet" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="http://api.1.ongithub.com/js/codemirror/lib/codemirror.css">
+ 
+    <script src="http://api.1.ongithub.com/js/codemirror/lib/codemirror.js"></script>
+    <script src="http://api.1.ongithub.com/js/codemirror/mode/javascript/javascript.js"></script>
+ 
+    <script src="http://api.1.ongithub.com/js/jquery/jquery.js" type="text/javascript"></script>
+    <script src="http://api.1.ongithub.com/js/jquery/jquery.cookie.js" type="text/javascript"></script>
+
+    <script src='http://api.1.ongithub.com/js/bootstrap.js' type='text/javascript' /></script>
+    <link href="http://api.1.ongithub.com/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="/js/lib/base64.js"></script>
+    <script type="text/javascript" src="/js/github.js"></script>
+    <script type="text/javascript" src="/js/utilities.js"></script>
+    <script type="text/javascript" src="/js/mustache.js"></script>  
+  
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script src="http://api.1.ongithub.com/js/lib/beautify.js"></script>
+    <script src="http://api.1.ongithub.com/js/lib/beautify-css.js"></script>
+    <script src="http://api.1.ongithub.com/js/lib/beautify-html.js"></script>
+    <script src="http://api.1.ongithub.com/js/test/sanitytest.js"></script>
+    <script src="http://api.1.ongithub.com/js/test/beautify-tests.js"></script>
+    <script src="http://api.1.ongithub.com/js/lib/unpackers/javascriptobfuscator_unpacker.js"></script>
+    <script src="http://api.1.ongithub.com/js/lib/unpackers/urlencode_unpacker.js"></script>
+    <script src="http://api.1.ongithub.com/js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
+    <script src="http://api.1.ongithub.com/js/lib/unpackers/myobfuscate_unpacker.js"></script>
+
+    <script type="application/javascript">
+        var the = {
+            use_codemirror: (!window.location.href.match(/without-codemirror/)),
+            beautify_in_progress: false,
+            editor: null // codemirror editor
+        };
+
+        function run_tests() {
+            var st = new SanityTest();
+            run_beautifier_tests(st, Urlencoded, js_beautify, html_beautify, css_beautify);
+            JavascriptObfuscator.run_tests(st);
+            P_A_C_K_E_R.run_tests(st);
+            Urlencoded.run_tests(st);
+            MyObfuscate.run_tests(st);
+            var results = st.results_raw().replace(/ /g, '&nbsp;').replace(/\r/g, '·').replace(/\n/g, '<br>');
+            $('#testresults').html(results).show();
+        }
+
+
+        function any(a, b) {
+            return a || b;
+        }
+
+        function unpacker_filter(source) {
+            var trailing_comments = '',
+                comment = '',
+                unpacked = '',
+                found = false;
+
+            // cut trailing comments
+            do {
+                found = false;
+                if (/^\s*\/\*/.test(source)) {
+                    found = true;
+                    comment = source.substr(0, source.indexOf('*/') + 2);
+                    source = source.substr(comment.length).replace(/^\s+/, '');
+                    trailing_comments += comment + "\n";
+                } else if (/^\s*\/\//.test(source)) {
+                    found = true;
+                    comment = source.match(/^\s*\/\/.*/)[0];
+                    source = source.substr(comment.length).replace(/^\s+/, '');
+                    trailing_comments += comment + "\n";
+                }
+            } while (found);
+
+            var unpackers = [P_A_C_K_E_R, Urlencoded, /*JavascriptObfuscator,*/ MyObfuscate];
+            for (var i = 0; i < unpackers.length; i++) {
+                if (unpackers[i].detect(source)) {
+                    unpacked = unpackers[i].unpack(source);
+                    if (unpacked != source) {
+                        source = unpacker_filter(unpacked);
+                    }
+                }
+            }
+
+            return trailing_comments + source;
+        }
+
+
+        function beautify(source) {
+            
+            if (the.beautify_in_progress) return;
+
+            the.beautify_in_progress = true;
+
+            var output,
+                opts = {};
+
+            opts.indent_size = $('#tabsize').val();
+            opts.indent_char = opts.indent_size == 1 ? '\t' : ' ';
+            opts.max_preserve_newlines = $('#max-preserve-newlines').val();
+            opts.preserve_newlines = opts.max_preserve_newlines !== -1;
+            opts.keep_array_indentation = $('#keep-array-indentation').prop('checked');
+            opts.break_chained_methods = $('#break-chained-methods').prop('checked');
+            opts.indent_scripts = $('#indent-scripts').val();
+            opts.brace_style = $('#brace-style').val();
+            opts.space_before_conditional = $('#space-before-conditional').prop('checked');
+            opts.unescape_strings = $('#unescape-strings').prop('checked');
+            opts.wrap_line_length = $('#wrap-line-length').val();
+            opts.space_after_anon_function = true;
+
+            if (looks_like_html(source)) {
+                output = html_beautify(source, opts);
+            } else {
+                if ($('#detect-packers').prop('checked')) {
+                    source = unpacker_filter(source);
+                }
+                output = js_beautify(source, opts);
+            }
+            if (the.editor) {
+                the.editor.setValue(output);
+            } else {
+                $('#source').val(output);
+            }
+            
+            the.beautify_in_progress = false;
+        }
+
+        function looks_like_html(source) {
+            // <foo> - looks like html
+            // <!--\nalert('foo!');\n--> - doesn't look like html
+
+            var trimmed = source.replace(/^[ \t\n\r]+/, '');
+            var comment_mark = '<' + '!-' + '-';
+            return (trimmed && (trimmed.substring(0, 1) === '<' && trimmed.substring(0, 4) !== comment_mark));
+         }
+         
+        var $rowcount = 1;
+    
+        function newAPI()
+            {
+            $rowcount++;
+                
+            $row = '<div style="padding-left: 25px; width:450px;">';  
+            $row += '<div class="form-group">'; 
+            $row += '<label for="name_' + $rowcount + '">Name</label>'; 
+            $row += '<input type="text" class="form-control" id="name_' + $rowcount + '" placeholder="Name of Your APIs">'; 
+            $row += '</div>'; 
+            $row += '<div class="form-group">'; 
+            $row += '<label for="description_' + $rowcount + '">Description</label>'; 
+            $row += '<input type="text" class="form-control" id="description_' + $rowcount + '" placeholder="Description of what your api does and the value it delivers.">'; 
+            $row += '</div>'; 
+            $row += '<div class="form-group">'; 
+            $row += '<label for="image_' + $rowcount + '">Image</label>'; 
+            $row += '<input type="text" class="form-control" id="image_' + $rowcount + '" placeholder="https://example.com/image.png">'; 
+            $row += '</div>'; 
+            $row += '<div class="form-group">'; 
+            $row += '<label for="keywords_' + $rowcount + '">Keywords</label>'; 
+            $row += '<input type="text" class="form-control" id="keywords_' + $rowcount + '" placeholder="keywords, tags, that, describe, api">'; 
+            $row += '</div>'; 
+            $row += '<div class="form-group">'; 
+            $row += '<label for="license_' + $rowcount + '">License</label>'; 
+            $row += '<input type="text" class="form-control" id="license_' + $rowcount + '" placeholder="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">'; 
+            $row += '</div>'; 
+            $row += '<div class="form-group">'; 
+            $row += '<label for="attribution_' + $rowcount + '">Attribution</label>'; 
+            $row += '<input type="text" class="form-control" id="attribution_' + $rowcount + '" placeholder="Individual or Company Name">'; 
+            $row += '</div>';                        
+            $row += '<div class="form-group">';  
+            $row += '<label for="attribution_' + $rowcount + '">URL</label>';  
+            $row += '<input type="text" class="form-control" id="attribution_' + $rowcount + '" placeholder="URL to this APIs manifest">';  
+            $row += '</div>';  
+            $row += '<input type="hidden" id="definition-count_' + $rowcount + '" value="1" />';  
+            $row += '<strong>Definitions: (<a href="#" onclick="newDefinition(' + $rowcount + '); return false;">add another</a>)</strong>';                                                                                                                                                                        
+            $row += '<div id="definitions_' + $rowcount + '" style="width: 400px; padding-left: 15px;">';   
+            $row += '<div class="form-group">'; 
+            $row += '<label for="license_' + $rowcount + '">type</label>'; 
+            $row += '<input type="text" class="form-control" id="definitions-type_' + $rowcount + '" placeholder="[type: ie Swagger, RAML, API Blueprint]">'; 
+            $row += '</div>'; 
+            $row += '<div class="form-group">'; 
+            $row += '<label for="attribution_' + $rowcount + '">url</label>'; 
+            $row += '<input type="text" class="form-control" id="definitions-url_' + $rowcount + '" placeholder="URL to API definition">'; 
+            $row += '</div> '; 
+            $row += '</div>'; 
+            $row += '<input type="hidden" id="endrow_1" value="1" />'; 
+            $row += '<hr />'; 
+            $row += '</div>';            
+            
+            $("#apis").append($row);            
+            }  
+            
+        function newDefinition($id)
+            {
+            $DefinitionCount = document.getElementById("definition-count_"+$id).value;     
+            $DefinitionCount++;
+                
+            $row = '<div class="form-group">';
+            $row += '<label for="license_' + $rowcount + '_' + $DefinitionCount + '">type</label>';
+            $row += '<input type="text" class="form-control" id="definitions-type_' + $rowcount + '_' + $DefinitionCount + '" placeholder="[type: ie Swagger, RAML, API Blueprint]">';
+            $row += '</div>';
+            $row += '<div class="form-group">';
+            $row += '<label for="attribution_' + $rowcount + '_' + $DefinitionCount + '">url</label>';
+            $row += '<input type="text" class="form-control" id="definitions-url_' + $rowcount + '_' + $DefinitionCount + '" placeholder="URL to API definition">';
+            $row += '</div>';
+            $row += '<hr />'; 
+            
+            $("#definitions_"+$id).append($row);            
+            }             
+
+        function addRows()
+            {
+             $NumberOfRows = document.getElementById("NumberOfRows").value;     
+             $NumberOfRows++;
+             //alert($NumberOfRows);
+             
+             $rowHTML = '<tr><td><p><label><strong>' + $NumberOfRows + ') Upload Data.json >></strong></label></p><div class="settingsGroup"><p><input type="file" onchange="readfile(this.files[0],' + $NumberOfRows + ')"></input></p></div></td><td><textarea cols="40" rows="5" id="datafile' + $NumberOfRows + '" style="border: 1px solid #000;"></textarea></td></tr>'; 
+             $("#mergefiles").append($rowHTML);
+             
+             document.getElementById("NumberOfRows").value = $NumberOfRows;
+            }
+            
+        function generateJSON(){
+          
+          $APIArray = {};
+          $APIArray['apis'] = new Array();
+          
+          var $LastRow = 0;
+          mf = document.getElementsByTagName("input");
+            $.each(mf, function(index, item) { 
+                
+                if($LastRow==0){ $A = {}; $D = {}; }
+                
+                $thisID = item.id; 
+                $thisArray = $thisID.split("_");
+                $thisField = $thisArray[0];
+                $thisRow = $thisArray[1];            
+                $thisValue = item.value;
+                $thisType = item.type;             
+                
+                if($thisField=='endrow'){
+                    $APIArray['apis'].push($A);
+                    $A = {};
+                    }
+                else{
+                    
+                    if($thisField == 'definitions-type')
+                        {
+                        $D['type'] = $thisValue;
+                        }
+                    else if($thisField == 'definitions-url')
+                        {
+                        $D['url'] = $thisValue;
+                        
+                        $A['distributions'].push($D);
+                        
+                        $D = {};
+                        
+                        }
+                    else if($thisField == 'attribution')
+                        {
+                        $A['distributions'] = new Array();
+                        
+                        }                        
+                    else
+                        {  
+                        if($thisType=='text'){               
+                            $A[$thisField] = $thisValue;
+                            }
+                        }
+                    }
+                
+                $LastRow = $thisRow;
+                
+            });                      
+        
+        $APIArray['tags'] = 'api-commons-manifest';
+        $APIArray['updated'] = "11/04/2013";
+            
+        //alert('done!');
+        $ManifestJSON = JSON.stringify($APIArray);
+        var out = document.getElementById("source");  
+        out.innerHTML = "";                          
+        out.appendChild(document.createTextNode($ManifestJSON)); 
+        
+        document.getElementById("OutputArea").style.display = '';         
+          
+        beautify($ManifestJSON);   
+        
+        }       
+        
+        $(function () {
+
+            var default_text = "";
+            var textArea = $('#source')[0];
+
+            if (the.use_codemirror && typeof CodeMirror !== 'undefined') {
+                the.editor = CodeMirror.fromTextArea(textArea, {
+                        theme: 'default',
+                        lineNumbers: true
+                    });
+                the.editor.focus();
+
+                the.editor.setValue(default_text);
+                $('.CodeMirror').click(function () {
+                    if (the.editor.getValue() == default_text) {
+                        the.editor.setValue('');
+                    }
+                });
+            } else {
+                $('#source').val(default_text).bind('click focus', function () {
+                    if ($(this).val() == default_text) {
+                        $(this).val('');
+                    }
+                }).bind('blur', function () {
+                    if (!$(this).val()) {
+                        $(this).val(default_text);
+                    }
+                });
+            }
+            
+        });
+    </script>       
+      
+</head>

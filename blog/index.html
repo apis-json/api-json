@@ -1,0 +1,30 @@
+---
+layout: default
+title: API Commons Blog
+---
+
+<div id="three-column" class="container">
+    <div>
+        <span class="arrow-down"></span>
+    </div>
+    <div id="pageBody" style="text-align: left; margin: 25px;">
+        
+        <a href="http://feeds.feedburner.com/apicommons/eOLA" target="_blank"><img src="http://kinlane-productions.s3.amazonaws.com/icon-set-roundedcorners/rss.png" align="right" width="25" /></a>
+        <h2 class="title">API Commons Blog</h2>
+        
+        <!-- This loops through the paginated posts -->
+        {% for post in paginator.posts %}
+        <div class="post">
+            
+            <p><a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}" style="color:#000;"><h4><strong>{{ post.title }}</strong></h4></a>
+            <p><i><strong><span class="small">Posted on</span> <span class="post-date">{{ post.date | date:"%m-%d-%Y" }}</span></strong></i></p>
+            <p><a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}"><img src="{{ post.image }}" width="100" align="right" /></a></p>
+            <p>{{ post.content | strip_html | truncatewords: 100 }}...<a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}" style="color:#000; font-weight: bold;">read more</a>.</p>
+            <br />
+            <hr />     
+           
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
