@@ -7,7 +7,8 @@ This is a proposed specification for an api.json file, which can be placed in th
 * description
 * image
 * url
-  * apis (collection)
+* type
+* apis (collection)
   * name
   * description
   * image
@@ -17,17 +18,20 @@ This is a proposed specification for an api.json file, which can be placed in th
   * urls (collection)
     * type
     * url
-contact (collection)
-type
-url
-meta (collection)
-key
-value
-include (collection)
-name
-url
-maintainer (collection)
-type
-url
-tags
-modified
+  * contact (collection)
+    * type
+    * url
+  * meta (collection)
+    * key
+    * value
+* include (collection)
+    * name
+    * url
+* maintainer (collection)
+  * name
+  * email
+  * twitter
+* tags
+* modified
+
+This is a fast evolving spec, make your contributions via the issue management page.
