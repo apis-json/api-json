@@ -34,4 +34,8 @@ This is a proposed specification for an api.json file, which can be placed in th
 * tags
 * modified
 
-This is a fast evolving spec, make your contributions via the issue management page.
+This is a fast evolving spec, make your contributions via the issue management page. 
+
+Here is the api.json for the API Commons:
+
+<script src="https://gist.github.com/kinlane/10094618.js"></script>
