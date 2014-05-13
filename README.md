@@ -50,8 +50,8 @@ Here is the api.json for the API Commons:
       "name": "API Commons",
       "description": "An API for adding and pulling APIs that are in the commons.",
       "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-      "human-url": "https://api-commons.3scale.net/docs",
-      "machine-url": "http://api.apicommons.org/swagger-spec.json",
+      "humanURL": "https://api-commons.3scale.net/docs",
+      "machineURL": "http://api.apicommons.org/swagger-spec.json",
       "tags": "API, Application Programming Interface, Copyright",
       "urls": [
         {
