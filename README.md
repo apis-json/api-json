@@ -38,4 +38,62 @@ This is a fast evolving spec, make your contributions via the issue management p
 
 Here is the api.json for the API Commons:
 
-<script src="https://gist.github.com/kinlane/10094618.js"></script>
+```
+{
+  "name": "API Commons",
+  "description": "An API for adding and pulling APIs that are in the commons.",
+  "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+  "url": "https://api-commons.3scale.net/docs",
+  "type": "default",
+  "apis": [
+    {
+      "name": "API Commons",
+      "description": "An API for adding and pulling APIs that are in the commons.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+      "human-url": "https://api-commons.3scale.net/docs",
+      "machine-url": "http://api.apicommons.org/swagger-spec.json",
+      "tags": "API, Application Programming Interface, Copyright",
+      "urls": [
+        {
+          "type": "signup",
+          "url": "https://api-commons.3scale.net/signup"
+        },
+        {
+          "type": "swagger",
+          "url": "http://api.apicommons.org/swagger-spec.json"
+        }
+      ],
+      "contact": [
+        {
+          "type": "email",
+          "url": "apicommons@gmail.com"
+        },
+        {
+          "type": "twitter",
+          "url": "https://twitter.com/apicommons/"
+        }
+      ],
+      "meta": [
+        {
+          "key": "interface-license",
+          "value": "CC BY 3.0"
+        },
+        {
+          "type": "pricing",
+          "url": "Free"
+        }
+      ]
+    }
+  ],
+  "include": [],
+  "maintainer": [
+    {
+	"name": "Kin",
+	"twitter": "apievangelist",
+	"email": "kin@email.com"
+    }
+  ],
+  "tags": "api, copyright, application programming interface",
+  "modified": "05/12/2014"
+}
+```
