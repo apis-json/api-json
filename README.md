@@ -8,15 +8,15 @@ This is a proposed specification for an api.json file, which can be placed in th
 * image
 * url
   * apis (collection)
-name
-description
-image
-human-url
-machine-url
-tags
-urls (collection)
-type
-url
+  * name
+  * description
+  * image
+  * humanURL
+  * machineURL
+  * tags
+  * urls (collection)
+    * type
+    * url
 contact (collection)
 type
 url
