@@ -53,7 +53,7 @@ Table of Contents
 
 2. 	Introduction
 
-   Web APIs have quickly become and important part of Web Infrastructure. However the 
+   Web APIs have quickly become an important part of Web Infrastructure. However the 
    amount of machine readable meta-data about the location and capabilities of these APIs
    remains extremely limited. 
 
@@ -76,7 +76,7 @@ Table of Contents
 
    * File: instance of a digital file containing data.
    * Apis.* file, a file which contains API Meta Data information compatible with this 
-     document and uses one of the definited content types [currently JSON and TXT]. A file 
+     document and uses one of the defined content types [currently JSON and TXT]. A file 
      may contain more than one API Specification.
    * API Specification: collection of information about a specific API expressed in the 
      format defined in this document. Uniqueness is determined by the primary root/base 
@@ -115,10 +115,10 @@ Table of Contents
    choose to download these files also and take into account the information 
    contained within them.
 
-   While the format is intented to be human readable and may be used by humans, it 
+   While the format is intended to be human readable and may be used by humans, it 
    is primarily intended for consumption by automated software systems. Such software
    systems may be part of search engines, testing frameworks or API using applications. 
-   In keeping with terminology from the robots.txt format they are refered to as robots
+   In keeping with terminology from the robots.txt format they are referred to as robots
    from here onwards.
 
 3.2.  Authority
@@ -141,7 +141,7 @@ Table of Contents
 
 3.2.4.   Conflict Resolution
 
-   In cases where a robot discovers more than one entry in seperate apis.* files for a 
+   In cases where a robot discovers more than one entry in separate apis.* files for a 
    a specific API, priority on the validity of information should generally be resolved 
    as follows:
 
@@ -204,12 +204,12 @@ Table of Contents
     * Maintainers (collection)    [VCARD]
         * [Person or Organization - see below]
 
-    The above elements determine the information to tbe provided (examples are provided lower down). In 
+    The above elements determine the information to be provided (examples are provided lower down). In 
     addition the format reserves keywords for types. These are listed in Section 6.
 
     The Person or Organization is defined as containing:
 
-        * FN [Optional]: String Value corresponding to the Full Nname name of the individual / organization.
+        * FN [Optional]: String Value corresponding to the Full Name name of the individual / organization.
         * Email [Optional]: String Value corresponding to the email address of the individual / organization
         * Url [Optional]: String Value corresponding to a web page about the individual individual / organization
         * org [Optional]: String Value representing the name of the organization associated with the cCard.
@@ -222,7 +222,7 @@ Table of Contents
 
         * vCard [Optional]: URL pointing to a vCard Objective RFC6350
 
-    The labelled values are all tacken from the vCard specification.
+    The labelled values are all taken from the vCard specification.
 
 
 3.3.2.	Other Formats
@@ -337,7 +337,7 @@ Table of Contents
 
 6.	Reserved Keywords with Definitions
 
-  This list can be found at htt://apisjson.org/format/reservedwords, and may be updated from time to time and maintenaned exernally.
+  This list can be found at htt://apisjson.org/format/reservedwords, and may be updated from time to time and maintenaned externally.
 
 7. References
 
