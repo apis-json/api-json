@@ -275,21 +275,22 @@ Table of Contents
    Here is the api.json for the API Commons:
 
 {
-  "name": "API Commons",
-  "description": "An API for adding and pulling APIs that are in the commons.",
-  "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-  "tags": ["api", "copyright", "application programming interface"],                              <<<< change ([""])
-  "created": "04/07/2014",                                                                  <<<< change (new)
-  "modified": "05/25/2014",
-  "url": "https://api-commons.3scale.net/docs",
-  "apis": [
+  "Name": "API Commons",
+  "Description": "An API for adding and pulling APIs that are in the commons.",
+  "Image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+  "Tags": ["api", "copyright", "application programming interface"],                              <<<< change ([""])
+  "Created": "04/07/2014",                                                                  <<<< change (new)
+  "Modified": "05/25/2014",
+  "Url": "http://apicommons.org/apis.json",
+  "SpecificationVersion" : "0.14",
+  "Apis": [
     {
-      "name": "API Commons",
-      "description": "An API for adding and pulling APIs that are in the commons.",
-      "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+      "Name": "API Commons",
+      "Description": "An API for adding and pulling APIs that are in the commons.",
+      "Image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
       "humanUrl": "https://api-commons.3scale.net/docs",
-      "machine-url": "http://api.apicommons.org/swagger-spec.json",
-      "tags": ["API", "Application Programming Interface", "Copyright"],
+      "baseUrl": "http://apicommons.org/",
+      "Tags": ["API", "Application Programming Interface", "Copyright"],
       "properties": [
         {
           "type": "signup",
@@ -303,17 +304,17 @@ Table of Contents
       "contact":
         {
           "FN": "API Commons",
-          "X-twitter": "apicommons",
+          "X-Twitter": "apicommons",
         },
       ]
     }
   ],
-  "include": [],
-  "maintainers": [
+  "Include": [],
+  "Maintainers": [
     {
       "FN": "Kin Lane"                    <<<< change
-      "email": "apicommons@gmail.com"
-      "X-twitter": "apicommons"           <<<< change              
+      "Email": "apicommons@gmail.com"
+      "X-Twitter": "apicommons"           <<<< change              
     }
   ],
 }
