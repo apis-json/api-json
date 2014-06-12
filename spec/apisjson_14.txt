@@ -301,7 +301,7 @@ Table of Contents
           "url": "http://api.apicommons.org/swagger-spec.json"
         }
       ],
-      "contact":
+      "contact": [
         {
           "FN": "API Commons",
           "X-Twitter": "apicommons",
@@ -312,8 +312,8 @@ Table of Contents
   "Include": [],
   "Maintainers": [
     {
-      "FN": "Kin Lane"                    <<<< change
-      "Email": "apicommons@gmail.com"
+      "FN": "Kin Lane",                   <<<< change
+      "Email": "apicommons@gmail.com",
       "X-Twitter": "apicommons"           <<<< change              
     }
   ],
