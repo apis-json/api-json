@@ -53,7 +53,7 @@ Table of Contents
 
 2. 	Introduction
 
-   Web APIs have quickly become and important part of Web Infrastructure. However the 
+   Web APIs have quickly become an important part of Web Infrastructure. However the 
    amount of machine readable meta-data about the location and capabilities of these APIs
    remains extremely limited. 
 
@@ -76,7 +76,7 @@ Table of Contents
 
    * File: instance of a digital file containing data.
    * Apis.* file, a file which contains API Meta Data information compatible with this 
-     document and uses one of the definited content types [currently JSON and TXT]. A file 
+     document and uses one of the defined content types [currently JSON and TXT]. A file 
      may contain more than one API Specification.
    * API Specification: collection of information about a specific API expressed in the 
      format defined in this document. Uniqueness is determined by the primary root/base 
@@ -84,7 +84,7 @@ Table of Contents
 
 3.1.	Access method
 
-   The definitions of API Meta Data must be accessible by HTTP or HTTPS or Both from 
+   The definitions of API Meta Data MUST be accessible by HTTP or HTTPS or Both from 
    either the site on which the referenced APIs are operating or another site (see below
    for information on Authoritative and Non-Authoritative definitions) as a resource of 
    Internet Media Type as determined by the content type under 
@@ -100,9 +100,9 @@ Table of Contents
 
      http://www.foo.com/apis.txt
 
-     hhttp://www.bar.com:8001/apis.json
+     http://www.bar.com:8001/apis.json
 
-   If the server response indicates Success (HTTP 2xx Status Code,)
+   If the server response indicates Success (HTTP 2xx Status Code)
    the robot must read the content, parse it, and follow any
    instructions applicable.
 
@@ -115,10 +115,10 @@ Table of Contents
    choose to download these files also and take into account the information 
    contained within them.
 
-   While the format is intented to be human readable and may be used by humans, it 
+   While the format is intended to be human readable and may be used by humans, it 
    is primarily intended for consumption by automated software systems. Such software
    systems may be part of search engines, testing frameworks or API using applications. 
-   In keeping with terminology from the robots.txt format they are refered to as robots
+   In keeping with terminology from the robots.txt format they are referred to as robots
    from here onwards.
 
 3.2.  Authority
@@ -141,7 +141,7 @@ Table of Contents
 
 3.2.4.   Conflict Resolution
 
-   In cases where a robot discovers more than one entry in seperate apis.* files for a 
+   In cases where a robot discovers more than one entry in separate apis.* files for a 
    a specific API, priority on the validity of information should generally be resolved 
    as follows:
 
@@ -204,7 +204,7 @@ Table of Contents
     * Maintainers (collection)    [VCARD]
         * [Person or Organization - see below]
 
-    The above elements determine the information to tbe provided (examples are provided lower down). In 
+    The above elements determine the information to be provided (examples are provided lower down). In 
     addition the format reserves keywords for types. These are listed in Section 6.
 
     The Person or Organization is defined as containing:
@@ -222,7 +222,7 @@ Table of Contents
 
         * vCard [Optional]: URL pointing to a vCard Objective RFC6350
 
-    The labelled values are all tacken from the vCard specification.
+    The labelled values are all taken from the vCard specification.
 
 
 3.3.2.	Other Formats
@@ -260,7 +260,7 @@ Table of Contents
 3.8. Link Relation     
 
   In order for an API to reference its own description, it is recommended that it include header or 
-  in-line references to the APIs.json file using the existing describedby link relation: 
+  in-line references to the APIs.json file using the existing described by link relation: 
 
     * <link rel="describedby" href="api.example.com/apis.json" />
 
