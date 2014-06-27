@@ -243,21 +243,21 @@ Table of Contents
    If no cache-control directives are present robots should default to
    an expiry of 7 days.
 
-3.5.  Media Type         <<<< change
+3.5.  Media Type         
 
   It is intended that if there is sufficient traction, the media type "application/apis+json" will be 
   submitted to IANA as per RFC: http://tools.ietf.org/html/rfc4288
 
-3.6. JSON Schema        <<<< change
+3.6. JSON Schema        
 
   A JSON schema is under development for the format.
 
-3.7. Well Known     <<<< change
+3.7. Well Known     
 
   It is intended that if there is sufficient traction, the "well known" location "/apis.json" will be 
   submitted as per RFC: http://tools.ietf.org/html/rfc5785
 
-3.8. Link Relation     <<<< change
+3.8. Link Relation     
 
   In order for an API to reference its own description, it is recommended that it include header or 
   in-line references to the APIs.json file using the existing describedby link relation: 
@@ -278,8 +278,8 @@ Table of Contents
   "name": "API Commons",
   "description": "An API for adding and pulling APIs that are in the commons.",
   "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-  "tags": ["api", "copyright", "application programming interface"],                              <<<< change ([""])
-  "created": "04/07/2014",                                                                  <<<< change (new)
+  "tags": ["api", "copyright", "application programming interface"],                            
+  "created": "04/07/2014",                                                              
   "modified": "05/25/2014",
   "url": "https://api-commons.3scale.net/docs",
   "apis": [
@@ -311,9 +311,9 @@ Table of Contents
   "include": [],
   "maintainers": [
     {
-      "FN": "Kin Lane"                    <<<< change
+      "FN": "Kin Lane"                    
       "email": "apicommons@gmail.com"
-      "X-twitter": "apicommons"           <<<< change              
+      "X-twitter": "apicommons"                         
     }
   ],
 }
@@ -417,4 +417,3 @@ Maintainer Elements:
  * address 
  * phoneNumber 
  * image 
-
