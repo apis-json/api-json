@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "apis": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/apisDefinition"
+      }
+    },
+    "maintainer": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/maintainerDefinition"
+      }
+    }
+  },
+  "definitions": {
+    "maintainerDefinition": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "twitter": {
+          "type": "string"
+        },
+        "github": {
+          "type": "string"
+        }
+      }
+    },
+    "apisDefinition": {
+      "required": [
+        "name", "description", "image", "humanURL", "urls", "contact"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "humanUrl": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/urlsDefinition"
+          }
+        },
+        "contact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/contactDefinition"
+          }
+        },
+        "meta": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/metaDefinition"
+          }
+        }
+      }
+    },
+    "metaDefinition": {
+      "required": [
+        "key", "value"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "contactDefinition": {
+      "required": [
+        "type", "url"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "twitter"
+          ]
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "urlsDefinition": {
+      "required": [
+        "type", "url"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "portal", "console", "signup", "libraries"
+          ]
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
