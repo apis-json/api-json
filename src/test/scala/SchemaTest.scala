@@ -20,7 +20,7 @@ class SchemaTest extends FlatSpec with ShouldMatchers {
   val factory = JsonSchemaFactory.byDefault()
   val jsonSchema = factory.getJsonSchema(schema)
 
-  it should "validate the 500px spec" in {
+  ignore should "validate the 500px spec" in {
     val json = Source.fromFile("samples/500px.json").mkString
     val data = JsonLoader.fromString(json)
     val report = jsonSchema.validate(data)
@@ -29,8 +29,26 @@ class SchemaTest extends FlatSpec with ShouldMatchers {
     report.isSuccess should be (true)
   }
 
-  it should "validate the sendgrid spec" in {
+  ignore should "validate the sendgrid spec" in {
     val json = Source.fromFile("samples/sendgrid.json").mkString
+    val data = JsonLoader.fromString(json)
+    val report = jsonSchema.validate(data)
+    if(report.isSuccess == false)
+      println(report)
+    report.isSuccess should be (true)
+  }
+
+  it should "validate a sample spec" in {
+    val json = Source.fromFile("samples/sample-1.json").mkString
+    val data = JsonLoader.fromString(json)
+    val report = jsonSchema.validate(data)
+    if(report.isSuccess == false)
+      println(report)
+    report.isSuccess should be (true)
+  }
+
+  it should "validate a sample spec with remote references" in {
+    val json = Source.fromFile("samples/sample-2.json").mkString
     val data = JsonLoader.fromString(json)
     val report = jsonSchema.validate(data)
     if(report.isSuccess == false)

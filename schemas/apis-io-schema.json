@@ -1,6 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
+  "required": [
+    "name", "description", "type", "url", "apis", "maintainer"
+  ],
   "properties": {
     "name": {
       "type": "string"
@@ -36,53 +39,68 @@
         "name"
       ],
       "properties": {
-        "twitter": {
-          "type": "string"
-        },
-        "github": {
+        "name": {
           "type": "string"
         }
+      },
+      "additionalProperties": {
+        "type": "string"
       }
     },
     "apisDefinition": {
-      "required": [
-        "name", "description", "image", "humanURL", "urls", "contact"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "image": {
-          "type": "string"
-        },
-        "humanUrl": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "string"
-        },
-        "urls": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/urlsDefinition"
+      "oneOf": [
+        {
+          "required": [ "$ref" ],
+          "properties": {
+            "$ref": {
+              "type": "string"
+            }
           }
         },
-        "contact": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/contactDefinition"
-          }
-        },
-        "meta": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/metaDefinition"
+        {
+          "required": [
+            "name", "description", "image", "humanURL", "urls", "contact"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "humanUrl": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "urls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/urlsDefinition"
+              }
+            },
+            "contact": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/contactDefinition"
+              }
+            },
+            "meta": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/metaDefinition"
+              }
+            }
           }
         }
-      }
+      ]
     },
     "metaDefinition": {
       "required": [
@@ -109,7 +127,8 @@
           ]
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^(http)|(https)://(.*)$"
         }
       }
     },
@@ -120,12 +139,11 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "portal", "console", "signup", "libraries"
-          ]
+          "pattern": "^(portal)|(console)|(signup)|(libraries)|(swagger)|(X-[a-z0-9\\-]*)$"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^(http)|(https)://(.*)$"
         }
       }
     }
