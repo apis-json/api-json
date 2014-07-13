@@ -1,40 +1,11 @@
 {
+  "title": "A JSON Schema for apis.json, version 0.14",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "required": [
-    "name", "description", "type", "url", "apis", "maintainer"
-  ],
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
-    "url": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
-    },
-    "apis": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/apisDefinition"
-      }
-    },
-    "maintainer": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/maintainerDefinition"
-      }
-    }
-  },
+  "additionalProperties": false,
   "definitions": {
-    "maintainerDefinition": {
+    "maintainer": {
+      "description": "The person or organization responsible for maintaining the API",
       "required": [
         "name"
       ],
@@ -47,7 +18,8 @@
         "type": "string"
       }
     },
-    "apisDefinition": {
+    "apis": {
+      "description": "The description of the API",
       "oneOf": [
         {
           "required": [ "$ref" ],
@@ -83,26 +55,27 @@
             "urls": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/urlsDefinition"
+                "$ref": "#/definitions/urls"
               }
             },
             "contact": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/contactDefinition"
+                "$ref": "#/definitions/contact"
               }
             },
             "meta": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/metaDefinition"
+                "$ref": "#/definitions/metaInformation"
               }
             }
           }
         }
       ]
     },
-    "metaDefinition": {
+    "metaInformation": {
+      "description": "Metadata about the API",
       "required": [
         "key", "value"
       ],
@@ -115,7 +88,8 @@
         }
       }
     },
-    "contactDefinition": {
+    "contact": {
+      "description": "Information on contacting the API support",
       "required": [
         "type", "url"
       ],
@@ -132,20 +106,65 @@
         }
       }
     },
-    "urlsDefinition": {
+    "urls": {
+      "description": "A representation of a URL",
       "required": [
         "type", "url"
       ],
       "properties": {
         "type": {
           "type": "string",
-          "pattern": "^(portal)|(console)|(signup)|(libraries)|(swagger)|(X-[a-z0-9\\-]*)$"
+          "pattern": "^(portal)$|^(console)$|^(signup)$|^(libraries)$|^(swagger)$|^(X-[a-z0-9\\-]*)$"
         },
         "url": {
           "type": "string",
           "pattern": "^(http)|(https)://(.*)$"
         }
       }
+    },
+    "tags": {
+      "description": "A consistent set of tag to apply to a description",
+      "pattern": "^(photo)$|^(upload)$|^(marketplace)$|^(X-[a-z0-9\\-]*)$"
     }
+  },
+  "required": [
+    "name", "description", "type", "url", "apis", "maintainer", "tags"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the service described"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "apis": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/apis"
+      }
+    },
+    "maintainer": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/maintainer"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/tags"
+      }
+    },
+    "definitions": {}
   }
 }
