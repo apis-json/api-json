@@ -3,6 +3,9 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "additionalProperties": false,
+  "patternProperties": {
+    "^X-": { "type": "object" }
+  },
   "definitions": {
     "maintainer": {
       "description": "The person or organization responsible for maintaining the API",
