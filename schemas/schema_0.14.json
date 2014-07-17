@@ -83,36 +83,36 @@
     "contact": {
       "description": "Information on contacting the API support",
       "properties": {
-      	"FN":{
-      		"type":"string"
-      	},
-      	"Email":{
-      		"type":"string",
-      		"format" : "email"
-      	},
-      	"Org":{
-      		"type":"string"
-      	},
-      	"Adr":{
-      		"type":"string"
-      	},
-      	"Tel":{
-      		"type":"string"
-      	},
-      	"X-Twitter":{
-      		"type":"string"
-      	},
-      	"X-Github":{
-      		"type":"string"
-      	},
-      	"Photo":{
-      		"type":"string",
-      		"pattern": "^(http)|(https)://(.*)$"
-      	},
-      	"vCard":{
-      		"type":"string",
-      		"pattern": "^(http)|(https)://(.*)$"
-      	},
+        "FN":{
+          "type":"string"
+        },
+        "Email":{
+          "type":"string",
+          "format" : "email"
+        },
+        "Org":{
+          "type":"string"
+        },
+        "Adr":{
+          "type":"string"
+        },
+        "Tel":{
+          "type":"string"
+        },
+        "X-Twitter":{
+          "type":"string"
+        },
+        "X-Github":{
+          "type":"string"
+        },
+        "Photo":{
+          "type":"string",
+          "pattern": "^(http)|(https)://(.*)$"
+        },
+        "vCard":{
+          "type":"string",
+          "pattern": "^(http)|(https)://(.*)$"
+        },
         "Url": {
           "type": "string",
           "pattern": "^(http)|(https)://(.*)$"
@@ -127,7 +127,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "pattern": "^(portal)$|^(console)$|^(signup)$|^(libraries)$|^(swagger)$|^(blog)$|^(apicommonsmanifest)$|^(X-[a-z0-9\\-]*)$"
+          "pattern": "^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[a-z0-9\\-]*)$"
         },
         "url": {
           "type": "string",
