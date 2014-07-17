@@ -32,6 +32,7 @@ Table of Contents
    6. 	 Reserved Keywords with Definitions
    8.    Acknowledgements 
    9.    Author's Address  
+   Annex 1: JSON Schema
 
 1. 	Abstract
 
@@ -75,8 +76,8 @@ Table of Contents
    This section defines the API Meta Data Format. The following terminology is used throughout:
 
    * File: instance of a digital file containing data.
-   * Apis.* file, a file which contains API Meta Data information compatible with this 
-     document and uses one of the defined content types [currently JSON and TXT]. A file 
+   * Apis.json file, a file which contains API Meta Data information compatible with this 
+     document.A file 
      may contain more than one API Specification.
    * API Specification: collection of information about a specific API expressed in the 
      format defined in this document. Uniqueness is determined by the primary root/base 
@@ -107,7 +108,7 @@ Table of Contents
    instructions applicable.
 
    If the server response indicates the resource does not exist (HTTP
-   Status Code 404), the robot can assume no instructions are
+   Status Code 404), the robot MUST assume no instructions are
    available.
 
    If the robot parses the file it may discover references to further apis.*
@@ -125,12 +126,14 @@ Table of Contents
 
 3.121	   Authoritative
 
-  An entry in a apis.* file is AUTHORITATIVE for a given domain if the root domain of 
-  the API described by the entry is on the same DNS domain or on a DNS subdomain thereof.
+  An entry in a apis.* file is AUTHORITATIVE for a given API if the root domain of 
+  the API described by the entry is on the same DNS domain or on a DNS subdomain as the file.
 
 3.2.2	   Non-Authoritative
 
-   An entry in an apis.* file for an API is NON-AUTHORITATIVE if it is not AUTHORITATIVE.
+   An entry in an apis.* file for an API is NON-AUTHORITATIVE for a given API if the root domain of 
+  the API described by the entry is NOT on the same DNS domain and NOT on a DNS subdomain as the fil.
+
 
 3.2.3    Authority by Reference
 
@@ -242,17 +245,20 @@ Table of Contents
 
    If no cache-control directives are present robots should default to
    an expiry of 7 days.
+   
+   This rule is similar to that in robots.txt and prevents robots repeatedly
+   pinging servers with no caching headers set by default.
 
 3.5.  Media Type         <<<< change
 
   It is intended that if there is sufficient traction, the media type "application/apis+json" will be 
   submitted to IANA as per RFC: http://tools.ietf.org/html/rfc4288
 
-3.6. JSON Schema        <<<< change
+3.6. JSON Schema
 
-  A JSON schema is under development for the format.
+  A JSON schema is available for this specification and can be found in Annex 1.
 
-3.7. Well Known     <<<< change
+3.7. Well Known 
 
   It is intended that if there is sufficient traction, the "well known" location "/apis.json" will be 
   submitted as per RFC: http://tools.ietf.org/html/rfc5785
@@ -369,6 +375,13 @@ Table of Contents
   3scale networks, 
   http://www.3scale.net/
   email: nicolas@3scale.net 
+  
+  
+Annex 1: JSON Schema
+
+The following provides JSON Scheme for the specification herin. A seperate file is also available in the same location as this specification.
+
+
 
 
 ----RESERVED WORDS
