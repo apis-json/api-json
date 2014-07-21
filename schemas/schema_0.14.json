@@ -82,30 +82,34 @@
     },
     "contact": {
       "description": "Information on contacting the API support",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^X-": { "type": "string" }
+      },
       "properties": {
         "FN":{
           "type":"string"
         },
-        "Email":{
+        "email":{
           "type":"string",
           "format" : "email"
         },
-        "Org":{
+        "org":{
           "type":"string"
         },
-        "Adr":{
+        "adr":{
           "type":"string"
         },
-        "Tel":{
+        "tel":{
           "type":"string"
         },
-        "X-Twitter":{
+        "X-twitter":{
           "type":"string"
         },
-        "X-Github":{
+        "X-github":{
           "type":"string"
         },
-        "Photo":{
+        "photo":{
           "type":"string",
           "pattern": "^(http)|(https)://(.*)$"
         },
@@ -113,7 +117,7 @@
           "type":"string",
           "pattern": "^(http)|(https)://(.*)$"
         },
-        "Url": {
+        "url": {
           "type": "string",
           "pattern": "^(http)|(https)://(.*)$"
         }
@@ -173,11 +177,11 @@
     },
    "created":{
       "type":"string",
-      "format":"date-time"
+      "format":"date"
     },
    "modified":{
       "type":"string",
-      "format":"date-time"
+      "format":"date"
     },
     "SpecificationVersion":{
       "type":"string"
@@ -191,7 +195,7 @@
     "maintainer": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/maintainer"
+        "$ref": "#/definitions/contact"
       }
     },
     "tags": {
