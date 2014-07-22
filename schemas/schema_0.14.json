@@ -8,7 +8,11 @@
   },
   "definitions": {
     "maintainer": {
+<<<<<<< HEAD
       "description": "The person or organization responsible for maintaining the API",
+=======
+      "description":"The person or organization responsible for maintaining the API",
+>>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
       "required": [
         "name"
       ],
@@ -82,6 +86,7 @@
     },
     "contact": {
       "description": "Information on contacting the API support",
+<<<<<<< HEAD
       "properties": {
       	"FN":{
       		"type":"string"
@@ -114,6 +119,44 @@
       		"pattern": "^(http)|(https)://(.*)$"
       	},
         "Url": {
+=======
+      "additionalProperties": false,
+      "patternProperties": {
+        "^X-": { "type": "string" }
+      },
+      "properties": {
+        "FN":{
+          "type":"string"
+        },
+        "email":{
+          "type":"string",
+          "format" : "email"
+        },
+        "org":{
+          "type":"string"
+        },
+        "adr":{
+          "type":"string"
+        },
+        "tel":{
+          "type":"string"
+        },
+        "X-twitter":{
+          "type":"string"
+        },
+        "X-github":{
+          "type":"string"
+        },
+        "photo":{
+          "type":"string",
+          "pattern": "^(http)|(https)://(.*)$"
+        },
+        "vCard":{
+          "type":"string",
+          "pattern": "^(http)|(https)://(.*)$"
+        },
+        "url": {
+>>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
           "type": "string",
           "pattern": "^(http)|(https)://(.*)$"
         }
@@ -127,7 +170,11 @@
       "properties": {
         "type": {
           "type": "string",
+<<<<<<< HEAD
           "pattern": "^(portal)$|^(console)$|^(signup)$|^(libraries)$|^(swagger)$|^(blog)$|^(apicommonsmanifest)$|^(X-[a-z0-9\\-]*)$"
+=======
+          "pattern": "^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[a-z0-9\\-]*)$"
+>>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
         },
         "url": {
           "type": "string",
@@ -173,11 +220,19 @@
     },
    "created":{
       "type":"string",
+<<<<<<< HEAD
       "format":"date-time"
     },
    "modified":{
       "type":"string",
       "format":"date-time"
+=======
+      "format":"date"
+    },
+   "modified":{
+      "type":"string",
+      "format":"date"
+>>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
     },
     "SpecificationVersion":{
       "type":"string"
@@ -191,7 +246,11 @@
     "maintainer": {
       "type": "array",
       "items": {
+<<<<<<< HEAD
         "$ref": "#/definitions/maintainer"
+=======
+        "$ref": "#/definitions/contact"
+>>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
       }
     },
     "tags": {
