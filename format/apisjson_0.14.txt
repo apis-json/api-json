@@ -272,51 +272,131 @@ Table of Contents
 
 4.	Examples
 
-   Here is the api.json for the API Commons:
+   Here is the api.json for API Evangelist:
 
-{
-  "name": "API Commons",
-  "description": "An API for adding and pulling APIs that are in the commons.",
-  "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-  "tags": ["api", "copyright", "application programming interface"],                            
-  "created": "04/07/2014",                                                              
-  "modified": "05/25/2014",
-  "url": "https://api-commons.3scale.net/docs",
-  "apis": [
-    {
-      "name": "API Commons",
-      "description": "An API for adding and pulling APIs that are in the commons.",
-      "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-      "humanUrl": "https://api-commons.3scale.net/docs",
-      "machine-url": "http://api.apicommons.org/swagger-spec.json",
-      "tags": ["API", "Application Programming Interface", "Copyright"],
-      "properties": [
-        {
-          "type": "signup",
-          "url": "https://api-commons.3scale.net/signup"
-        },
-        {
-          "type": "swagger",
-          "url": "http://api.apicommons.org/swagger-spec.json"
-        }
-      ],
-      "contact":
-        {
-          "FN": "API Commons",
-          "X-twitter": "apicommons",
-        },
-      ]
-    }
-  ],
-  "include": [],
-  "maintainers": [
-    {
-      "FN": "Kin Lane"                    
-      "email": "apicommons@gmail.com"
-      "X-twitter": "apicommons"                         
-    }
-  ],
-}
+	{
+	  "name": "API Evangelist",
+	  "description": "This is an inventory of APIs available as part of the API Evangelist network.",
+	  "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+	  "tags": [
+	    "application programming interface",
+	    "API",
+	    "News",
+	    "Analysis"
+	  ],
+	  "created": "2014-04-07",
+	  "modified": "2014-07-09",
+	  "url": "http://apievangelist.com/apis.json",
+	  "SpecificationVersion": "0.14",
+	  "apis": [
+	    {
+	      "name": "Analysis",
+	      "description": "Provides access to blog posts and analysis across the API Evangelist network.",
+	      "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+	      "humanURL": "http://developer.apievangelist.com",
+	      "baseURL": "http://api.apievangelist.com/definitions/Analysis",
+	      "tags": [
+	        "blog",
+	        "industry",
+	        "analysis",
+	        "new",
+	        "API",
+	        "Application Programming Interface"
+	      ],
+	      "properties": [
+	        {
+	          "type": "X-signup",
+	          "url": "https://apievangelist.3scale.net/"
+	        },
+	        {
+	          "type": "Swagger",
+	          "url": "http://api.apievangelist.com/definitions/Analysis"
+	        },
+	        {
+	          "type": "X-blog",
+	          "url": "http://developer.apievangelist.com/blog/"
+	        },
+	        {
+	          "type": "X-apicommonsmanifest",
+	          "url": "https://raw.githubusercontent.com/kinlane/analysis-api/master/api-commons-manifest.json"
+	        }
+	      ],
+	      "contact": [
+	        {
+	          "FN": "API Evangliest",
+	          "email": "info@apievangelist.com",
+	          "X-twitter": "apievangelist"
+	        }
+	      ]
+	    },
+	    {
+	      "name": "APIs",
+	      "description": "Provides access to APIs that are being tracked across the API Evangelist network.",
+	      "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+	      "humanURL": "http://developer.apievangelist.com",
+	      "baseURL": "http://api.apievangelist.com/definitions/APIs",
+	      "tags": [
+	        "application programming interface",
+	        "API"
+	      ],
+	      "properties": [
+	        {
+	          "type": "X-signup",
+	          "url": "https://apievangelist.3scale.net/"
+	        },
+	        {
+	          "type": "Swagger",
+	          "url": "http://api.apievangelist.com/definitions/APIs"
+	        },
+	        {
+	          "type": "X-blog",
+	          "url": "http://developer.apievangelist.com/blog/"
+	        },
+	        {
+	          "type": "X-apicommonsmanifest",
+	          "url": "https://raw.githubusercontent.com/kinlane/api-api/master/api-commons-manifest.json"
+	        }
+	      ],
+	      "contact": [
+	        {
+	          "FN": "API Evangliest",
+	          "email": "info@apievangelist.com",
+	          "X-twitter": "apievangelist"
+	        }
+	      ]
+	    }
+	  ],
+	  "include": [
+	    {
+	      "name": "API Evangelist - Products",
+	      "url": "http://products.apievangelist.com/apis.json"
+	    },
+	    {
+	      "name": "API Evangelist - Screen Capture",
+	      "url": "http://screen-capture.apievangelist.com/apis.json"
+	    },
+	    {
+	      "name": "API Evangelist - Image Manipulation",
+	      "url": "http://image.manipulation.apievangelist.com/apis.json"
+	    },
+	    {
+	      "name": "API Evangelist - API Ideas",
+	      "url": "http://ideas.apievangelist.com/apis.json"
+	    },
+	    {
+	      "name": "API Commons",
+	      "url": "http://apicommons.org/apis.json"
+	    }
+	  ],
+	  "maintainers": [
+	    {
+	      "FN": "Kin",
+	      "X-twitter": "apievangelist",
+	      "email": "kin@email.com",
+	      "vCard":"http://staging.apis.io/vCards/testVcard.vcf"
+	    }
+	  ]
+	}
 
 
 5. 	Security Considerations
@@ -376,7 +456,7 @@ Reserved Words for APIs.json Specification
 
  * Version 1
 
-Definition Elements:       <--- currently this is "URLS"
+Definition Elements:   
 
  * Name
  * HumanURL
