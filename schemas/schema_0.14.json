@@ -26,7 +26,7 @@
       "oneOf": [
         {
           "required": [
-            "name", "description", "image", "properties", "contact"
+            "name", "description", "baseURL","humanURL", "properties", "contact"
           ],
           "properties": {
             "name": {
@@ -37,6 +37,14 @@
             },
             "image": {
               "type": "string"
+            },
+            "baseURL": {
+              "type": "string",
+              "pattern": "^(http)|(https)://(.*)$"
+            },
+            "humanURL": {
+              "type": "string",
+              "pattern": "^(http)|(https)://(.*)$"
             },
             "tags": {
               "type": "array",
@@ -132,7 +140,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "pattern": "^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[a-z0-9\\-]*)$"
+          "pattern": "^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[A-Za-z0-9\\-]*)$"
         },
         "url": {
           "type": "string",

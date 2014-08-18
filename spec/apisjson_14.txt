@@ -178,7 +178,7 @@ Table of Contents
       as an array. 
     * Created [Mandatory]: date of creation of the file
     * Modified [Mandatory]: date of last modification of the file
-    * SpecificationVersion [Mandatory]: version of the APIs.json specification in use.
+    * specificationVersion [Mandatory]: version of the APIs.json specification in use.
     
     * Apis (collection) [Optional]: list of APIs identified in the file, each containing:
 
@@ -275,48 +275,52 @@ Table of Contents
    Here is the api.json for the API Commons:
 
 {
-  "Name": "API Commons",
-  "Description": "An API for adding and pulling APIs that are in the commons.",
-  "Image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-  "Tags": ["api", "copyright", "application programming interface"],                              <<<< change ([""])
-  "Created": "04/07/2014",                                                                  <<<< change (new)
-  "Modified": "05/25/2014",
-  "Url": "http://apicommons.org/apis.json",
-  "SpecificationVersion" : "0.14",
-  "Apis": [
-    {
-      "Name": "API Commons",
-      "Description": "An API for adding and pulling APIs that are in the commons.",
-      "Image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-      "humanUrl": "https://api-commons.3scale.net/docs",
-      "baseUrl": "http://apicommons.org/",
-      "Tags": ["API", "Application Programming Interface", "Copyright"],
-      "properties": [
+  "name": "API Commons",
+  "description": "An API for adding and pulling APIs that are in the commons.",
+  "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+  "tags": ["api", "copyright", "application programming interface"],                              <<<< change ([""])
+  "created": "2014-04-07",                                                                  <<<< change (new)
+  "modified": "2014-05-25",
+  "url": "http://apicommons.org/apis.json",
+  "specificationVersion" : "0.14",
+  "apis": [
         {
-          "type": "signup",
-          "url": "https://api-commons.3scale.net/signup"
-        },
-        {
-          "type": "swagger",
-          "url": "http://api.apicommons.org/swagger-spec.json"
+            "name": "API Commons",
+            "description": "An API for adding and pulling APIs that are in the commons.",
+            "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+            "humanURL": "https://api-commons.3scale.net/docs",
+            "baseURL": "http://apicommons.org/",
+            "tags": [
+                "API",
+                "Application Programming Interface",
+                "Copyright"
+            ],
+            "properties": [
+                {
+                    "type": "X-Signup",
+                    "url": "https://api-commons.3scale.net/signup"
+                },
+                {
+                    "type": "Swagger",
+                    "url": "http://api.apicommons.org/swagger-spec.json"
+                }
+            ],
+            "contact": [
+                {
+                    "FN": "API Commons",
+                    "X-Twitter": "apicommons"
+                }
+            ]
         }
-      ],
-      "contact": [
-        {
-          "FN": "API Commons",
-          "X-Twitter": "apicommons",
-        },
-      ]
-    }
-  ],
-  "Include": [],
-  "Maintainers": [
+    ],
+  "include": [],
+  "maintainers": [
     {
       "FN": "Kin Lane",                   <<<< change
-      "Email": "apicommons@gmail.com",
+      "email": "apicommons@gmail.com",
       "X-Twitter": "apicommons"           <<<< change              
     }
-  ],
+  ]
 }
 
 
@@ -379,13 +383,13 @@ Reserved Words for APIs.json Specification
 
 Definition Elements:       <--- currently this is "URLS"
 
- * Name
- * HumanURL
- * BaseURL
- * Description
- * Image
- * Version 
- * Tags
+ * name
+ * humanURL
+ * baseURL
+ * description
+ * image
+ * version 
+ * tags
 
 Properties Elements:
 
