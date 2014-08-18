@@ -7,7 +7,7 @@
     "^X-": { "type": "object" }
   },
   "definitions": {
-    "maintainer": {
+    "maintainers": {
       "description":"The person or organization responsible for maintaining the API",
       "required": [
         "name"
@@ -82,7 +82,8 @@
     },
     "contact": {
       "description": "Information on contacting the API support",
-      "additionalProperties": false,
+      "required":["FN"],
+      "additionalProperties": true,
       "patternProperties": {
         "^X-": { "type": "string" }
       },
@@ -94,7 +95,7 @@
           "type":"string",
           "format" : "email"
         },
-        "org":{
+        "organizationName":{
           "type":"string"
         },
         "adr":{
@@ -159,7 +160,7 @@
     }
   },
   "required": [
-    "name", "description", "url", "apis", "maintainer", "tags"
+    "name", "description", "url", "apis", "maintainers", "tags"
   ],
   "properties": {
     "name": {
@@ -183,7 +184,7 @@
       "type":"string",
       "format":"date"
     },
-    "SpecificationVersion":{
+    "specificationVersion":{
       "type":"string"
     },
     "apis": {
@@ -192,7 +193,7 @@
         "$ref": "#/definitions/apis"
       }
     },
-    "maintainer": {
+    "maintainers": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/contact"
