@@ -1,48 +1,4 @@
 {
-<<<<<<< HEAD
-  "title": "A JSON Schema for apis.json, version 0.14",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "additionalProperties": false,
-  "patternProperties": {
-    "^X-": { "type": "object" }
-  },
-  "definitions": {
-    "maintainer": {
-<<<<<<< HEAD
-      "description": "The person or organization responsible for maintaining the API",
-=======
-      "description":"The person or organization responsible for maintaining the API",
->>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": {
-        "type": "string"
-      }
-    },
-    "apis": {
-      "description": "The description of the API",
-      "oneOf": [
-        {
-          "required": [
-            "name", "description", "image", "properties", "contact"
-          ],
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "image": {
-              "type": "string"
-=======
     "title": "A JSON Schema for apis.json, version 0.14",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -52,7 +8,7 @@
     },
     "definitions": {
         "maintainers": {
-            "description":"The person or organization responsible for maintaining the API",
+            "description": "The person or organization responsible for maintaining the API",
             "required": [
                 "name"
             ],
@@ -62,7 +18,6 @@
                     "description": "name",
                     "minLength":5
                 }
->>>>>>> 53c9b552cf58dc5be128ae4b04b147e2178ee654
             },
             "additionalProperties": {
                 "type": "string"
@@ -229,55 +184,6 @@
             }
         }
     },
-<<<<<<< HEAD
-    "contact": {
-      "description": "Information on contacting the API support",
-<<<<<<< HEAD
-      "properties": {
-      	"FN":{
-      		"type":"string"
-      	},
-      	"Email":{
-      		"type":"string",
-      		"format" : "email"
-      	},
-      	"Org":{
-      		"type":"string"
-      	},
-      	"Adr":{
-      		"type":"string"
-      	},
-      	"Tel":{
-      		"type":"string"
-      	},
-      	"X-Twitter":{
-      		"type":"string"
-      	},
-      	"X-Github":{
-      		"type":"string"
-      	},
-      	"Photo":{
-      		"type":"string",
-      		"pattern": "^(http)|(https)://(.*)$"
-      	},
-      	"vCard":{
-      		"type":"string",
-      		"pattern": "^(http)|(https)://(.*)$"
-      	},
-        "Url": {
-=======
-      "additionalProperties": false,
-      "patternProperties": {
-        "^X-": { "type": "string" }
-      },
-      "properties": {
-        "FN":{
-          "type":"string"
-        },
-        "email":{
-          "type":"string",
-          "format" : "email"
-=======
     "required": [
         "name", "description", "url", "apis", "maintainers", "tags"
     ],
@@ -286,7 +192,6 @@
             "type": "string",
             "description": "The name of the service described",
             "minLength":5
->>>>>>> 53c9b552cf58dc5be128ae4b04b147e2178ee654
         },
         "description": {
             "type": "string",
@@ -323,35 +228,12 @@
             },
             "description":"All the APIs of this service"
         },
-<<<<<<< HEAD
-        "url": {
->>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
-          "type": "string",
-          "pattern": "^(http)|(https)://(.*)$"
-        }
-      }
-    },
-    "urls": {
-      "description": "A representation of a URL",
-      "required": [
-        "type", "url"
-      ],
-      "properties": {
-        "type": {
-          "type": "string",
-<<<<<<< HEAD
-          "pattern": "^(portal)$|^(console)$|^(signup)$|^(libraries)$|^(swagger)$|^(blog)$|^(apicommonsmanifest)$|^(X-[a-z0-9\\-]*)$"
-=======
-          "pattern": "^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[a-z0-9\\-]*)$"
->>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
-=======
         "maintainers": {
             "type": "array",
             "items": {
                 "$ref": "#/definitions/contact"
             },
             "description": "Maintainers of the apis.json file"
->>>>>>> 53c9b552cf58dc5be128ae4b04b147e2178ee654
         },
         "tags": {
             "type": "array",
@@ -368,75 +250,4 @@
             "description": "Links to other apis.json definitions included in this service"
         }
     }
-<<<<<<< HEAD
-  },
-  "required": [
-    "name", "description", "url", "apis", "maintainer", "tags"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the service described"
-    },
-    "description": {
-      "type": "string"
-    },
-    "url": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
-    },
-   "created":{
-      "type":"string",
-<<<<<<< HEAD
-      "format":"date-time"
-    },
-   "modified":{
-      "type":"string",
-      "format":"date-time"
-=======
-      "format":"date"
-    },
-   "modified":{
-      "type":"string",
-      "format":"date"
->>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
-    },
-    "SpecificationVersion":{
-      "type":"string"
-    },
-    "apis": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/apis"
-      }
-    },
-    "maintainer": {
-      "type": "array",
-      "items": {
-<<<<<<< HEAD
-        "$ref": "#/definitions/maintainer"
-=======
-        "$ref": "#/definitions/contact"
->>>>>>> bd7a7d93c663865753af60e629a70dbd96489c6a
-      }
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/tags"
-      }
-    },
-   "include": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/include"
-      }
-    },
-    "definitions": {}
-  }
 }
-=======
-}
->>>>>>> 53c9b552cf58dc5be128ae4b04b147e2178ee654
