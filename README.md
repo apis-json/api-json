@@ -6,7 +6,9 @@ This is a proposed specification for an api.json file, which can be placed in th
 * name
 * description
 * image
+* tags
 * url
+* specificationVersion
 * type
 * apis (collection)
   * name
@@ -15,12 +17,12 @@ This is a proposed specification for an api.json file, which can be placed in th
   * humanURL
   * machineURL
   * tags
-  * urls (collection)
+  * properties (collection)
     * type
     * url
   * contact (collection)
-    * type
-    * url
+    * email
+    * x-twitter
   * meta (collection)
     * key
     * value
@@ -31,7 +33,6 @@ This is a proposed specification for an api.json file, which can be placed in th
   * name
   * email
   * twitter
-* tags
 * modified
 
 This is a fast evolving spec, make your contributions via the issue management page. 
@@ -43,7 +44,14 @@ Here is the api.json for the API Commons:
   "name": "API Commons",
   "description": "An API for adding and pulling APIs that are in the commons.",
   "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
+  "tags": [
+      "application programming interface",
+      "API",
+      "News",
+      "Analysis"
+  ],
   "url": "https://api-commons.3scale.net/docs",
+  "specificationVersion":"0.14",
   "type": "default",
   "apis": [
     {
@@ -53,7 +61,7 @@ Here is the api.json for the API Commons:
       "humanURL": "https://api-commons.3scale.net/docs",
       "machineURL": "http://api.apicommons.org/swagger-spec.json",
       "tags": "API, Application Programming Interface, Copyright",
-      "urls": [
+      "properties": [
         {
           "type": "signup",
           "url": "https://api-commons.3scale.net/signup"
@@ -65,12 +73,8 @@ Here is the api.json for the API Commons:
       ],
       "contact": [
         {
-          "type": "email",
-          "url": "apicommons@gmail.com"
-        },
-        {
-          "type": "twitter",
-          "url": "https://twitter.com/apicommons/"
+          "email": "apicommons@gmail.com"
+          "x-twitter": "apicommons"
         }
       ],
       "meta": [
@@ -93,7 +97,6 @@ Here is the api.json for the API Commons:
 	"email": "kin@email.com"
     }
   ],
-  "tags": "api, copyright, application programming interface",
-  "modified": "05/12/2014"
+  "modified": "02/18/2015"
 }
 ```
