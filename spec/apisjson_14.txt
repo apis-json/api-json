@@ -171,28 +171,28 @@ Table of Contents
 
    A file shall be in json format and contain the following elements:
 
-    * Name [Mandatory]: text string of human readable name for the collection of APIs
-    * Description [Mandatory]: text human readable description of the collection of APIs.
-    * Image [Optional]: Web URL leading to an image to be used to represent the collection of 
+    * name [Mandatory]: text string of human readable name for the collection of APIs
+    * description [Mandatory]: text human readable description of the collection of APIs.
+    * image [Optional]: Web URL leading to an image to be used to represent the collection of 
       APIs defined in this file.
-    * Url [Mandatory]: Web URL indicating the location of the latest version of this file
-    * Tags (collection) Optional]: 
+    * url [Mandatory]: Web URL indicating the location of the latest version of this file
+    * tags (collection) Optional]: 
       this is a list of descriptive strings which identify the contents of the APIs.json file. Represented 
       as an array. 
-    * Created [Mandatory]: date of creation of the file
-    * Modified [Mandatory]: date of last modification of the file
+    * created [Mandatory]: date of creation of the file
+    * modified [Mandatory]: date of last modification of the file
     * specificationVersion [Mandatory]: version of the APIs.json specification in use.
     
-    * Apis (collection) [Optional]: list of APIs identified in the file, each containing:
+    * apis (collection) [Optional]: list of APIs identified in the file, each containing:
 
-        * Name [Mandatory]: name of the API
-        * Description [Mandatory]: human readable text description of the API.
-        * Image [Optional]: URL of an image which can be used as an "icon" for the API if displayed by a
+        * name [Mandatory]: name of the API
+        * description [Mandatory]: human readable text description of the API.
+        * image [Optional]: URL of an image which can be used as an "icon" for the API if displayed by a
               search engine.
         * humanUrl: Web URL corresponding to human readable information about the API. 
         * baseUrl: Web URL corresponding to the root URL of the API or primary endpoint.
-        * Version [Optional]: String representing the version number of the API this description refers to. 
-        * Tags: (collection) [Optional]: this is a list of descriptive strings which identify the API.
+        * version [Optional]: String representing the version number of the API this description refers to. 
+        * tags: (collection) [Optional]: this is a list of descriptive strings which identify the API. Represented
       as an array. 
         * properties (collection):
           - type: please see reserved keywords below.
@@ -200,11 +200,11 @@ Table of Contents
         * contact (collection)
           - [Person or Organization - see below]
 
-    * Include (collection) [Optional]
-        * Name [Mandatory]: name of the APIs.json file referenced.
-        * Url [Mandatory]: Web URL of the file.
+    * include (collection) [Optional]
+        * name [Mandatory]: name of the APIs.json file referenced.
+        * url [Mandatory]: Web URL of the file.
 
-    * Maintainers (collection)    [VCARD]
+    * maintainers (collection)    [VCARD]
         * [Person or Organization - see below]
 
     The above elements determine the information to be provided (examples are provided lower down). In 
@@ -213,11 +213,11 @@ Table of Contents
     The Person or Organization is defined as containing:
 
         * FN [Optional]: String Value corresponding to the Full Name name of the individual / organization.
-        * Email [Optional]: String Value corresponding to the email address of the individual / organization
-        * Url [Optional]: String Value corresponding to a web page about the individual individual / organization
+        * email [Optional]: String Value corresponding to the email address of the individual / organization
+        * url [Optional]: String Value corresponding to a web page about the individual individual / organization
         * org [Optional]: String Value representing the name of the organization associated with the cCard.
-        * Adr [Optional]: String Value corresponding to the physical address of the individual / organization.
-        * Tel [Optional]: String Value corresponding to the phone number including country code of the individual / organization.
+        * adr [Optional]: String Value corresponding to the physical address of the individual / organization.
+        * tel [Optional]: String Value corresponding to the phone number including country code of the individual / organization.
         * X-Twitter [Optional]: String Value corresponding to the twitter username of the individual / organization (convention do 
           not use the "@" symbol). Note - these are X- since this is the way they are / would be in vCard.
         * X-Github [Optional]: String Value corresponding to the github username of the individual / organization. Note - these are X- since this is the way they are / would be in vCard.
