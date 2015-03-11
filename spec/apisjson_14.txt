@@ -249,7 +249,7 @@ Table of Contents
    This rule is similar to that in robots.txt and prevents robots repeatedly
    pinging servers with no caching headers set by default.
 
-3.5.  Media Type         <<<< change
+3.5.  Media Type
 
   It is intended that if there is sufficient traction, the media type "application/apis+json" will be 
   submitted to IANA as per RFC: http://tools.ietf.org/html/rfc4288
@@ -263,7 +263,7 @@ Table of Contents
   It is intended that if there is sufficient traction, the "well known" location "/apis.json" will be 
   submitted as per RFC: http://tools.ietf.org/html/rfc5785
 
-3.8. Link Relation     <<<< change
+3.8. Link Relation
 
   In order for an API to reference its own description, it is recommended that it include header or 
   in-line references to the APIs.json file using the existing describedby link relation: 
@@ -284,8 +284,8 @@ Table of Contents
   "name": "API Commons",
   "description": "An API for adding and pulling APIs that are in the commons.",
   "image": "https://s3.amazonaws.com/kinlane-productions/api-commons/api-commons-icon.png",
-  "tags": ["api", "copyright", "application programming interface"],                              <<<< change ([""])
-  "created": "2014-04-07",                                                                  <<<< change (new)
+  "tags": ["api", "copyright", "application programming interface"],
+  "created": "2014-04-07",
   "modified": "2014-05-25",
   "url": "http://apicommons.org/apis.json",
   "specificationVersion" : "0.14",
@@ -322,9 +322,9 @@ Table of Contents
   "include": [],
   "maintainers": [
     {
-      "FN": "Kin Lane",                   <<<< change
+      "FN": "Kin Lane",
       "email": "apicommons@gmail.com",
-      "X-Twitter": "apicommons"           <<<< change              
+      "X-Twitter": "apicommons"
     }
   ]
 }
