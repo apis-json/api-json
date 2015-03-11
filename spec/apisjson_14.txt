@@ -215,10 +215,10 @@ Table of Contents
         * FN [Optional]: String Value corresponding to the Full Name name of the individual / organization.
         * email [Optional]: String Value corresponding to the email address of the individual / organization
         * url [Optional]: String Value corresponding to a web page about the individual individual / organization
-        * org [Optional]: String Value representing the name of the organization associated with the cCard.
+        * organizationName [Optional]: String Value representing the name of the organization associated with the cCard.
         * adr [Optional]: String Value corresponding to the physical address of the individual / organization.
         * tel [Optional]: String Value corresponding to the phone number including country code of the individual / organization.
-        * X-Twitter [Optional]: String Value corresponding to the twitter username of the individual / organization (convention do 
+        * X-twitter [Optional]: String Value corresponding to the twitter username of the individual / organization (convention do 
           not use the "@" symbol). Note - these are X- since this is the way they are / would be in vCard.
         * X-Github [Optional]: String Value corresponding to the github username of the individual / organization. Note - these are X- since this is the way they are / would be in vCard.
         * photo [Optional]: URL corresponding to an image which could be used to represent the individual / organization.
@@ -297,9 +297,9 @@ Table of Contents
             "humanURL": "https://api-commons.3scale.net/docs",
             "baseURL": "http://apicommons.org/",
             "tags": [
-                "API",
-                "Application Programming Interface",
-                "Copyright"
+                "api",
+                "application programming interface",
+                "copyright"
             ],
             "properties": [
                 {
@@ -314,7 +314,7 @@ Table of Contents
             "contact": [
                 {
                     "FN": "API Commons",
-                    "X-Twitter": "apicommons"
+                    "X-twitter": "apicommons"
                 }
             ]
         }
@@ -324,7 +324,7 @@ Table of Contents
     {
       "FN": "Kin Lane",
       "email": "apicommons@gmail.com",
-      "X-Twitter": "apicommons"
+      "X-twitter": "apicommons"
     }
   ]
 }
@@ -425,14 +425,13 @@ Contact Elements:
 
 Maintainer Elements:
 
- * name 
- * twitter
- * github 
- * email 
- * url 
- * organizationName 
- * organizationUrl 
- * address 
- * phoneNumber 
- * image 
+ * FN
+ * X-twitter
+ * X-github
+ * email
+ * url
+ * organizationName
+ * adr
+ * tel
+ * photo
 
