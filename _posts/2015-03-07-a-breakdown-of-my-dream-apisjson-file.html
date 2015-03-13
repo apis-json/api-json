@@ -1,0 +1,77 @@
+---
+layout: post
+title: 'A Breakdown Of My Dream APIs.json File'
+sourceurl: http://apisjson.org//2015/03/07/a-breakdown-of-my-dream-apisjson-file/
+image: https://s3.amazonaws.com/kinlane-productions/apis-json/apisdotjson.png
+---
+
+<p><a href="http://apisjson.org"><img style="padding: 15px;" src="https://s3.amazonaws.com/kinlane-productions/apis-json/apisdotjson.png" alt="" width="325" align="right" /></a></p>
+<p>I'm continuing my work, to help people understand what APIs.json is, and the <a href="http://apievangelist.com/2015/03/06/three-ways-i-am-putting-apisjson-to-work/">varying ways that it can be put to use</a>.  My post the other week, <a href="http://apievangelist.com/2015/01/31/breaking-down-the-fitbit-apisjson-file/">breaking down Fitbits APIs.json file is a good example of where to get started</a>, and as a follow-up I wanted to help further set the bar for what a <a href="http://apievangelist.com/2015/02/08/a-minimum-viable-apisjson-file-for-your-apis/">minimum viable APIs.json</a>&nbsp;looks like, and today, I am going in the other direction--toward my dream APis.json file.</p>
+<p>APIs.json starts with a basic set of descriptions for who you are, the API provider. Each header of an APIs.json file gives you a handful of parameters for describing who you are:</p>
+<ul>
+<li><strong>name</strong> - your individual or company name, who is managing the APIs.json file.</li>
+<li><strong>description</strong> - a description of your company and / or the API collection you are building.</li>
+<li><strong>image</strong> - an image, logo, or icon that describes yourself or your company</li>
+<li><strong>tags</strong> - a handful of key words and phrases that describe your API collection.</li>
+<li><strong>created</strong> - the first date in which an APIs.json file was created.</li>
+<li><strong>modified</strong> - the last date in which an APIs.json file created.</li>
+<li><strong>url</strong> - The url of where the APIs.json lives, allowing your file to be portable.</li>
+</ul>
+<p>Those seven parameters provide details on who you are, and what the API collection is all about. Remember an API collection doesn&rsquo;t always have to live under a specific company domain like Twilio.com, it could be a temporary or more permanent collection, that is part of specific project or application.</p>
+<p>The next essential element of an APIs.json file, is the APIs collection, providing you the ability to describe one or many APIs as part of this collection. Similar to the parameters provided for the header, each API entry is allowed a handful of parameters that describe the API:</p>
+<ul>
+<li><strong>name</strong> - the name of the API.</li>
+<li><strong>description</strong> - a description of the value an API delivers.</li>
+<li><strong>image</strong> - an image, logo, or icon that describes an API.</li>
+<li><strong>tags</strong> - a handful of key words and phrases that describe the API itself.</li>
+<li><strong>humanURL</strong> - The url any human should visit to learn more about an API.</li>
+<li><strong>baseURL</strong> - The base url any machine should follow to start using an API.</li>
+</ul>
+<p><a href="http://apisjson.org"><img style="padding: 15px;" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-gears-soft-round.png" alt="" width="250" align="right" /></a></p>
+<p>Each API should have at least this information, at a minimum. I could stay here, with a <a href="http://apievangelist.com/2015/02/08/a-minimum-viable-apisjson-file-for-your-apis/">minimum viable APIs.json definition</a>, but I encourage you to take one more step, and put the properties collection to use for each API. You can provide any other URL you want for an APIs properties, but I recommend starting with the basic properties:</p>
+<ul>
+<li><strong>TermsOfService</strong> - where do I find your terms of service page.</li>
+<li><strong>StatusPage</strong> - where is the url of the status page, where I can get platform update.</li>
+<li><strong>Pricing</strong> - point me directly to where your pricing page is, so I can make a decision on price.</li>
+<li><strong>Forums</strong> - where is the community forum located for a platform, even if this is Stack Overflow.</li>
+<li><strong>AlertsTwitterHandle</strong> - what is the primary Twitter handle for the API itself.</li>
+</ul>
+<p>These are meant to satisfy the common needs of anyone learning about API operations, however they are just URLs meant for the human API consumer. In my dream APIs.json file, there will be a robust amount of machine readable properties available for each API, beginning with the two most important:</p>
+<ul>
+<li><strong>Swagger</strong> &nbsp;- a machine readable JSON or YAML file describing your API surface area</li>
+<li><strong>Blueprint</strong> - a machine readable markdown file describing your API surface area</li>
+</ul>
+<p>Along with providing machine readable definitions of the API surface area, establishing a central truth or fingerprint for any API interface, it is just as important to provide a machine readable license for the API:</p>
+<ul>
+<li><strong>InterfaceLicense</strong> - a machine readable pointer to the licensing for the API interface</li>
+</ul>
+<p>Along with making sure the interface of an API matches your application objectives, consumers need to understand the licensing restrictions, or the freedom that comes with deeply integrating an API resource into any system or app.</p>
+<p>Since I&rsquo;m talking about my dream APIs.json file, I&rsquo;m going to talk about two added property formats I&rsquo;m currently working on behind the scenes, adding to the stack of machine readable API definition formats..  These new areas, represent two areas I&rsquo;m working hard to define and understand, right after I hand-craft Swagger definitions for my APIs:</p>
+<ul>
+<li><strong><a href="http://api-pricing.apievangelist.com/">API Pricing</a></strong> - taking pricing to the next level and making it machine readable.</li>
+<li><strong><a href="http://api-questions.apievangelist.com/">API Questions</a> </strong>- answering the important questions I need to know about each API.</li>
+</ul>
+<p>Can you imagine if API pricing was machine readable by default? Think of the options for building in a broker or market layer within the index of API platforms, and API collections, or even via an IDE. These two definitions are in an <a href="http://alpha.apievangelist.com">alpha stage</a>, but are based upon data I've been gathering behind the scenes, so a lot of thought has gone into settling on these buckets.</p>
+<p>After that, I&rsquo;d say there are a handful custom properties I&rsquo;d like to see applied to each API indexed within an APIs.json:</p>
+<ul>
+<li><strong>x-blog -</strong> where do I find your blog. (machine-readable below)</li>
+<li><strong>x-blogrss - </strong>where can I just get an RSS of your blog stream.</li>
+<li><strong>b-github -</strong> what is the primary Github account for the API.</li>
+</ul>
+<p><a href="http://apisjson.org"><img style="padding: 15px;" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-circuit-paths.png" alt="" width="250" align="right" /></a></p>
+<p>That concludes my list of elements I&rsquo;d like to see available in my dream APIs.json file. You can see examples of this in action, with the <a href="https://github.com/kinlane/api-stack/tree/gh-pages/data">700+ companies I've generated APIs.json files for, over at my API Stack Github repo</a>. There is a lot of work left to do, but this dream APIs.json file resembles a vision I have for the future of API discovery&mdash;which I see as the engine for the API economy.</p>
+<p>My goal is to get there I need the most important aspects of API operations machine readable. We aren't there yet, but I can see it. Taste it. Imagine what we can do when you can program against:</p>
+<ul>
+<li><strong>Surface Area (Swagger, Blueprint)</strong></li>
+<li><strong>Blog (RSS Feed)</strong></li>
+<li><strong>Status (RSS Feed)</strong></li>
+<li><strong>Forum (RSS Feed)</strong></li>
+<li><strong>Twitter (Twitter API)</strong></li>
+<li><strong>Github (Github API)</strong></li>
+<li><strong>Pricing (api-pricing)</strong></li>
+<li><strong>Licensing (API Commons)</strong></li>
+<li><strong>Questions (api-questions)</strong></li>
+</ul>
+<p>I have been staying in tune with the API space using RSS feeds, and the Twitter and Github APIs for a couple years. I&rsquo;m just now developing a deeper understanding of the overall API space through the generation of machine readable API definitions for popular APIs. I can&rsquo;t do much on the API licensing front beyond launching <a href="http://apicommons.org">API Commons</a>, but I am working to define pricing with my <a href="http://api-pricing.apievangelist.com">api-pricing</a> definition work, and also trying to capture the vital meta-data I need about API operations using <a href="http://api-questions.apievangelist.com">api-questions</a>.</p>
+<p>This post ended up being longer than I anticipated, but it is helping me beter understand what some of the next steps are for not just APIs.json, but also my own monitoring of the space. My goal is to not just push forward the APIs.json definition, but push forward my understanding along the way. Who knows maybe I'll drag you along too! ;-)</p>
+<p>Ok, back to work. I just needed to wrap up these two posts about APis.json that were lingering in my outgoing story and idea queue.</p>
