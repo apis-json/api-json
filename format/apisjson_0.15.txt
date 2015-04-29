@@ -3,7 +3,7 @@ Name: API Discovery Format
 Informal Name: APIs.json	
 Authors: Kin Lane, Steven Willmott, Nicolas Grenie, Bruno Pedro
 Date: 29/04/2015
-Location: http://apicommons.org/apisjson/apisjson_v0.14.txt
+Location: http://apicommons.org/apisjson/apisjson_v0.15.txt
 
 				A Simple Format for Publishing API Meta Data on the Web
 
@@ -285,7 +285,7 @@ Table of Contents
 	  "created": "2014-04-07",
 	  "modified": "2014-07-09",
 	  "url": "http://apievangelist.com/apis.json",
-	  "SpecificationVersion": "0.14",
+	  "SpecificationVersion": "0.15",
 	  "apis": [
 	    {
 	      "name": "Analysis",
