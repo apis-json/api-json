@@ -178,7 +178,7 @@ Table of Contents
       as an array. 
     * Created [Mandatory]: date of creation of the file
     * Modified [Mandatory]: date of last modification of the file
-    * SpecificationVersion [Mandatory]: version of the APIs.json specification in use.
+    * specificationVersion [Mandatory]: version of the APIs.json specification in use.
     
     * Apis (collection) [Optional]: list of APIs identified in the file, each containing:
 
@@ -285,7 +285,7 @@ Table of Contents
 	  "created": "2014-04-07",
 	  "modified": "2014-07-09",
 	  "url": "http://apievangelist.com/apis.json",
-	  "SpecificationVersion": "0.15",
+	  "specificationVersion": "0.15",
 	  "apis": [
 	    {
 	      "name": "Analysis",
