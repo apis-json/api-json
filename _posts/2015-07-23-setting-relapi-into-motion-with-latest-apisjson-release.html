@@ -1,0 +1,25 @@
+---
+layout: post
+title: 'Setting rel=api Into Motion With Latest APIs.json Release'
+url: http://apisjson.org//2015/07/23/setting-relapi-into-motion-with-latest-apisjson-release/
+source: http://apisjson.org//2015/07/23/setting-relapi-into-motion-with-latest-apisjson-release/
+domain: apisjson.org
+image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/blog/api-icon.jpg
+---
+
+<p><a href="http://apisjson.org/"><img style="padding: 15px;" src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/blog/api-icon.jpg" alt="" width="200" align="right" /></a>Bruno Pedro (<a href="/admin/blog/bpedro">@bpedro</a>) who has been building <a href="http://apisjson.org/">APIs.json</a> into his <a href="https://www.apichangelog.com">API Changelog service</a>, made a pull request to the specification recently, pushing forward the link relation conversation for APIs.json. As listed in the specification, we have long intended to make APIs.json an official media type:</p>
+<p><strong>3.5. &nbsp;Media Type</strong></p>
+<p style="padding-left: 30px;">It is intended that if there is sufficient traction, the media type "application/apis+json" will be&nbsp;&nbsp; submitted to IANA as per RFC:&nbsp;http://tools.ietf.org/html/rfc4288</p>
+<p>However when it came to expressing your APIs.json as a link relation, we didn't even really have a plan in our road-map, resulting in a very generic allocation of a link relation for APIs.json.</p>
+<p><strong>3.8. Link Relation</strong></p>
+<p style="padding-left: 30px;"><strong>&nbsp;</strong>In order for an API to reference its own description, it is recommended that it include header or in-line references to the APIs.json file using the existing described by link relation:</p>
+<p style="padding-left: 30px;">[Note, this is a generic link relation but seems to fit the bill]</p>
+<p>What Bruno is suggesting that we get a little more precise when it comes to our link relation, something the rest of the governing group for APIs.json agrees with. Here is the last update to the link relation:</p>
+<p><strong>3.8. Link Relation&nbsp;</strong></p>
+<p style="padding-left: 30px;">In order for a Web site to reference its API description, it is recommended that it includes a header or&nbsp;&nbsp; in-line reference to the APIs.json resource using the api link relation, e.g.:&nbsp;</p>
+<p style="padding-left: 30px;">It is intended that if there is sufficient traction, the link relation &ldquo;api&rdquo; will be&nbsp;&nbsp; submitted to IANA as per RFC: http://tools.ietf.org/html/rfc5988</p>
+<p>As with the media type, we intend to submit the link relation to Iana, per its RFC. Bruno's pull request sets in motion the formal link relation, but then also escalates the media type submission as well.&nbsp;</p>
+<p>With the interest and usage we have seen in the first year of the specification, we are confident the API discovery format will get traction. We are already seeing exploration around the link relation, achieving RSS like experience in the browsers, when visiting websites that have an active API program.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/blog/api-evangelist-link-relation.png" alt="" width="75%" align="middle" /></p>
+<p>I have added a link relation to my <a href="http://apievangelist.com">API Evangelist</a>, <a href="/admin/blog/Kin Lane">Kin Lane</a>, and <a href="https://kin-lane.github.io/master/">Master API project</a>, all pointing to my <a href="https://kin-lane.github.io/master/apis.json">central APIs.json</a>, which provides an index of not just each of the APIs I use to operate the API Evangelist network, but also the supporting building blocks of API operations like pricing, support, etc.&nbsp;</p>
+<p>Thanks Bruno for the pull request, pushing out a minor release of the APIs.json spec, <a href="http://apisjson.org/format/apisjson_0.15.txt">moving us to&nbsp;0.15</a>. This release primes the pump, for a queue of APIs.json requests that are in the works, like more API property types, country origin, and much more.&nbsp;</p>
