@@ -264,6 +264,9 @@ Table of Contents
 
     * <link rel="api" type="application/apis+json" href="https://example.com/apis.json" />
 
+  It is intended that if there is sufficient traction, the link relation “api” will be 
+  submitted to IANA as per RFC: http://tools.ietf.org/html/rfc5988
+
 3.9. Extensions
 
   TBD
