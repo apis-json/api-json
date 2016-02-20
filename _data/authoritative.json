@@ -65,6 +65,17 @@
     "url": "http://clarify.io/apis.json"
   },
   {
+    "name": "Data Validation",
+    "description": "DataValidation's API offers a simple way to check the deliverability of an email address. Quickly find out if a single email address is deliverable in realtime, or check the deliverability of a list of email addresses using the batch API. Email service providers can utilize the batch API to simplify and automate the onboarding, monitoring, and remediation of users.",
+    "image": "https://avatars3.githubusercontent.com/u/9884381?v=3&s=200",
+    "tags": [
+      "email",
+      "validation",
+      "verification"
+    ],
+    "url": "https://developer.datavalidation.com/apis.json"
+  },
+  {
     "name": "DNS Check",
     "description": "With this API you can monitor the status of both individual DNS records, and groups of related DNS records. Verify that each record is resolvable, and returns the result that you expect. Supports A, AAAA, CNAME, MX, NS, PTR, SOA and TXT records.",
     "image": "https://cdn.dnscheck.co/images/dns-check-icon.png",
