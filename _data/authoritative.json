@@ -117,7 +117,7 @@
     "image": "http://www.onemusicapi.com/images/logo_with_text.png",
     "tags": [],
     "url": "http://www.onemusicapi.com/apis.json"
-  }
+  },
   {
     "name": "Pandorabots API",
     "description": "API for integrating Pandorabots AI and Natural Language Processing into your application.",

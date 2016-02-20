@@ -3,4 +3,17 @@ layout: page
 title: Authoritative APIs.json
 ---
 
-debug
+<table width="100%" border="0" cellpadding="3" cellspacing="2">
+  {% for org in site.data.authoritative %}
+  <tr>
+    <td align="left" width="80%" style="border-top: 1px solid #CCC; padding-top:18px;">
+      <a href="{{ org.url }}" id="home-logo-link-18911"><img src="{{ org.image }}" width="250" align="left" style="padding: 15px;" /></a>
+      <a href="{{ org.url }}" id="home-name-link-18911" style="color: #000;"><strong>{{ org.name }}</strong></a>
+      {{ org.description }}
+    </td>
+    <td width="50" align="center" style="border-top: 1px solid #CCC;">
+      <a href="{{ org.url }}" target="_blank" title="Website"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png" width="28" align="center" /></a>
+    </td>td>
+  </tr>
+  {% endfor %}
+</table>
