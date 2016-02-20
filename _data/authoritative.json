@@ -11,6 +11,16 @@
     "url": "http://austin2015.apistrat.com/apis.json"
   },
   {
+    "name": "API Evangelist",
+    "description": "These are the APIs I use as part of the API Evangelist network. While my APIs are meant for my use, I do try to be transparent, and encourage outside usage.",
+    "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+    "tags": [
+      "Application Programming Interface",
+      "API"
+    ],
+    "url": "http://developer.apievangelist.com/apis.json"
+  },
+  {
     "name": "Acuity Scheduling",
     "description": "The Acuity Scheduling API for appointment scheduling. Automate your client bookings, cancellations, reminders & even payment with one click (and zero frustration.)",
     "image": "https://acuityscheduling.com/img/clock.png",
@@ -89,6 +99,15 @@
     "url": "https://feedbackhub.co.uk/api/apis.json"
   },
   {
+    "name": "Fitbit",
+    "description": "Fitbit designs products that track everyday health and fitness, empowering and inspiring people to lead healthier, more active lives.",
+    "image": "https://www.fitbit.com/images/common/logo_with_trademark.png",
+    "tags": [
+      "fitness"
+    ],
+    "url": "https://www.fitbit.com/apis.json"
+  },
+  {
     "name": "Gavagai",
     "description": "Gavagai API, our most flexible and feature-rich solution, enables you to add online monitoring as well as next generation text analytics to your products and internal applications.",
     "image": "http://www.gavagai.se/wp-content/uploads/2014/10/product-api.png",
@@ -103,6 +122,16 @@
       "Text Summarization"
     ],
     "url": "http://gavagai.se/apis.json"
+  },
+  {
+    "name": "Kin Lane",
+    "description": "This is the master portal where I access all of the APIs I depend on to run the API Evangelist network of sites. Visit the getting started page to kick things off, and if you have any questions let me know.",
+    "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/kin.png",
+    "tags": [
+      "Kin Lane",
+      "API"
+    ],
+    "url": "http://developer.kinlane.com/apis.json"
   },
   {
     "name": "Link Creation Studio",
