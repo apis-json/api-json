@@ -1,0 +1,304 @@
+[
+  {
+    "name": "APIStrat Austin API",
+    "description": "This is the API for the API Strategy & Practice conference in Austin, TX, providing programmatic access to the schedule, speakers, and sponsors",
+    "image": "https://s3.amazonaws.com/kinlane-productions/events/apistrat-austin/apistrat-austin-logo.png",
+    "tags": [
+      "Application Programming Interface",
+      "API",
+      "Conference"
+    ],
+    "url": "http://austin2015.apistrat.com/apis.json"
+  },
+  {
+    "name": "Acuity Scheduling",
+    "description": "The Acuity Scheduling API for appointment scheduling. Automate your client bookings, cancellations, reminders & even payment with one click (and zero frustration.)",
+    "image": "https://acuityscheduling.com/img/clock.png",
+    "tags": [
+      "Acuity Scheduling",
+      "API",
+      "appointment scheduling",
+      "scheduling API",
+      "appointment API"
+    ],
+    "url": "https://acuityscheduling.com/apis.json"
+  },
+  {
+    "name": "BreezoMeter",
+    "description": "BreezoMeter offers most advanced Air Quality Data ever known to mankind.\n ",
+    "image": "http://storage.googleapis.com/static.breezometer.com/images/logo/logo512x512.png",
+    "tags": [],
+    "url": "http://breezometer.com/static/apis.json"
+  },
+  {
+    "name": "CheckMarket",
+    "description": "CheckMarket is an enterprise survey tool. The Survey API allows you integrate your backend through a RESTful interface. Uses include continuous monitoring, automated survey dispersal, personalized surveys based on customer profiles and historical customer response data.",
+    "image": "https://api.checkmarket.com/assets/img/logo/app-header.png",
+    "tags": [
+      "surveys",
+      "marketing",
+      "market research",
+      "NPS",
+      "market intelligence"
+    ],
+    "url": "https://api.checkmarket.com/3/apis.json"
+  },
+  {
+    "name": "Clarify",
+    "description": "Clarify's API makes audio and video files actionable via search and extracted keywords and topics.",
+    "image": "http://clarify.io/clarify-negative.png",
+    "tags": [
+      "audio search",
+      "video search",
+      "metadata"
+    ],
+    "url": "http://clarify.io/apis.json"
+  },
+  {
+    "name": "DNS Check",
+    "description": "With this API you can monitor the status of both individual DNS records, and groups of related DNS records. Verify that each record is resolvable, and returns the result that you expect. Supports A, AAAA, CNAME, MX, NS, PTR, SOA and TXT records.",
+    "image": "https://cdn.dnscheck.co/images/dns-check-icon.png",
+    "tags": [
+      "dns check",
+      "dns monitor",
+      "dns",
+      "mx record check",
+      "spf record check"
+    ],
+    "url": "https://www.dnscheck.co/apis.json"
+  },
+  {
+    "name": "Email Hunter",
+    "description": "Email Hunter API returns all the emails found on the internet related to a domain name.",
+    "image": "https://d1agxe4dkkipzf.cloudfront.net/social_image.png",
+    "tags": [
+      "sales",
+      "email",
+      "B2B"
+    ],
+    "url": "https://emailhunter.co/apis.json"
+  },
+  {
+    "name": "FeedbackHub",
+    "description": "An API to access and integrate with the FeedbackHub Core Services",
+    "image": "https://feedbackhub.co.uk/images/branding/api_logo.png",
+    "tags": [
+      "feedback",
+      "reviews"
+    ],
+    "url": "https://feedbackhub.co.uk/api/apis.json"
+  },
+  {
+    "name": "Gavagai",
+    "description": "Gavagai API, our most flexible and feature-rich solution, enables you to add online monitoring as well as next generation text analytics to your products and internal applications.",
+    "image": "http://www.gavagai.se/wp-content/uploads/2014/10/product-api.png",
+    "tags": [
+      "application programming interface",
+      "API",
+      "Text Analytics",
+      "Text Analysis",
+      "Sentiment Analysis",
+      "Tonality",
+      "Stories",
+      "Text Summarization"
+    ],
+    "url": "http://gavagai.se/apis.json"
+  },
+  {
+    "name": "Link Creation Studio",
+    "description": "Link technology allows users to include links to rich digital content in their printed documents. Users can create digital watermarks, QR codes, and short URLs to add to their posters, labels, business cards, invitations, flyers, and any other printed items. Digital watermarks and QR codes can be scanned by mobile devices to take people directly to linked digital content. The Link Developer API allows users to create watermarked images, short URLs, and QR codes and analyze their traffic. The API also lets users update the destinations linked to by watermarks and QR codes anytime, even long after they have been created and printed.",
+    "image": "https://www.linkcreationstudio.com/developer/LinkTechnology.png",
+    "tags": [],
+    "url": "https://www.linkcreationstudio.com/developer/apis.json"
+  },
+  {
+    "name": "OneMusicAPI",
+    "description": "A low cost music metadata API which works by aggregating multiple other APIs and grooming their data for better coverage and quality.",
+    "image": "http://www.onemusicapi.com/images/logo_with_text.png",
+    "tags": [],
+    "url": "http://www.onemusicapi.com/apis.json"
+  }
+  {
+    "name": "Pandorabots API",
+    "description": "API for integrating Pandorabots AI and Natural Language Processing into your application.",
+    "image": "http://i1275.photobucket.com/albums/y444/djordanfried/pb-logo-med_zps2eff9a0a.png",
+    "tags": [
+      "Pandorabots",
+      "Chatbot",
+      "Natural language processing",
+      "API",
+      "AI"
+    ],
+    "url": "https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D"
+  },
+  {
+    "name": "Qalendra",
+    "description": "We mine, fuse and structure data from many sources (weather, terrain, facilities, traffic, prices etc), analyze the data using algorithms specially designed for each type of vacation or activity and generate long-range predictions and data-driven insights for travel and hospitality.",
+    "image": "https://qalendra.com/images/square-logo-100px.png",
+    "tags": [
+      "API",
+      "Travel",
+      "Analytics",
+      "Predictions",
+      "Aggregation",
+      "Intelligence"
+    ],
+    "url": "https://qalendra.com/apis.json"
+  },
+  {
+    "name": "RiteTag",
+    "description": "Enhance your app with powerful Twitter hashtag analytics.",
+    "image": "https://ritetag.com/assets/img/logo.png",
+    "tags": [
+      "API",
+      "RiteTag"
+    ],
+    "url": "https://ritetag.com/assets/apis.json"
+  },
+  {
+    "name": "Singlewire",
+    "description": "A list of APIs maintained by Singlewire Software",
+    "image": "https://www.singlewire.com/sites/default/files/logo.png",
+    "tags": [
+      "API",
+      "Singlewire",
+      "InformaCast",
+      "Mobile",
+      "Notification",
+      "Broadcast",
+      "Push",
+      "Emergency",
+      "Paging",
+      "Security"
+    ],
+    "url": "https://www.singlewire.com/apis.json"
+  },
+  {
+    "name": "SiteCapt",
+    "description": "SiteCapt allows you to take screenshots via an easy, fast REST API.",
+    "image": "https://files.phlip.it/sitecapt-logo.png",
+    "tags": [],
+    "url": "https://sitecapt.com/apis.json"
+  },
+  {
+    "name": "Social Searcher API",
+    "description": "This is an inventory of APIs available in Social Searcher.",
+    "image": "http://www.social-searcher.com/wp-content/uploads/2015/08/social_searcher_api_v2.jpg",
+    "tags": [
+      "social",
+      "search",
+      "monitoring",
+      "social media"
+    ],
+    "url": "http://www.social-searcher.com/apis.json"
+  },
+  {
+    "name": "Super Monitoring",
+    "description": "Super Monitoring is a website monitoring service, checking customer websites for their uptime and basic functions. Powered by Superheroes. ;)",
+    "image": "http://static.supermonitoring.com/templates/bootstrap/img/supermonitoring.png",
+    "tags": [
+      "API",
+      "Application Programming Interface",
+      "website monitoring",
+      "uptime monitoring"
+    ],
+    "url": "http://www.supermonitoring.com/apis.json"
+  },
+  {
+    "name": "Timekit",
+    "description": "Connecting all the calendars in the world",
+    "image": "https://daks2k3a4ib2z.cloudfront.net/552ff0b50f9117dc2081b623/553ebc8288d998ef29c47c41_timekit-logo-blueonwhite-large.png",
+    "tags": [
+      "calendar",
+      "calendars",
+      "calendar api",
+      "calendar providers",
+      "apple calendars",
+      "outlook calendars",
+      "iCloud calendars",
+      "scheduling",
+      "schedule",
+      "appointments",
+      "appointment",
+      "booking",
+      "saas",
+      "api",
+      "platform",
+      "timezone",
+      "time",
+      "marketplace",
+      "marketplaces"
+    ],
+    "url": "http://api.timekit.io/apis.json"
+  },
+  {
+    "name": "Trade APIs",
+    "description": "This is an inventory of APIs available at the International Trade Administration",
+    "image": "http://developer.trade.gov/images/trade_url_white2.png",
+    "tags": [
+      "Market Research Library",
+      "Consolidated Screening List",
+      "Trade Events",
+      "Trade Leads",
+      "Tariff Rates",
+      "FAQs on Exporting",
+      "ITA Offices & Centers",
+      "Trade News & Articles"
+    ],
+    "url": "http://developer.trade.gov/apis.json"
+  },
+  {
+    "name": "Twitch Bot Directory",
+    "description": "Sadly Twitch accounts can't be marked as a bot. But many accounts are used just as a chat bot. This service provides an API to find out who's a chat bot. All bots indexed are service or moderator bots.",
+    "image": "https://i.imgur.com/oRoYDOd.png",
+    "tags": [
+      "twitch",
+      "chat",
+      "bot",
+      "stream",
+      "spam",
+      "mod",
+      "coin",
+      "token",
+      "vanity"
+    ],
+    "url": "https://twitchbots.info/apis.json"
+  },
+  {
+    "name": "EnClout",
+    "description": "APIs provided by enclout",
+    "image": "http://enclout.com/googleSheetAddon/icon.png",
+    "tags": [
+      "enclout",
+      "API"
+    ],
+    "url": "http://enclout.com/api/apis.json"
+  },
+  {
+    "name": "frAPI",
+    "description": "Facial recognition API with landmark extraction, dynamic training, simple and fast to use",
+    "image": "http://www.meerkat.com.br/images/solution_fr.png",
+    "tags": [],
+    "url": "http://api.meerkat.com.br/frapi/docs/apis.json"
+  },
+  {
+    "name": "Section.io",
+    "description": "The section.io API makes it easy to automate gathering information and performing actions on your stack.",
+    "image": "https://www.section.io/images/logo.png",
+    "tags": [],
+    "url": "https://aperture.section.io/apis.json"
+  },
+  {
+    "name": "Spoonacular",
+    "description": "The spoonacular Food, Recipe, and Nutrition API allows you to access over 330,000 recipes and 80,000 food products. Our food ontology makes it possible to search for recipes using natural language such as \"gluten free brownies without sugar\". You can visualize recipe nutrition, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes by nutritional requirements or favorite ingredients, classify recipes, convert ingredient amounts, or even compute an entire meal plan.",
+    "image": "https://s3.amazonaws.com/mashape-production-logos/apis/55bd6288e4b0bb11a1db6a3d_medium",
+    "tags": [
+      "recipes",
+      "food",
+      "nutrition",
+      "food products",
+      "grocery"
+    ],
+    "url": "https://spoonacular.com/apis.json"
+  }
+]
