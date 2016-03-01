@@ -6,35 +6,35 @@ As part of our renewed focus on the [API discovery definition format APIs.json](
 **APIs.json Is An Index For API Operations**  
 APIs.json provides a machine readable approach that API providers can put work in describing their API operations, similar to how web site providers describe their websites using [sitemap.xml](https://www.xml-sitemaps.com/). Here are the APIs, who are describing their APIs using APIs.json:
 
- *[**APIStrat Austin API**](http://austin2015.apistrat.com/apis.json)
- *[**API Evangelist**](http://developer.apievangelist.com/apis.json)
- *[**Acuity Scheduling**](https://acuityscheduling.com/apis.json)
- *[**BreezoMeter**](http://breezometer.com/static/apis.json)
- *[**CheckMarket**](https://api.checkmarket.com/3/apis.json)
- *[**Clarify**](http://clarify.io/apis.json)
- *[**Data Validation**](https://developer.datavalidation.com/apis.json)
- *[**DNS Check**](https://www.dnscheck.co/apis.json)
- *[**Email Hunter**](https://emailhunter.co/apis.json)
- *[**FeedbackHub**](https://feedbackhub.co.uk/api/apis.json)
- *[**Fitbit**](https://www.fitbit.com/apis.json)
- *[**Gavagai**](http://gavagai.se/apis.json)
- *[**Kin Lane**](http://developer.kinlane.com/apis.json)
- *[**Link Creation Studio**](https://www.linkcreationstudio.com/developer/apis.json)
- *[**OneMusicAPI**](http://www.onemusicapi.com/apis.json)
- *[**Pandorabots API**](https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D)
- *[**Qalendra**](https://qalendra.com/apis.json)
- *[**RiteTag**](https://ritetag.com/assets/apis.json)
- *[**Singlewire**](https://www.singlewire.com/apis.json)
- *[**SiteCapt**](https://sitecapt.com/apis.json)
- *[**Social Searcher API**](http://www.social-searcher.com/apis.json)
- *[**Super Monitoring**](http://www.supermonitoring.com/apis.json)
- *[**Timekit**](http://api.timekit.io/apis.json)
- *[**Trade.gov**](http://developer.trade.gov/apis.json)
- *[**Twitch Bot Directory**](https://twitchbots.info/apis.json)
- *[**EnClout**](http://enclout.com/api/apis.json)
- *[**frAPI**](http://api.meerkat.com.br/frapi/docs/apis.json)
- *[**Section.io**](https://aperture.section.io/apis.json)
- *[**Spoonacular**](https://spoonacular.com/apis.json)
+*   [APIStrat Austin API](http://austin2015.apistrat.com/apis.json)
+*   [API Evangelist](http://developer.apievangelist.com/apis.json)
+*   [Acuity Scheduling](https://acuityscheduling.com/apis.json)
+*   [BreezoMeter](http://breezometer.com/static/apis.json)
+*   [CheckMarket](https://api.checkmarket.com/3/apis.json)
+*   [Clarify](http://clarify.io/apis.json)
+*   [Data Validation](https://developer.datavalidation.com/apis.json)
+*   [DNS Check](https://www.dnscheck.co/apis.json)
+*   [Email Hunter](https://emailhunter.co/apis.json)
+*   [FeedbackHub](https://feedbackhub.co.uk/api/apis.json)
+*   [Fitbit](https://www.fitbit.com/apis.json)
+*   [Gavagai](http://gavagai.se/apis.json)
+*   [Kin Lane](http://developer.kinlane.com/apis.json)
+*   [Link Creation Studio](https://www.linkcreationstudio.com/developer/apis.json)
+*   [OneMusicAPI](http://www.onemusicapi.com/apis.json)
+*   [Pandorabots API](https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D)
+*   [Qalendra](https://qalendra.com/apis.json)
+*   [RiteTag](https://ritetag.com/assets/apis.json)
+*   [Singlewire](https://www.singlewire.com/apis.json)
+*   [SiteCapt](https://sitecapt.com/apis.json)
+*   [Social Searcher API](http://www.social-searcher.com/apis.json)
+*   [Super Monitoring](http://www.supermonitoring.com/apis.json)
+*   [Timekit](http://api.timekit.io/apis.json)
+*   [Trade.gov](http://developer.trade.gov/apis.json)
+*   [Twitch Bot Directory](https://twitchbots.info/apis.json)
+*   [EnClout](http://enclout.com/api/apis.json)
+*   [frAPI](http://api.meerkat.com.br/frapi/docs/apis.json)
+*   [Section.io](https://aperture.section.io/apis.json)
+*   [Spoonacular](https://spoonacular.com/apis.json)
 
 **APIs.json Indexes Can Be Created By 3rd Parties**  
 One important thing to add, is that these APIs.json files can also be crafted, and published by external parties. An example of this is with the Trade.gov APIs. [I originally created that APIs.json file](http://developer.trade.gov.apievangelist.com/apis.json), and coordinated with them to eventually it get published under their own domain, making it an authoritative APIs.json file. Many APIs.json files will be born outside of the API operations they describe, something you can see in my API stack project:
@@ -66,33 +66,33 @@ Up until now, this post is all about APIs.json, where in reality the format is u
 **APIs.json Driving Other Open Tooling**  
 APIs.io is just the beginning. It won't be enough to convince all API providers that they should be producing APIs.json index of their site operations, just for the API discovery boost. We are going to need APIs.json driven tooling that will service every other stop along the life cycle, including:
 
-*   **HTTP Client / Hub / Workbenches**
-*   **Documentation**
-*   **Testing**
-*   **Monitoring**
-*   **Virtualization**
-*   **Visualization**
+*  *   *HTTP Client / Hub / Workbenches**
+*  *   *Documentation**
+*  *   *Testing**
+*  *   *Monitoring**
+*  *   *Virtualization**
+*  *   *Visualization**
 
 **APIs.json Integrated Into Existing Platforms**  
 What areas would you like to see served? Personally, I would like to have the ability to load / unload my APIs.json collections into any service that I use. Allowing me to organize my internal, public, and 3rd party APIs I depend within any platform out there that is servicing the API space. Here are a handful of those types of integrations that are already happening:
 
-*   **[WarewolfESB](http://warewolf.io/ESB-blog/swagger-apisjson-support/)** - ESB integration and API discovery.
-*   **[SwaggerHub](http://swagger.io/integrating-with-the-swaggerhub-api/)** - Public and private API hub discovery.
-*   **API Management** - In Progress w/ [3Scale](http://3scale.net)...
-*   **API Monitoring** - In Progress with [API Science](http://apiscience.com)...
-*   **API Change Log** -  In Progress with [API ChangeLog](http://apichangelog.com)...
-*   **[SmartBear](https://smartbear.com/plugins/apis-io-import-export/) -** API discovery for monitoring, testing, virtualization, and security.
-*   **[API Evangelist](http://developer.apievangelist.com/)** - API analyst operations.
-*   **[Kin Lane](http://developer.kinlane.com/)** - API factory operations (not organic)
-*   **[Adopta.Agency](http://adopta.agency)** - Government open data publishing.
+*  *   *[WarewolfESB](http://warewolf.io/ESB-blog/swagger-apisjson-support/)** - ESB integration and API discovery.
+*  *   *[SwaggerHub](http://swagger.io/integrating-with-the-swaggerhub-api/)** - Public and private API hub discovery.
+*  *   *API Management** - In Progress w/ [3Scale](http://3scale.net)...
+*  *   *API Monitoring** - In Progress with [API Science](http://apiscience.com)...
+*  *   *API Change Log** -  In Progress with [API ChangeLog](http://apichangelog.com)...
+*  *   *[SmartBear](https://smartbear.com/plugins/apis-io-import-export/) -** API discovery for monitoring, testing, virtualization, and security.
+*  *   *[API Evangelist](http://developer.apievangelist.com/)** - API analyst operations.
+*  *   *[Kin Lane](http://developer.kinlane.com/)** - API factory operations (not organic)
+*  *   *[Adopta.Agency](http://adopta.agency)** - Government open data publishing.
 
 **APIs.json Linking To The Human Aspects Of API Operations**  
 APIs.json is just the scaffolding to hang links to essential aspects of your operations, it doesn't care what you link to. You can start by referencing essential links for your API operations like:
 
-*   **Signup** - How to signup for a service.
-*   **Support** - Where to get support. 
-*   **Terms of Service** - Where are the terms of service.
-*   **Pricing** - Where to find the pricing for a service.
+*  *   *Signup** - How to signup for a service.
+*  *   *Support** - Where to get support. 
+*  *   *Terms of Service** - Where are the terms of service.
+*  *   *Pricing** - Where to find the pricing for a service.
 
 **APIs.json Linking to Machine Readable Aspects of API Operations**  
 These do not have to be machine readable links, they can reference important things the humans will need first. However, ultimately the goal is to make as much of the APIs.json index as machine readable as possible, using a variety of existing API definition formats, available for a variety of purposes.
@@ -116,13 +116,13 @@ That is the 100K view of what is APIs.json now, and the short term plan for the 
 
 Even with this reality, we do have a handful of changes planned for the 0.16 version of APIs.json:
 
-*   **commons** - Establish a top level collection of common property elements that apply to ALL APIs being referenced in an APIs.json
-*   **country** - Adding a top level country reference using [ISO 3166](http://www.iso.org/iso/country_codes).
+*  *   *commons** - Establish a top level collection of common property elements that apply to ALL APIs being referenced in an APIs.json
+*  *   *country** - Adding a top level country reference using [ISO 3166](http://www.iso.org/iso/country_codes).
 *   New Proper Elements - Suggesting a handful of new property elements to reference common API operation building blocks
-    *   Registration
-    *   Blog
-    *   Github
-    *   Twitter
+   *      Registration
+   *      Blog
+   *      Github
+   *      Twitter
 
 I doubt we will see many new additions like commons and country. In the future most of the structural changes to APis.json will be derived from first class property elements (ie. adding documentation or Github), making this the proving ground for defining what are truly the most important aspects of API operations, and what should be machine readable vs human readable.
 
