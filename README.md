@@ -139,4 +139,11 @@ I doubt we will see many new additions like commons and country. In the future m
 * [APIs.json Github Repo](https://github.com/apis-json/api-json) 
 * [APis.io via the website](http://apis.io/)
 * [Submit Issues](https://github.com/apis-json/api-json/issues/new). 
+* 
+**Next Steps**
+* Stories, stories, and more stories.
+* Next 0.16 release
+  *   Common Collection
+  *   Country Code
+  *   Any new type specs
 
