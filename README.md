@@ -1,43 +1,40 @@
 APIs.json
 ========
 
-[![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-discovery.png)](http://apisjson.org/)
-
 As part of our renewed focus on the [API discovery definition format APIs.json](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-discovery.png), I wanted to revisit the propsed machine readable API discovery specification, and see what is going on. First, what is APIs.json? It is a machine readable JSON specification, that anyone can use to define their API operations. APIs.json does not describe your APIs like [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) and [API Blueprint](https://apiblueprint.org/) do, it describes your surrounding API operations, with entries that can reference your Open API Spec, API Blueprint, or any other format that you desire.
 
 **APIs.json Is An Index For API Operations**  
 APIs.json provides a machine readable approach that API providers can put work in describing their API operations, similar to how web site providers describe their websites using [sitemap.xml](https://www.xml-sitemaps.com/). Here are the APIs, who are describing their APIs using APIs.json:
 
- *[**APIStrat Austin API**](http://austin2015.apistrat.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://austin2015.apistrat.com/apis.json "Website")
- *[**API Evangelist**](http://developer.apievangelist.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://developer.apievangelist.com/apis.json "Website")
- *[**Acuity Scheduling**](https://acuityscheduling.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://acuityscheduling.com/apis.json "Website")
- *[**BreezoMeter**](http://breezometer.com/static/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://breezometer.com/static/apis.json "Website")
- *[**CheckMarket**](https://api.checkmarket.com/3/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://api.checkmarket.com/3/apis.json "Website")
- *[**Clarify**](http://clarify.io/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://clarify.io/apis.json "Website")
- *[**Data Validation**](https://developer.datavalidation.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://developer.datavalidation.com/apis.json "Website")
- *[**DNS Check**](https://www.dnscheck.co/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://www.dnscheck.co/apis.json "Website")
- *[**Email Hunter**](https://emailhunter.co/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://emailhunter.co/apis.json "Website")
- *[**FeedbackHub**](https://feedbackhub.co.uk/api/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://feedbackhub.co.uk/api/apis.json "Website")
- *[**Fitbit**](https://www.fitbit.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://www.fitbit.com/apis.json "Website")
- *[**Gavagai**](http://gavagai.se/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://gavagai.se/apis.json "Website")
- *[**Kin Lane**](http://developer.kinlane.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://developer.kinlane.com/apis.json "Website")
- *[**Link Creation Studio**](https://www.linkcreationstudio.com/developer/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://www.linkcreationstudio.com/developer/apis.json "Website")
- *[**OneMusicAPI**](http://www.onemusicapi.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://www.onemusicapi.com/apis.json "Website")
- *[**Pandorabots API**](https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D "Website")
- *[**Qalendra**](https://qalendra.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://qalendra.com/apis.json "Website")
- *[**RiteTag**](https://ritetag.com/assets/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://ritetag.com/assets/apis.json "Website")
- *[**Singlewire**](https://www.singlewire.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://www.singlewire.com/apis.json "Website")
- *[**SiteCapt**](https://sitecapt.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://sitecapt.com/apis.json "Website")
- *[**Social Searcher API**](http://www.social-searcher.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://www.social-searcher.com/apis.json "Website")
- *[**Super Monitoring**](http://www.supermonitoring.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://www.supermonitoring.com/apis.json "Website")
- *[**Timekit**](http://api.timekit.io/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://api.timekit.io/apis.json "Website")
- *[**Trade.gov**](http://developer.trade.gov/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://developer.trade.gov/apis.json "Website")
- *[**Twitch Bot Directory**](https://twitchbots.info/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://twitchbots.info/apis.json "Website")
- *[**EnClout**](http://enclout.com/api/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://enclout.com/api/apis.json "Website")
- *[**frAPI**](http://api.meerkat.com.br/frapi/docs/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](http://api.meerkat.com.br/frapi/docs/apis.json "Website")
- *[**Section.io**](https://aperture.section.io/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://aperture.section.io/apis.json "Website")
- *[**Spoonacular**](https://spoonacular.com/apis.json) - [![](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-a.png)](https://spoonacular.com/apis.json "Website")
-
+ *[**APIStrat Austin API**](http://austin2015.apistrat.com/apis.json)
+ *[**API Evangelist**](http://developer.apievangelist.com/apis.json)
+ *[**Acuity Scheduling**](https://acuityscheduling.com/apis.json)
+ *[**BreezoMeter**](http://breezometer.com/static/apis.json)
+ *[**CheckMarket**](https://api.checkmarket.com/3/apis.json)
+ *[**Clarify**](http://clarify.io/apis.json)
+ *[**Data Validation**](https://developer.datavalidation.com/apis.json)
+ *[**DNS Check**](https://www.dnscheck.co/apis.json)
+ *[**Email Hunter**](https://emailhunter.co/apis.json)
+ *[**FeedbackHub**](https://feedbackhub.co.uk/api/apis.json)
+ *[**Fitbit**](https://www.fitbit.com/apis.json)
+ *[**Gavagai**](http://gavagai.se/apis.json)
+ *[**Kin Lane**](http://developer.kinlane.com/apis.json)
+ *[**Link Creation Studio**](https://www.linkcreationstudio.com/developer/apis.json)
+ *[**OneMusicAPI**](http://www.onemusicapi.com/apis.json)
+ *[**Pandorabots API**](https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D)
+ *[**Qalendra**](https://qalendra.com/apis.json)
+ *[**RiteTag**](https://ritetag.com/assets/apis.json)
+ *[**Singlewire**](https://www.singlewire.com/apis.json)
+ *[**SiteCapt**](https://sitecapt.com/apis.json)
+ *[**Social Searcher API**](http://www.social-searcher.com/apis.json)
+ *[**Super Monitoring**](http://www.supermonitoring.com/apis.json)
+ *[**Timekit**](http://api.timekit.io/apis.json)
+ *[**Trade.gov**](http://developer.trade.gov/apis.json)
+ *[**Twitch Bot Directory**](https://twitchbots.info/apis.json)
+ *[**EnClout**](http://enclout.com/api/apis.json)
+ *[**frAPI**](http://api.meerkat.com.br/frapi/docs/apis.json)
+ *[**Section.io**](https://aperture.section.io/apis.json)
+ *[**Spoonacular**](https://spoonacular.com/apis.json)
 
 **APIs.json Indexes Can Be Created By 3rd Parties**  
 One important thing to add, is that these APIs.json files can also be crafted, and published by external parties. An example of this is with the Trade.gov APIs. [I originally created that APIs.json file](http://developer.trade.gov.apievangelist.com/apis.json), and coordinated with them to eventually it get published under their own domain, making it an authoritative APIs.json file. Many APIs.json files will be born outside of the API operations they describe, something you can see in my API stack project:
