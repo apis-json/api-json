@@ -22,6 +22,7 @@ APIs.json provides a machine readable approach that API providers can put work i
 *   [Link Creation Studio](https://www.linkcreationstudio.com/developer/apis.json)
 *   [OneMusicAPI](http://www.onemusicapi.com/apis.json)
 *   [Pandorabots API](https://s3.amazonaws.com/enterprise-multitenant.3scale.net.3scale.net/pandorabots/2014/11/24/apis-35a2e2943bc0ef78.json?AWSAccessKeyId=AKIAIRYLTWBQ37ZNGBZA&Expires=1455947523&Signature=0RKNkK%2BnlCbkILpfwno6wh2neZo%3D)
+*   [Plive](https://www.plivo.com/apis.json)
 *   [Qalendra](https://qalendra.com/apis.json)
 *   [RiteTag](https://ritetag.com/assets/apis.json)
 *   [Singlewire](https://www.singlewire.com/apis.json)
