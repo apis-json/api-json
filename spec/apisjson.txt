@@ -415,7 +415,7 @@ Table of Contents
 
 6.	Reserved Keywords with Definitions
 
-  This list can be found at htt://apisjson.org/format/reservedwords, and may be updated from time to time and maintenaned exernally.
+  This list can be found at http://apisjson.org/format/reservedwords, and may be updated from time to time and maintenaned exernally.
 
 7. References
 
