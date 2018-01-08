@@ -1,7 +1,7 @@
 APIs.json
 ========
 
-As part of our renewed focus on the [API discovery definition format APIs.json](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-discovery.png), I wanted to revisit the propsed machine readable API discovery specification, and see what is going on. First, what is APIs.json? It is a machine readable JSON specification, that anyone can use to define their API operations. APIs.json does not describe your APIs like [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) and [API Blueprint](https://apiblueprint.org/) do, it describes your surrounding API operations, with entries that can reference your Open API Spec, API Blueprint, or any other format that you desire.
+As part of our renewed focus on the [API discovery definition format APIs.json](https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-discovery.png), I wanted to revisit the propsed machine readable API discovery specification, and see what is going on. First, what is APIs.json? It is a machine readable JSON specification, that anyone can use to define their API operations. APIs.json does not describe your APIs like [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) and [API Blueprint](https://apiblueprint.org/) do, it describes your surrounding API operations, with entries that can reference your OpenAPI Spec, API Blueprint, or any other format that you desire.
 
 **APIs.json Is An Index For API Operations**  
 APIs.json provides a machine readable approach that API providers can put work in describing their API operations, similar to how web site providers describe their websites using [sitemap.xml](https://www.xml-sitemaps.com/). Here are the APIs, who are describing their APIs using APIs.json:
@@ -98,7 +98,7 @@ APIs.json is just the scaffolding to hang links to essential aspects of your ope
 **APIs.json Linking to Machine Readable Aspects of API Operations**  
 These do not have to be machine readable links, they can reference important things the humans will need first. However, ultimately the goal is to make as much of the APIs.json index as machine readable as possible, using a variety of existing API definition formats, available for a variety of purposes.
 
-*   [OpenApI Spec](https://github.com/OAI/OpenAPI-Specification), for API description.
+*   [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification), for API description.
 *   [API Blueprint](https://apiblueprint.org/), for API description.
 *   [API Common](http://apicommons.org/), for API licensing.
 *   [Postman](https://www.getpostman.com/docs/collections), for run-time.
