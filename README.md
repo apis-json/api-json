@@ -27,6 +27,7 @@ APIs.json provides a machine readable approach that API providers can put work i
 *   [RiteTag](https://ritetag.com/assets/apis.json)
 *   [Singlewire](https://www.singlewire.com/apis.json)
 *   [SiteCapt](https://sitecapt.com/apis.json)
+*   [The SMS Works](https://api.thesmsworks.co.uk/docs/apis.json)
 *   [Social Searcher API](http://www.social-searcher.com/apis.json)
 *   [Super Monitoring](http://www.supermonitoring.com/apis.json)
 *   [Timekit](http://api.timekit.io/apis.json)
