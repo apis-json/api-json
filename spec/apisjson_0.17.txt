@@ -1,0 +1,590 @@
+Draft for Comment
+Name: API Discovery Format
+Informal Name: APIs.json or APIs.yaml
+Authors: Kin Lane, Steve Willmott
+Date: 02/22/2024
+Location: http://apisjson.org/format/apisjson_v0.17.txt
+
+	A Simple Format for Publishing API Meta Data on the Web
+
+Table of Contents
+
+   1.    Abstract
+   2.    Introduction
+   3.    Specification
+   3.1   Access method
+   3.2   Authority
+   3.2.1 Authoritative
+   3.2.2 Non-Authoritative
+   3.2.3 Conflict Resolution
+   3.2   File Format Description
+   3.3   Formal Syntax
+   3.3.1 JSON
+   3.3.2 Other Formats
+   3.4   Expiration
+   3.5   Media Type
+   3.6   JSON Schema
+   3.7   Well Known
+   3.8   Link Relation
+   3.9   Extensions
+   4.    Examples
+   5.    Security Considerations
+   6. 	 Reserved Keywords with Definitions
+   8.    Acknowledgements
+   9.    Author's Address
+
+1. 	Abstract
+
+   Web APIs [1] are becoming a crucial part of the Web. Unfortunately however, it remains
+   very difficult to determine the location of these APIs on servers around the Web by
+   automated means. The only way to discover APIs and their properties is via human
+   driven search through public search engines or in hand curated API Directory listings
+   such as ProgrammableWeb [2]. While these methods work, neither can scale to the potentially
+   hundreds of thousands and millions of APIs which will be published over the next few years.
+
+   The objective of the format described in this document is to provide a simple means
+   for individuals and organizations to document the location of their
+   API Services on a given domain in a machine readable way. The format is designed
+   for public deployment and for consumption by automated software agents (robots).
+
+   This document is written in loose RFC style for the purposes of clarity, but
+   it is not an official recommendation. Discussion around the format takes place
+   on the API Json Mailing list [3].
+
+2. 	Introduction
+
+   Web APIs have quickly become an important part of Web Infrastructure. However the
+   amount of machine readable meta-data about the location and capabilities of these APIs
+   remains extremely limited.
+
+   A number of machine readable formats for describing Web API Interfaces have emerged.
+   Unfortunately however adoption of these formats is not widespread and further, where
+   they are used it is in turn not clear where to look for these definition files
+   themselves. This document takes no position on which of these formats is best, but
+   aims to solve the problem of where to find the descriptions in the first place.
+
+   In other words, it means to provide a mechanism to bootstrap meta-data discovery for APIs.
+
+   The objective of the format defined in this document is to provide a lightweight means
+   for individuals and organizations to document the location of their APIs, the associated
+   descriptions, human and machine readable specification and ancillary information (such
+   as licensing, maintainers and so forth).
+
+3. 	Specification
+
+   This section defines the API Meta Data Format. The following terminology is used throughout:
+
+   * File: instance of a digital file containing data.
+   * Apis.* file, a file which contains API Meta Data information compatible with this
+     document and uses one of the defined content types [currently JSON, YAML and TXT]. A file
+     may contain more than one API Specification.
+   * API Specification: collection of information about a specific API expressed in the
+     format defined in this document. Uniqueness is determined by the primary root/base
+     URL of the API.
+
+3.1.	Access method
+
+   The definitions of API Meta Data MUST be accessible by HTTP or HTTPS or Both from
+   either the site on which the referenced APIs are operating or another site (see below
+   for information on Authoritative and Non-Authoritative definitions) as a resource of
+   Internet Media Type as determined by the content type under
+   a standard relative path on the server: "/apis.*", where * is determined by the
+   content type of the file.
+
+   For convenience we will refer to this resource as the "/apis.*
+   file", though the resource need in fact not originate from a file-
+   system.
+
+   Some examples of URLs for sites and URLs for corresponding
+   "/apis.*" sites:
+
+     http://www.foo.com/apis.txt
+
+     http://www.bar.com:8001/apis.json
+
+   If the server response indicates Success (HTTP 2xx Status Code)
+   the robot must read the content, parse it, and follow any
+   instructions applicable.
+
+   If the server response indicates the resource does not exist (HTTP
+   Status Code 404), the robot can assume no instructions are
+   available.
+
+   If the robot parses the file it may discover references to further apis.*
+   files elsewhere on the same filesystem or elsewhere on the Internet. It may
+   choose to download these files also and take into account the information
+   contained within them.
+
+   While the format is intended to be human readable and may be used by humans, it
+   is primarily intended for consumption by automated software systems. Such software
+   systems may be part of search engines, testing frameworks or API using applications.
+   In keeping with terminology from the robots.txt format they are referred to as robots
+   from here onwards.
+
+3.2.  Authority
+
+3.121	   Authoritative
+
+  An entry in a apis.* file is AUTHORITATIVE for a given domain if the root domain of
+  the API described by the entry is on the same DNS domain or on a DNS subdomain thereof.
+
+3.2.2	   Non-Authoritative
+
+   An entry in an apis.* file for an API is NON-AUTHORITATIVE if it is not AUTHORITATIVE.
+
+3.2.3    Authority by Reference
+
+   For Discussion: We may wish to allow the case where a top level apis.json file on a given domain has
+   pointers to files on other servers which define APIs on the domain of the first
+  file. These could then be considered authoritative. This is complex but might be a real
+   use case.
+
+3.2.4.   Conflict Resolution
+
+   In cases where a robot discovers more than one entry in separate apis.* files for a
+   a specific API, priority on the validity of information should generally be resolved
+   as follows:
+
+   * Authoritative entries have priority over non-authoritative.
+   * Where two or more authoritative entries exist on different subdomains, the
+     entry in the file closest to the specific domain of the root domain of the API
+     shall have priority.
+
+   Example for an API with DNS domain http://mainapi.commerce.company.com/ where entries
+   are present at:
+
+   * http://company.com/apis.json
+   * http://commerce.company.com/apis.json
+
+   The later would be interpreted as the most Authoritative.
+
+3.3. 	Formal Syntax
+
+3.3.1.	JSON or YAML Format
+
+   This is a proposed specification for an apis.json or apis.yaml file, which can be placed in the
+   root of any domain, providing a single inventory of all API resources available within
+   that domain, as well as pointers to other associated api.json files.
+
+   A file shall be in JSON or YAML format and contain the following elements:
+
+    * aid [Mandatory]: A unique identifier for the collection, consisting of [root domain]:[string] (ie. apis.json:spec-example)
+    * name [Mandatory]: text string of human readable name for the collection of APIs
+    * description [Mandatory]: text human readable description of the collection of APIs.
+		* type [Optional]: Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API]).
+    * image [Optional]: Web URL leading to an image to be used to represent the collection of
+      APIs defined in this file.
+    * url [Mandatory]: Web URL indicating the location of the latest version of this file
+    * tags (collection) Optional]:
+      this is a list of descriptive strings which identify the contents of the APIs.json file. Represented
+      as an array.
+    * created [Mandatory]: date of creation of the file
+    * modified [Mandatory]: date of last modification of the file
+    * specificationVersion [Mandatory]: version of the APIs.json specification in use.
+
+    * apis (collection) [Optional]: list of APIs identified in the file, each containing:
+
+        * aid [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api)
+        * name [Mandatory]: name of the API
+        * description [Mandatory]: human readable text description of the API.
+        * image [Optional]: URL of an image which can be used as an "icon" for the API if displayed by a
+              search engine.
+        * humanUrl: Web URL corresponding to human readable information about the API.
+        * baseUrl: Web URL corresponding to the root URL of the API or primary endpoint.
+        * version [Optional]: String representing the version number of the API this description refers to.
+        * tags: (collection) [Optional]: this is a list of descriptive strings which identify the API.
+      as an array.
+        * properties (collection):
+					- name [Optional]: The display name of the property.
+					- type: please see reserved keywords below.
+					- mediaType [Optional]: IANA media type representing the property.
+          - url [Optional]: The URL for the property. * must be url or data
+					- data [Optional]: The data for the property. * must be url or data
+        * overlays (collection) [Optional]: an optional list of overlays to apply to individual APIs.
+					- type [Optional]: The type of overlay being made available.
+          - url [Optional]: The URL for the property. * must be url or data       
+        * contact (collection)
+          - [Person or Organization - see below]
+
+    * common (collection) [Optional]: a list of common properties for use across all APIs and tools.
+			- name [Optional]: The display name of the property.
+			- type: please see reserved keywords below.
+			- mediaType [Optional]: IANA media type representing the property.
+      - url or value.
+
+    * overlays (collection) [Optional]: an optional list of overlays to apply to primary APIs.json.
+      - type [Optional]: The type of overlay being made available.
+      - url [Optional]: The URL for the property. * must be url or data     
+
+    * include (collection) [Optional]
+        * name [Mandatory]: name of the APIs.json file referenced.
+        * url [Mandatory]: Web URL of the file.
+
+    * maintainers (collection)    [VCARD]
+        * [Person or Organization - see below]
+
+    The above elements determine the information to be provided (examples are provided lower down). In
+    addition the format reserves keywords for types. These are listed in Section 6.
+
+    The Person or Organization is defined as containing:
+
+        * fn [Optional]: String Value corresponding to the Full Nname name of the individual / organization.
+        * email [Optional]: String Value corresponding to the email address of the individual / organization
+        * url [Optional]: String Value corresponding to a web page about the individual individual / organization
+        * org [Optional]: String Value representing the name of the organization associated with the cCard.
+        * adr [Optional]: String Value corresponding to the physical address of the individual / organization.
+        * tel [Optional]: String Value corresponding to the phone number including country code of the individual / organization.
+        * x-twitter [Optional]: String Value corresponding to the twitter username of the individual / organization (convention do
+          not use the "@" symbol). Note - these are X- since this is the way they are / would be in vCard.
+        * x-github [Optional]: String Value corresponding to the github username of the individual / organization. Note - these are X- since this is the way they are / would be in vCard.
+        * photo [Optional]: URL corresponding to an image which could be used to represent the individual / organization.
+
+        * vCard [Optional]: URL pointing to a vCard Objective RFC6350
+
+    The labelled values are all taken from the vCard specification.
+
+3.3.2.	Other Formats
+
+   No Other Formats are currently planned
+
+3.4.	Expiration
+
+   Robots may cache /apis.* files, but if they do they must
+   periodically verify the cached copy is fresh before using its
+   contents.
+
+   Standard HTTP cache-control mechanisms can be used by both origin
+   server and robots to influence the caching of the /apis.* file.
+   Specifically robots should take note of Expires header set by the
+   origin server.
+
+   If no cache-control directives are present robots should default to
+   an expiry of 7 days.
+
+3.5.  Media Type
+
+  It is intended that if there is sufficient traction, the media type "application/apis+json" or "application/x-yaml" will be
+  submitted to IANA as per RFC: http://tools.ietf.org/html/rfc4288
+
+3.6. JSON Schema
+
+  A JSON schema is under development for the format.
+
+3.7. Well Known
+
+  It is intended that if there is sufficient traction, the "well known" location "/apis.json" or "/apis.yaml" will be
+  submitted as per RFC: http://tools.ietf.org/html/rfc5785
+
+3.8. Link Relation
+
+  In order for a Web site to reference its API description, it is recommended that it includes a header or
+  in-line reference to the APIs.json resource using one of the api link relation, e.g.:
+
+    * <link rel="api" type="application/apis+json" href="https://example.com/apis.json" />
+		* <link rel="api" type="application/apis+yaml" href="https://example.com/apis.yaml" />
+
+  It is intended that if there is sufficient traction, the link relation “api” will be
+  submitted to IANA as per RFC: http://tools.ietf.org/html/rfc5988
+
+3.9. Extensions
+
+  TBD
+
+4.	Examples
+
+   Here is an example api.json file:
+
+		{
+		   "aid": "apis.json:spec-example",
+       "name": "Example API",
+		   "type": "Index",
+		   "description": "This is an example APIs.json file, demonstrating what is possible with\nthe API discovery specification.",
+		   "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+		   "tags": [
+		      "Application Programming Interface",
+		      "API"
+		   ],
+		   "created": "2024-02-22",
+		   "modified": "2024-02-22",
+		   "url": "http://example.com/apis.json",
+		   "specificationVersion": "0.17",
+		   "apis": [
+		      {
+		         "aid": "apis.json:spec-api",
+             "name": "Example API",
+		         "description": "This provides details about a specific API, telling what is possible.",
+		         "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+		         "humanURL": "http://example.com",
+		         "baseURL": "http://api.example.com",
+		         "tags": [
+		            "API",
+		            "Application Programming Interface"
+		         ],
+		         "properties": [
+		            {
+		               "type": "Documentation",
+		               "url": "https://example.com/documentation"
+		            },
+		            {
+		               "type": "OpenAPI",
+		               "url": "http://example.com/openapi.json"
+		            },
+		            {
+		               "type": "JSONSchema",
+		               "url": "http://example.com/json-schema.json"
+		            }
+		         ],
+		         "overlays": [
+		            {
+		               "type": "APIs.io Search",
+		               "url": "https://example.com/apis-io-search"
+		            },
+		            {
+		               "type": "API Evangelist Rating",
+		               "url": "http://example.com/api-evangelist-ratings"
+		            }
+		         ],             
+		         "contact": [
+		            {
+		               "FN": "APIs.json",
+		               "email": "info@apisjson.org",
+		               "X-twitter": "apisjson"
+		            }
+		         ]
+		      }
+		   ],
+		   "common": [
+		      {
+		         "type": "Signup",
+		         "url": "https://example.com/signup"
+		      },
+		      {
+		         "type": "Authentication",
+		         "url": "http://example.com/authentication"
+		      },
+		      {
+		         "type": "Login",
+		         "url": "https://example.com/login"
+		      },
+		      {
+		         "type": "Blog",
+		         "url": "http://example.com/blog"
+		      },
+		      {
+		         "type": "Pricing",
+		         "url": "http://example.com/pricing"
+		      }
+		   ],
+		   "overlays": [
+		      {
+		         "type": "APIs.io Search",
+		         "url": "https://example.com/apis-io-search"
+		      },
+		      {
+		         "type": "API Evangelist Ratings",
+		         "url": "http://example.com/api-evangelist-ratings"
+		      }
+		   ],       
+		   "include": [
+		      {
+		         "name": "Another Example API",
+		         "url": "http://example.com/apis.json"
+		      }
+		   ],
+		   "maintainers": [
+		      {
+		         "FN": "Kin Lane",
+		         "X-twitter": "apievangelist",
+		         "email": "info@apievangelist.com"
+		      }
+		   ]
+		}
+
+	Here is an example api.yaml file:
+
+    aid: apis.json:spec-example
+    name: Example API
+    type: Index
+    description: |-
+      This is an example APIs.json file, demonstrating what is possible with
+      the API discovery specification.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    tags:
+    - Application Programming Interface
+    - API
+    created: '2024-02-22'
+    modified: '2024-02-22'
+    url: http://example.com/apis.json
+    specificationVersion: '0.17'
+    apis:
+    - aid: apis.json:spec-api
+      name: Example API
+      description: This provides details about a specific API, telling what is possible.
+      image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      humanURL: http://example.com
+      baseURL: http://api.example.com
+      tags:
+      - API
+      - Application Programming Interface
+      properties:
+      - type: Documentation
+        url: https://example.com/documentation
+      - type: OpenAPI
+        url: http://example.com/openapi.json
+      - type: JSONSchema
+        url: http://example.com/json-schema.json
+      overlays:
+      - type: APIs.io Search
+        url: https://example.com/apis-io-search
+      - type: API Evangelist Rating
+        url: http://example.com/api-evangelist-ratings
+      contact:
+      - FN: APIs.json
+        email: info@apisjson.org
+        X-twitter: apisjson
+    common:
+    - type: Signup
+      url: https://example.com/signup
+    - type: Authentication
+      url: http://example.com/authentication
+    - type: Login
+      url: https://example.com/login
+    - type: Blog
+      url: http://example.com/blog
+    - type: Pricing
+      url: http://example.com/pricing
+    overlays:
+    - type: APIs.io Search
+      url: https://example.com/apis-io-search
+    - type: API Evangelist Ratings
+      url: http://example.com/api-evangelist-ratings
+    include:
+    - name: Another Example API
+      url: http://example.com/apis.json
+    maintainers:
+    - FN: Kin Lane
+      X-twitter: apievangelist
+      email: info@apievangelist.com
+
+5. 	Security Considerations
+
+   Deploying files compliant with this recommendation on your domain may
+   generate certain security risks. The recommendation is not
+   intended to protect APIs, other types of resources or secure
+   access in any way. The objective of the recommendation is to
+   provide simple means to identify where APIs may be located on a
+   given domain.
+
+   As such external parties accessing the specification
+   files will be able to determine the location of the API endpoints
+   referenced within the file and hence may attempt to access them.
+
+   All such visible endpoints should be secured in an appropriate manner.
+
+6.	Reserved Keywords with Definitions
+
+  This list can be found at htt://apisjson.org/format/reservedwords, and may be updated from time to time and maintenaned exernally.
+
+7. References
+
+ [1] http://en.wikipedia.org/wiki/Web_API
+ [2] http://www.programmableweb.com
+ [3] https://groups.google.com/forum/#!forum/apisjson
+ [4] http://tools.ietf.org/html/rfc6350
+
+8. 	Acknowledgements
+
+	The specification provided here was inspired by conversation in the API Community at events
+  such as the API Strategy and Practice Conferences, API Days conferences, Nordic APIs conferences,
+  Gluecon, Defrag and others.
+
+9. 	Authors' Address
+
+	Kin Lane,
+	API Evangelist
+	http://www.apievangelist.com/
+	email:
+
+	Steven Willmott
+	3scale networks
+	http://www.3scale.net/
+	email: steve@3scale.net
+
+----RESERVED WORDS
+
+Reserved Words for APIs.json / APIS.yaml Specification
+
+ * Version 1
+
+Definition Elements:
+
+ * Name
+ * HumanURL
+ * BaseURL
+ * Description
+ * Image
+ * Version
+ * Tags
+
+Properties Elements:
+
+ * Swagger
+ * OpenAPI
+ * JSONSchema
+ * GraphQLSchema
+ * PostmanCollection
+ * PostmanWorkspace
+ * AsyncAPI
+ * RAML
+ * Blueprint
+ * WADL
+ * WSDL
+
+ * GettingStarted
+ * Documentation
+ * Authentication
+ * Versioning 
+ * Signup
+ * Login
+ * TermsOfService
+ * InterfaceLicense
+ * PrivacyPolicy
+ * DeprecationPolicy
+ * ServiceLevelAgreement
+ * Security
+ * SDKs
+ * StatusPage
+ * Pricing
+ * RateLimits
+ * Blog
+ * BlogFeed
+ * Forums
+ * Support
+ * ChangeLog
+ * RoadMap
+ * Contact
+ * ErrorCodes
+ * GitHubOrg
+ * GitHubRepo
+ * Twitter
+ * AlertsTwitterHandle
+ * Webhooks
+ * Integrations
+ * OpenAIPluginManifest
+
+Contact Elements:
+
+ * Any vCard Element
+
+Maintainer Elements:
+
+ * name
+ * twitter
+ * github
+ * email
+ * url
+ * organizationName
+ * organizationUrl
+ * address
+ * phoneNumber
+ * image
