@@ -47,7 +47,7 @@ These do not have to be machine readable links, they can reference important thi
 *   [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification), for API description.
 *   [API Common](http://apicommons.org/), for API licensing.
 *   [AsyncAPI](https://asyncapi.com), for event-driven APIs.
-*   [JSOn SChema](https://json-schema.org), for defining schema.
+*   [JSON SChema](https://json-schema.org), for defining schema.
 *   [Postman](https://www.getpostman.com/docs/collections), for run-time.
 
 **Defining New, Machine Readable Property Elements For APIs.json**  
@@ -69,7 +69,7 @@ I doubt we will see many new additions like commons and country. In the future m
 *   Incentivize the development of more <span style="text-decoration: underline;">meaningful tooling that employs APIs.json</span>, and uses it to better serve the API life cycle.
 *   Continue to <span style="text-decoration: underline;">add new API property elements</span>, making sure as many of them as possible evolve to be machine readable, as well as first class citizens in the APIs.json specification.
 
-**Other LInks**
+**Other Links**
 * [APIs.json Website](http://apisjson.org/)
 * [APIs.json Github Repo](https://github.com/apis-json/api-json) 
 * [APis.io via the website](http://apis.io/)
