@@ -3,7 +3,7 @@ Name: API Discovery Format
 Informal Name: APIs.json	
 Authors: Kin Lane, Steven Willmott, Nicolas Grenie										
 Date: 
-Location: http://apicommons.org/apisjson/apisjson_v0.12.txt
+Location: http://apicommons.org/apisjson/apisjson_v0.13.txt
 
 				A Simple Format for Publishing API Meta Data on the Web
 

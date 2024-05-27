@@ -5,7 +5,7 @@ Authors: Kin Lane, Steven Willmott, Nicolas Grenie, Bruno Pedro
 Date: 29/04/2015
 Location: http://apicommons.org/apisjson/apisjson_v0.15.txt
 
-				A Simple Format for Publishing API Meta Data on the Web
+A Simple Format for Publishing API Meta Data on the Web
 
 Table of Contents
 
@@ -179,7 +179,7 @@ Table of Contents
     * Created [Mandatory]: date of creation of the file
     * Modified [Mandatory]: date of last modification of the file
     * specificationVersion [Mandatory]: version of the APIs.json specification in use.
-    
+     
     * Apis (collection) [Optional]: list of APIs identified in the file, each containing:
 
         * Name [Mandatory]: name of the API

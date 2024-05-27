@@ -1,0 +1,221 @@
+---
+title: A JSON Schema for apis.json, version 0.16
+"$schema": http://json-schema.org/draft-04/schema#
+type: object
+additionalProperties: false
+patternProperties:
+  "^X-":
+    type: object
+definitions:
+  maintainers:
+    description: The person or organization responsible for maintaining the API
+    required:
+    - name
+    properties:
+      name:
+        type: string
+        description: name
+        minLength: 5
+    additionalProperties:
+      type: string
+  apis:
+    description: The description of the API
+    oneOf:
+    - required:
+      - name
+      - description
+      - image
+      - baseURL
+      - humanURL
+      - properties
+      - contact
+      properties:
+        name:
+          type: string
+          description: name
+          minLength: 5
+        description:
+          type: string
+          description: description of the API
+          minLength: 5
+        image:
+          type: string
+          description: URL of an image representing the API
+        baseURL:
+          type: string
+          pattern: "^(http)|(https)://(.*)$"
+          description: baseURL
+        humanURL:
+          type: string
+          pattern: "^(http)|(https)://(.*)$"
+          description: humanURL
+        tags:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          description: tags to describe the API
+        properties:
+          type: array
+          items:
+            "$ref": "#/definitions/urls"
+          description: URLs
+        contact:
+          type: array
+          items:
+            "$ref": "#/definitions/contact"
+          description: Contact to reach if questions about API
+        meta:
+          type: array
+          items:
+            "$ref": "#/definitions/metaInformation"
+  metaInformation:
+    description: Metadata about the API
+    required:
+    - key
+    - value
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+  contact:
+    description: Information on contacting the API support
+    required:
+    - FN
+    additionalProperties: true
+    patternProperties:
+      "^X-":
+        type: string
+    properties:
+      FN:
+        type: string
+        minLength: 1
+      email:
+        type: string
+        format: email
+      organizationName:
+        type: string
+        minLength: 1
+      adr:
+        type: string
+      tel:
+        type: string
+        minLength: 1
+      X-twitter:
+        type: string
+      X-github:
+        type: string
+      photo:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+      vCard:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+      url:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+  urls:
+    description: A representation of a URL
+    required:
+    - type
+    - url
+    properties:
+      name:
+        type: string
+        description:  The display name of the property.
+      type:
+        type: string
+        description: One of the designated API property types or a custom one prefixed with x-.
+        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(PostmanCollection)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(Documentation)$|^(Authentication)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(GitHubOrg)$|^(GitHubRepo)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(X-[A-Za-z0-9\\-]*)$"
+      mediaType:
+        type: string 
+        description: IANA media type representing the property.       
+      url:
+        type: string
+        description: The URL for the property. * must be url or data.
+      data:
+        type: object   
+        description: The data for the property. * must be url or data       
+  tags:
+    description: A consistent set of tag to apply to a description  
+  include:
+    description: Include other APIs.json file
+    required:
+    - name
+    - url
+    properties:
+      name:
+        type: string
+        minLength: 1
+      url:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+required:
+- name
+- description
+- url
+- apis
+- maintainers
+- tags
+
+properties:
+
+  type:
+    type: string
+    description: The type of the APIs.json collection.
+    enum:
+      - Index
+      - Template
+      - Example
+  name:
+    type: string
+    description: The name of the APIs.json collection.
+    minLength: 5
+  description:
+    type: string
+    description: Description of the APIs.json collection.
+    minLength: 5
+  url:
+    type: string
+    description: URL where the apis.json file will live
+    pattern: "^(http)|(https)://(.*)$"
+  image:
+    type: string
+    description: Image to represent the API
+  created:
+    type: string
+    format: date
+    description: Date when the file was created
+  modified:
+    type: string
+    format: date
+    description: Date when the file was modified
+  specificationVersion:
+    type: string
+    description: APIs.json spec version, latest is 0.16
+  apis:
+    type: array
+    items:
+      "$ref": "#/definitions/apis"
+    description: All the APIs of this service
+  maintainers:
+    type: array
+    items:
+      "$ref": "#/definitions/contact"
+    description: Maintainers of the apis.json file
+  tags:
+    type: array
+    items:
+      "$ref": "#/definitions/tags"
+    description: Tags to describe the service
+  include:
+    type: array
+    items:
+      "$ref": "#/definitions/include"
+    description: Links to other apis.json definitions included in this service
+  common:
+    description: Common properties that apply across all APIs.
+    type: array
+    items:
+      "$ref": "#/definitions/urls" 

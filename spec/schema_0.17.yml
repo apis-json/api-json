@@ -1,0 +1,241 @@
+---
+title: A JSON Schema for apis.json, version 0.17
+"$schema": https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+patternProperties:
+  "^X-":
+    type: object
+
+$defs:
+
+  maintainers:
+    description: The person or organization responsible for maintaining the API
+    required:
+    - name
+    properties:
+      name:
+        type: string
+        description: name
+        minLength: 5
+    additionalProperties:
+      type: string
+  apis:
+    description: The description of the API
+    required:
+      - name
+      - description
+      - image
+      - baseURL
+      - humanURL
+      - properties
+    properties:
+      aid:
+        type: string
+        description: unique identifier for API
+        minLength: 10    
+      name:
+        type: string
+        description: name
+        minLength: 5
+      description:
+        type: string
+        description: description of the API
+        minLength: 5
+      image:
+        type: string
+        description: URL of an image representing the API
+      baseURL:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+        description: baseURL
+      humanURL:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+        description: humanURL
+      tags:
+        type: array
+        items:
+          type: string
+          minLength: 1
+        description: tags to describe the API
+      properties:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+        description: URLs
+      contact:
+        type: array
+        items:
+          "$ref": "#/$defs/contact"
+        description: Contact to reach if questions about API
+      meta:
+        type: array
+        items:
+          "$ref": "#/$defs/metaInformation"
+  metaInformation:
+    description: Metadata about the API
+    required:
+    - key
+    - value
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+  contact:
+    description: Information on contacting the API support
+    required:
+    - FN
+    additionalProperties: true
+    patternProperties:
+      "^X-":
+        type: string
+    properties:
+      FN:
+        type: string
+        minLength: 1
+      email:
+        type: string
+        format: email
+      organizationName:
+        type: string
+        minLength: 1
+      adr:
+        type: string
+      tel:
+        type: string
+        minLength: 1
+      X-twitter:
+        type: string
+      X-github:
+        type: string
+      photo:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+      vCard:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+      url:
+        type: string
+        pattern: "^(http)|(https)://(.*)$"
+  urls:
+    description: A representation of a URL
+    required:
+    - type
+    - url
+    properties:
+      name:
+        type: string
+        description:  The display name of the property.
+      type:
+        type: string
+        description: One of the designated API property types or a custom one prefixed with x-.
+        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(GraphQLSchema)$|^(PostmanCollection)$|^(PostmanWorkspace)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(GettingStarted)$|^(Documentation)$|^(Authentication)$|^(Versioning)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(DeprecationPolicy)$|^(ServiceLevelAgreement)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(GitHubOrg)$|^(GitHubRepo)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(Webhooks)$|^(Integrations)$|^(OpenAIPluginManifest)$|^(X-[A-Za-z0-9\\-]*)$"
+      mediaType:
+        type: string 
+        description: IANA media type representing the property.       
+      url:
+        type: string
+        description: The URL for the property. * must be url or data.
+      data:
+        type: object   
+        description: The data for the property. * must be url or data         
+  tags:
+    description: A consistent set of tag to apply to a description
+  include:
+    description: Include other APIs.json file
+    required:
+    - name
+    - url
+    properties:
+      name:
+        type: string
+        minLength: 1
+      url:
+        type: string
+  overlay:
+    description: Overlay other APIs.json file
+    required:
+    - url
+    properties:
+      name:
+        type: string
+        minLength: 1
+      url:
+        type: string        
+required:
+- name
+- description
+- url
+- apis
+- maintainers
+- tags
+
+properties:
+
+  type:
+    type: string
+    description: The type of the APIs.json collection.
+    enum:
+      - Index
+      - Template
+      - Example
+  name:
+    type: string
+    description: The name of the service described
+    minLength: 3
+    maxLength: 50
+  description:
+    type: string
+    description: Description of the service
+    minLength: 5
+    maxLength: 1000
+  url:
+    type: string
+    description: URL where the apis.json file will live
+    pattern: "^(http)|(https)://(.*)$"
+  image:
+    type: string
+    description: Image to represent the API
+  created:
+    type: string
+    format: date
+    description: Date when the file was created
+  modified:
+    type: string
+    format: date
+    description: Date when the file was modified
+  specificationVersion:
+    type: string
+    description: APIs.json spec version, latest is 0.17
+  apis:
+    type: array
+    items:
+      "$ref": "#/$defs/apis"
+    description: All the APIs of this service
+  maintainers:
+    type: array
+    items:
+      "$ref": "#/$defs/contact"
+    description: Maintainers of the apis.json file
+  tags:
+    type: array
+    items:
+      "$ref": "#/$defs/tags"
+    description: Tags to describe the service
+  include:
+    type: array
+    items:
+      "$ref": "#/$defs/include"
+    description: Links to other apis.json definitions included in this service
+  common:
+    description: Common properties that apply across all APIs.
+    type: array
+    items:
+      "$ref": "#/$defs/urls"     
+  overlays:
+    type: array
+    items:
+      "$ref": "#/$defs/overlay"
+    description: Links to other apis.json that will be overlaid original.

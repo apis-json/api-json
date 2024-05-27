@@ -5,7 +5,7 @@ Authors: Kin Lane, Steven Willmott, Nicolas Grenie
 Date: 10/06/2014
 Location: http://apicommons.org/apisjson/apisjson_v0.14.txt
 
-				A Simple Format for Publishing API Meta Data on the Web
+				A Simple Format for Publishing API Meta Data on the Web 
 
 Table of Contents
 
