@@ -1,5 +1,7 @@
 # APIs.json
 
+**The human-readable TXT file is the source of truth for the specification.**
+
 ## What is APIs.json? 
 It is a machine readable JSON specification, that anyone can use to define their API operations. APIs.json does not describe your APIs like [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) do, but it describes your surrounding API operations, with entries that can reference your OpenAPI, or any other format that you desire.
 
@@ -77,6 +79,6 @@ I doubt we will see many new additions like commons and country. In the future m
 * 
 **Next Steps**
 * Stories, stories, and more stories.
-* Next 0.17 release
+* Next 0.20 release
   *   Overlay
   *   Unique Identifier
