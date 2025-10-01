@@ -173,18 +173,18 @@ Table of Contents
 
    A file shall be in JSON or YAML format and contain the following fields:
 
-    * aid [Mandatory]: A unique identifier for the collection consisting of [root domain]:[string] (ie. apis.json:spec-example).
-    * name [Mandatory]: text string of human readable name for the collection of APIs.
-    * description [Mandatory]: text human readable description of the collection of APIs.	 
-    * image [Optional]: URL leading to an image to be used to represent the collection of APIs defined in this file.
-    * url [Mandatory]: URL indicating the location of the latest version of this file.
-    * tags (collection) [Optional]: this is a list of descriptive strings which identify the contents of the APIs.json file. Represented as an array.
-    * created [Mandatory]: date of creation of the file.
-    * modified [Mandatory]: date of last modification of the file.
-    * type [Optional]: Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API]).
-    * position [Optional]: The position held by the maintainer of an APIs.json.
-    * access [Optional]: The access available for the APIs.json being defined.
-    * specificationVersion [Mandatory]: version of the APIs.json specification in use.
+    * aid (string) [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api).
+    * name (string) [Mandatory]: Human readable name for the collection of APIs.
+    * description (string) [Mandatory]: Human readable description of the collection of APIs.
+    * image (string) [Optional]: URL leading to an image to be used to represent the collection of APIs defined in this file.
+    * url (string) [Mandatory]: URL indicating the location of the latest version of this file.
+    * tags (collection) [Optional]: A list of descriptive strings which identify the contents of the APIs.json file.
+    * created (string) [Mandatory]: Date of creation of the file.
+    * modified (string) [Mandatory]: Date of last modification of the file.
+    * type (string) [Optional]: Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API]).
+    * position (string) [Optional]: The position held by the maintainer of an APIs.json.
+    * access (string) [Optional]: The access available for the APIs.json being defined.
+    * specificationVersion (string) [Mandatory]: version of the APIs.json specification in use.
 
     * apis (collection) [Optional]: list of APIs identified in the file, each containing:
         * aid (string) [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api).
