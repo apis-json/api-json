@@ -67,8 +67,8 @@ Table of Contents
 
    The objective of the format defined in this document is to provide a lightweight means
    for individuals and organizations to document the location of their APIs, the associated
-   descriptions, human and machine readable specification and ancillary information (such
-   as licensing, maintainers and so forth).
+   descriptions, human and machine readable specification, and ancillary information (such
+   as licensing, maintainers, and so forth).
 
 3. Specification
 
@@ -76,7 +76,7 @@ Table of Contents
 
    * File: instance of a digital file containing data.
    * Apis.* file, a file which contains API Meta Data information compatible with this
-     document and uses one of the defined content types [currently JSON, YAML, Markdown and TXT]. A file
+     document and uses one of the defined content types [currently JSON, YAML, Markdown, and TXT]. A file
      may contain more than one API Specification.
    * API Specification: collection of information about a specific API expressed in the
      format defined in this document. Uniqueness is determined by the primary root/base
@@ -91,7 +91,7 @@ Table of Contents
    a standard relative path on the server: "/apis.*", where * is determined by the
    content type of the file.
 
-   For convenience we will refer to this resource as the "/apis.*
+   For convenience, we will refer to this resource as the "/apis.*
    file", though the resource need in fact not originate from a file-
    system.
 
@@ -121,7 +121,7 @@ Table of Contents
 
    While the format is intended to be human readable and may be used by humans, it
    is primarily intended for consumption by automated software systems. Such software
-   systems may be part of search engines, testing frameworks or API using applications.
+   systems may be part of search engines, testing frameworks, or API using applications.
    In keeping with terminology from the robots.txt format they are referred to as robots
    from here onwards.
 
@@ -171,92 +171,86 @@ Table of Contents
    root of any domain, providing a single inventory of all API resources available within
    that domain, as well as pointers to other associated api.json files.
 
-   A file shall be in JSON or YAML format and contain the following elements:
+   A file shall be in JSON or YAML format and contain the following fields:
 
-    * aid [Mandatory]: A unique identifier for the collection, consisting of [root domain]:[string] (ie. apis.json:spec-example)
-    * name [Mandatory]: text string of human readable name for the collection of APIs
-    * description [Mandatory]: text human readable description of the collection of APIs.	 
-    * image [Optional]: Web URL leading to an image to be used to represent the collection of
-      APIs defined in this file.
-    * url [Mandatory]: Web URL indicating the location of the latest version of this file
-    * tags (collection) Optional]:
-      this is a list of descriptive strings which identify the contents of the APIs.json file. Represented
-      as an array.
-    * created [Mandatory]: date of creation of the file
-    * modified [Mandatory]: date of last modification of the file
-    * type [Optional]: Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API]).
-    * position [Optional]: The position held by the maintainer of an APIs.json.
-    * access [Optional]: The access available for the APIs.json being defined.
-    * specificationVersion [Mandatory]: version of the APIs.json specification in use.
+    * aid (string) [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api).
+    * name (string) [Mandatory]: Human readable name for the collection of APIs.
+    * description (string) [Mandatory]: Human readable description of the collection of APIs.
+    * image (string) [Optional]: URL leading to an image to be used to represent the collection of APIs defined in this file.
+    * url (string) [Mandatory]: URL indicating the location of the latest version of this file.
+    * tags (collection) [Optional]: A list of descriptive strings which identify the contents of the APIs.json file.
+    * created (string) [Mandatory]: Date of creation of the file.
+    * modified (string) [Mandatory]: Date of last modification of the file.
+    * type (string) [Optional]: Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API]).
+    * position (string) [Optional]: The position held by the maintainer of an APIs.json.
+    * access (string) [Optional]: The access available for the APIs.json being defined.
+    * specificationVersion (string) [Mandatory]: version of the APIs.json specification in use.
 
     * apis (collection) [Optional]: list of APIs identified in the file, each containing:
-
-        * aid [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api)
-        * name [Mandatory]: name of the API
-        * description [Mandatory]: human readable text description of the API.
-        * image [Optional]: URL of an image which can be used as an "icon" for the API if displayed by a search engine.
-        * created [Optional]: date of creation of the api
-        * modified [Optional]: date of last modification of the api        
-        * humanUrl: Web URL corresponding to human readable information about the API.
-        * baseUrl: Web URL corresponding to the root URL of the API or primary endpoint.
-        * version [Optional]: String representing the version number of the API this description refers to.
-        * tags: (collection) [Optional]: this is a list of descriptive strings which identify the API.
-      as an array.
-        * properties (collection):
-            - name [Optional]: The display name of the property.
-            - description [Optional]: human readable text description of the property.
-            - type: please see reserved keywords below.
-            - mediaType [Optional]: IANA media type representing the property.
-            - url [Optional]: The URL for the property. * must be url or data
-            - data [Optional]: The data for the property. * must be url or data
-            - tags: (collection) [Optional]: this is a list of descriptive strings which identify the property.
-        * overlays (collection) [Optional]: an optional list of overlays to apply to individual APIs.
-            - type [Optional]: The type of overlay being made available.
-            - url [Optional]: The URL for the property. * must be url or data       
-        * contact (collection)
-            - [Person or Organization - see below]
+        * aid (string) [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api).
+        * name (string) [Mandatory]: Name of the API.
+        * description (string) [Mandatory]: Human readable text description of the API.
+        * image (string) [Optional]: URL of an image which can be used as an "icon" for the API if displayed by a search engine.
+        * created (string) [Optional]: Date of creation of the API.
+        * modified (string) [Optional]: Date of last modification of the API.
+        * humanUrl (string) [Optional]: URL corresponding to human readable information about the API.
+        * baseUrl (string) [Mandatory]: URL corresponding to the root URL of the API or primary endpoint.
+        * version (string) [Optional]: String representing the version number of the API this description refers to.
+        * tags: (collection) [Optional]: This is a list of descriptive strings which identify the API.
+        * properties (collection) [Optional]: The human and machine-readable properties of an API.
+            - name (string) [Optional]: The display name of the property.
+            - description (string) [Optional]: Human readable text description of the property.
+            - type (string) [Mandatory]: Please see reserved keywords below.
+            - mediaType (string) [Optional]: IANA media type representing the property.
+            - url (string) [Mandatory]: URL for the property. * field is mutually exclusive of the data field
+            - data (string) [Mandatory]: Data for the property. * field is mutually exclusive of the url field
+            - tags: (collection) [Optional]: A list of descriptive strings which identify the property.
+        * overlays (collection) [Optional]: An optional list of overlays to apply to individual APIs.
+            - type (string) [Mandatory]: The type of overlay being made available.
+            - url (string) [Mandatory]: URL for the overlay.
+        * contact (collection) [Optional]: An object to describe a person.
+            - (Person or Organization) [Mandatory]: Please see the definition below.
 
     * common (collection) [Optional]: a list of common properties for use across all APIs and tools.
-			- name [Optional]: The display name of the property.
-         - description [Optional]: human readable text description of the property.
-			- type: please see reserved keywords below.
-			- mediaType [Optional]: IANA media type representing the property.
-         - url or value.
-         - data [Optional]: The data for the property. * must be url or data
-         - tags: (collection) [Optional]: this is a list of descriptive strings which identify the property.         
+        - name (string) [Optional]: The display name of the property.
+        - description (string) [Optional]: Human readable text description of the property.
+        - type (string): Please see reserved keywords below.
+        - mediaType (string) [Optional]: IANA media type representing the property.
+        - url (string) [Mandatory]: URL for the common property. * field is mutually exclusive of the data field
+        - data (string) [Mandatory]: Data for the common property. * field is mutually exclusive of the url field
+        - tags: (collection) [Optional]: this is a list of descriptive strings which identify the common property.
 
-    * overlays (collection) [Optional]: an optional list of overlays to apply to primary APIs.json.
-      - type [Optional]: The type of overlay being made available.
-      - url [Optional]: The URL for the property.   
+    * overlays (collection) [Optional]: An optional list of overlays to apply to primary APIs.json.
+        - type (string) [Mandatory]: The type of overlay being made available.
+        - url (string) [Mandatory]: URL for the overlay.
 
-    * include (collection) [Optional]
-      - name [Mandatory]: name of the APIs.json file referenced.
-      - url [Mandatory]: Web URL of the file.
+    * include (collection) [Optional]: Additional APIs.json to include with the index.
+        - name (string) [Mandatory]: The name of the APIs.json file referenced.
+        - url (string) [Mandatory]: URL of the APIs.json file referenced.
 
-    * networks (collection) [Optional]: an optional list of related API nodes to search in a network.
-      - name [Optional]: The name of network being made available.
-      - url [Optional]: The URL for the network search node.        
+    * networks (collection) [Optional]: A list of other APIs.json search indexes to include for discovery.
+        - name (string) [Optional]: The name of network being made available.
+        - url (string) [Optional]: The URL for the network search node.
 
-    * maintainers (collection) [VCARD]
-        * [Person or Organization - see below]
+    * maintainers (collection) [Mandatory]: Who is responsible for maintaining an APIs.json.
+        - (Person or Organization) [Mandatory]: Please see the definition below.
 
-    The above elements determine the information to be provided (examples are provided lower down). In
-    addition the format reserves keywords for types. These are listed in Section 6.
+    The above fields determine the information to be provided (examples are provided lower down). In
+    addition, the format reserves keywords for types. These are listed in Section 6.
 
-    The Person or Organization is defined as containing:
+    (Person or Organization) is defined as containing:
+        * fn (string) [Optional]: Value corresponding to the full name of the individual / organization.
+        * email (string) [Optional]: Value corresponding to the email address of the individual / organization.
+        * url (string) [Optional]: Value corresponding to a web page about the individual / organization.
+        * org (string) [Optional]: Value representing the name of the organization associated with the vCard.
+        * adr (string) [Optional]: Value corresponding to the physical address of the individual / organization.
+        * tel (string) [Optional]: Value corresponding to the phone number including country code of the individual / organization.
+        * x-twitter (string) [Optional]: Value corresponding to the twitter (X) username of the individual / organization without the "@" leading character.
+        * x-github (string) [Optional]: Value corresponding to the github username of the individual / organization.
+        * photo (string) [Optional]: URL corresponding to an image which could be used to represent the individual / organization.
+        * vCard (string) [Optional]: URL pointing to a vCard file as defined in RFC 6350.
 
-        * fn [Optional]: String Value corresponding to the Full Name name of the individual / organization.
-        * email [Optional]: String Value corresponding to the email address of the individual / organization
-        * url [Optional]: String Value corresponding to a web page about the individual individual / organization
-        * org [Optional]: String Value representing the name of the organization associated with the cCard.
-        * adr [Optional]: String Value corresponding to the physical address of the individual / organization.
-        * tel [Optional]: String Value corresponding to the phone number including country code of the individual / organization.
-        * x-twitter [Optional]: String Value corresponding to the twitter username of the individual / organization (convention do not use the "@" symbol). Note - these are X- since this is the way they are / would be in vCard.
-        * x-github [Optional]: String Value corresponding to the github username of the individual / organization. Note - these are X- since this is the way they are / would be in vCard.
-        * photo [Optional]: URL corresponding to an image which could be used to represent the individual / organization.
-        * vCard [Optional]: URL pointing to a vCard Objective RFC6350
-
-    The labelled values are all taken from the vCard specification.
+    The above fields (except vCard) are all taken from the vCard specification (RFC 6350).
 
 3.3.2.	Other Formats
 
@@ -287,13 +281,13 @@ Table of Contents
 
 3.7. Well Known
 
-  It is intended that if there is sufficient traction, the "well known" location "/apis.json" or "/apis.yaml" will be
+  It is intended that if there is sufficient traction, the "well-known" location "/apis.json" or "/apis.yaml" will be
   submitted as per RFC: http://tools.ietf.org/html/rfc5785
 
 3.8. Link Relation
 
-  In order for a Web site to reference its API description, it is recommended that it includes a header or
-  in-line reference to the APIs.json resource using one of the api link relation, e.g.:
+  In order for a Website to reference its API description, it is recommended that it includes a header or
+  in-line reference to the APIs.json resource using one of the api link relations, e.g.:
 
    * <link rel="api" type="application/text/plain" href="https://example.com/apis.txt" />
    * <link rel="api" type="text/markdown" href="https://example.com/apis.md" />   
@@ -312,289 +306,125 @@ Table of Contents
    Here is an example api.json file:
 
       {
-      "aid": "apis.json",
-      "name": "Example API",
-      "type": "Index",
-      "description": "This is an example APIs.json file, demonstrating what is possible with the API discovery specification.",
-      "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
-      "tags": [
-         "Application Programming Interface",
-         "API"
-      ],
-      "created": "2024-11-06",
-      "modified": "2024-11-06",
-      "url": "http://example.com/apis.json",
-      "specificationVersion": "0.19",
-      "apis": [
-         {
+        "aid": "apis.json",
+        "name": "Example API",
+        "type": "Index",
+        "description": "This is an example APIs.json file, demonstrating what is possible with the API discovery specification.",
+        "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+        "tags": [
+          "Application Programming Interface",
+          "API"
+        ],
+        "created": "2024-11-06",
+        "modified": "2024-11-06",
+        "url": "http://example.com/apis.json",
+        "specificationVersion": "0.19",
+        "apis": [
+          {
             "aid": "apis.json:example-api",
             "name": "Example API",
             "description": "This provides details about a specific API, telling what is possible.",
             "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
-            "humanURL": "http://example.com",
-            "baseURL": "http://api.example.com",
+            "humanUrl": "http://example.com",
+            "baseUrl": "http://api.example.com",
             "tags": [
-            "API",
-            "Application Programming Interface"
+              "API",
+              "Application Programming Interface"
             ],
             "properties": [
-            {
-               "type": "Documentation",
-               "url": "https://example.com/documentation"
-            },
-            {
-               "type": "OpenAPI",
-               "url": "http://example.com/openapi.yml"
-            },
-            {
-               "type": "Swagger",
-               "url": "http://example.com/swagger.yml"
-            },
-            {
-               "type": "JSONSchema",
-               "url": "http://example.com/json-schema.json"
-            },
-            {
-               "type": "GraphQLSchema",
-               "url": "http://example.com/graphqlql.schema"
-            },
-            {
-               "type": "PostmanCollection",
-               "url": "http://example.com/postman-collection.json"
-            },
-            {
-               "type": "AsyncAPI",
-               "url": "http://example.com/asyncapi.json"
-            },
-            {
-               "type": "RAML",
-               "url": "http://example.com/raml.yml"
-            },
-            {
-               "type": "Blueprint",
-               "url": "http://example.com/blueprint.apib"
-            },
-            {
-               "type": "WADL",
-               "url": "http://example.com/wadl.xml"
-            },
-            {
-               "type": "WSDL",
-               "url": "http://example.com/api.wsdl"
-            },
-            {
-               "type": "ALPS",
-               "url": "http://example.com/api.alps"
-            },
-            {
-               "type": "OpenAIPluginManifest",
-               "url": "https://example.com/openaiplugin.yml"
-            },
-            {
-               "type": "JSONLD",
-               "url": "https://example.com/json-ld.json"
-            },
-            {
-               "type": "JSONForms",
-               "url": "http://example.com/json-forms"
-            },
-            {
-               "type": "Arazzo",
-               "url": "http://example.com/arazzo"
-            },
-            {
-               "type": "Compare",
-               "url": "http://example.com/compare"
-            },
-            {
-               "type": "RunInInsomnia",
-               "url": "http://example.com/run-in-insomnia"
-            },
-            {
-               "type": "Evolution",
-               "url": "http://example.com/evolution"
-            },
-            {
-               "type": "DataContract",
-               "url": "http://example.com/data-contract"
-            },
-            {
-               "type": "ServerlessWorkflow",
-               "url": "http://example.com/serverless-workflow"
-            }
+              { "type": "Documentation", "url": "https://example.com/documentation" },
+              { "type": "OpenAPI", "url": "http://example.com/openapi.yml" },
+              { "type": "Swagger", "url": "http://example.com/swagger.yml" },
+              { "type": "JSONSchema", "url": "http://example.com/json-schema.json" },
+              { "type": "GraphQLSchema", "url": "http://example.com/graphqlql.schema" },
+              { "type": "PostmanCollection", "url": "http://example.com/postman-collection.json" },
+              { "type": "AsyncAPI", "url": "http://example.com/asyncapi.json" },
+              { "type": "RAML", "url": "http://example.com/raml.yml" },
+              { "type": "Blueprint", "url": "http://example.com/blueprint.apib" },
+              { "type": "WADL", "url": "http://example.com/wadl.xml" },
+              { "type": "WSDL", "url": "http://example.com/api.wsdl" },
+              { "type": "ALPS", "url": "http://example.com/api.alps" },
+              { "type": "OpenAIPluginManifest", "url": "https://example.com/openaiplugin.yml" },
+              { "type": "JSONLD", "url": "https://example.com/json-ld.json" },
+              { "type": "JSONForms", "url": "http://example.com/json-forms" },
+              { "type": "Arazzo", "url": "http://example.com/arazzo" },
+              { "type": "Compare", "url": "http://example.com/compare" },
+              { "type": "InsomniaCollection", "url": "http://example.com/run-in-insomnia" },
+              { "type": "Evolution", "url": "http://example.com/evolution" },
+              { "type": "DataContract", "url": "http://example.com/data-contract" },
+              { "type": "ServerlessWorkflow", "url": "http://example.com/serverless-workflow" }
             ],
             "overlays": [
-            {
-               "type": "APIs.io Search",
-               "url": "https://example.com/apis-io-search"
-            },
-            {
-               "type": "API Evangelist Rating",
-               "url": "http://example.com/api-evangelist-ratings"
-            }
+              { "type": "APIs.io Search", "url": "https://example.com/apis-io-search" },
+              { "type": "API Evangelist Rating", "url": "http://example.com/api-evangelist-ratings" }
             ],
             "contact": [
-            {
-               "FN": "APIs.json",
-               "email": "info@apisjson.org"
-            }
+              {
+                "fn": "APIs.json",
+                "email": "info@apisjson.org"
+              }
             ]
-         }
-      ],
-      "common": [
-         {
-            "type": "Signup",
-            "url": "https://example.com/signup"
-         },
-         {
-            "type": "Login",
-            "url": "https://example.com/login"
-         },
-         {
-            "type": "Authentication",
-            "url": "http://example.com/authentication"
-         },
-         {
-            "type": "Blog",
-            "url": "http://example.com/blog"
-         },
-         {
-            "type": "BlogFeed",
-            "url": "http://example.com/blog-feed"
-         },
-         {
-            "type": "Pricing",
-            "url": "http://example.com/pricing"
-         },
-         {
-            "type": "GettingStarted",
-            "url": "http://example.com/getting-started"
-         },
-         {
-            "type": "Versioning",
-            "url": "http://example.com/versioning"
-         },
-         {
-            "type": "TermsOfService",
-            "url": "http://example.com/terms-of-service"
-         },
-         {
-            "type": "InterfaceLicense",
-            "url": "http://example.com/interfacce-license"
-         },
-         {
-            "type": "PrivacyPolicy",
-            "url": "http://example.com/privacy-policy"
-         },
-         {
-            "type": "DeprecationPolicy",
-            "url": "http://example.com/deprecation-policy"
-         },
-         {
-            "type": "ServiceLevelAgreement",
-            "url": "http://example.com/service-level-agreement"
-         },
-         {
-            "type": "Security",
-            "url": "http://example.com/security"
-         },
-         {
-            "type": "SDKs",
-            "url": "http://example.com/sdks"
-         },
-         {
-            "type": "StatusPage",
-            "url": "http://example.com/status-page"
-         },
-         {
-            "type": "RateLimits",
-            "url": "http://example.com/rate-limits"
-         },
-         {
-            "type": "Forums",
-            "url": "http://example.com/forums"
-         },
-         {
-            "type": "Support",
-            "url": "http://example.com/support"
-         },
-         {
-            "type": "ChangeLog",
-            "url": "http://example.com/change-log"
-         },
-         {
-            "type": "RoadMap",
-            "url": "http://example.com/road-map"
-         },
-         {
-            "type": "Contact",
-            "url": "http://example.com/contact"
-         },
-         {
-            "type": "ErrorCodes",
-            "url": "http://example.com/error-codes"
-         },
-         {
-            "type": "GitHubOrg",
-            "url": "http://example.com/github-org"
-         },
-         {
-            "type": "GitHubRepo",
-            "url": "http://example.com/github-repo"
-         },
-         {
-            "type": "Twitter",
-            "url": "http://example.com/twitter"
-         },
-         {
-            "type": "AlertsTwitterHandle",
-            "url": "http://example.com/alerts-twitter-handle"
-         },
-         {
-            "type": "Webhooks",
-            "url": "http://example.com/webhooks"
-         },
-         {
-            "type": "UseCases",
-            "url": "http://example.com/use-cases"
-         },
-         {
-            "type": "Plans",
-            "url": "http://example.com/plans"
-         }
-      ],
-      "overlays": [
-         {
-            "type": "APIs.io Search",
-            "url": "https://example.com/apis-io-search"
-         },
-         {
-            "type": "API Evangelist Ratings",
-            "url": "http://example.com/api-evangelist-ratings"
-         }
-      ],
-      "include": [
-         {
+          }
+        ],
+        "common": [
+          { "type": "Signup", "url": "https://example.com/signup" },
+          { "type": "Login", "url": "https://example.com/login" },
+          { "type": "Authentication", "url": "http://example.com/authentication" },
+          { "type": "Blog", "url": "http://example.com/blog" },
+          { "type": "BlogFeed", "url": "http://example.com/blog-feed" },
+          { "type": "Pricing", "url": "http://example.com/pricing" },
+          { "type": "GettingStarted", "url": "http://example.com/getting-started" },
+          { "type": "Versioning", "url": "http://example.com/versioning" },
+          { "type": "TermsOfService", "url": "http://example.com/terms-of-service" },
+          { "type": "InterfaceLicense", "url": "http://example.com/interfacce-license" },
+          { "type": "PrivacyPolicy", "url": "http://example.com/privacy-policy" },
+          { "type": "DeprecationPolicy", "url": "http://example.com/deprecation-policy" },
+          { "type": "ServiceLevelAgreement", "url": "http://example.com/service-level-agreement" },
+          { "type": "Security", "url": "http://example.com/security" },
+          { "type": "SDKs", "url": "http://example.com/sdks" },
+          { "type": "StatusPage", "url": "http://example.com/status-page" },
+          { "type": "RateLimits", "url": "http://example.com/rate-limits" },
+          { "type": "Forums", "url": "http://example.com/forums" },
+          { "type": "Support", "url": "http://example.com/support" },
+          { "type": "ChangeLog", "url": "http://example.com/change-log" },
+          { "type": "RoadMap", "url": "http://example.com/road-map" },
+          { "type": "Contact", "url": "http://example.com/contact" },
+          { "type": "ErrorCodes", "url": "http://example.com/error-codes" },
+          { "type": "GitHubOrg", "url": "http://example.com/github-org" },
+          { "type": "GitHubRepo", "url": "http://example.com/github-repo" },
+          { "type": "Twitter", "url": "http://example.com/twitter" },
+          { "type": "AlertsTwitterHandle", "url": "http://example.com/alerts-twitter-handle" },
+          { "type": "Webhooks", "url": "http://example.com/webhooks" },
+          { "type": "UseCases", "url": "http://example.com/use-cases" },
+          { "type": "Plans", "url": "http://example.com/plans" }
+        ],
+        "overlays": [
+          { "type": "APIs.io Search", "url": "https://example.com/apis-io-search" },
+          { "type": "API Evangelist Ratings", "url": "http://example.com/api-evangelist-ratings" }
+        ],
+        "include": [
+          {
             "name": "Another Example API",
             "url": "http://example.com/apis.json"
-         }
-      ],
-      "maintainers": [
-         {
-            "FN": "Kin Lane",
-            "X-twitter": "apievangelist",
+          }
+        ],
+        "maintainers": [
+          {
+            "fn": "Kin Lane",
+            "x-twitter": "apievangelist",
             "email": "info@apievangelist.com"
-         }
-      ]
+          }
+        ]
       }
 
-	Here is an example api.yaml file:
+
+   Here is an example api.yaml file:
 
       aid: apis.json
       name: Example API
       type: Index
-      description: |-
-      This is an example APIs.json file, demonstrating what is possible with the API discovery specification.
+      description: This is an example APIs.json file, demonstrating what is possible with
+        the API discovery specification.
       image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
       tags:
       - Application Programming Interface
@@ -605,157 +435,158 @@ Table of Contents
       specificationVersion: '0.19'
       apis:
       - aid: apis.json:example-api
-         name: Example API
-         description: This provides details about a specific API, telling what is possible.
-         image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-         humanURL: http://example.com
-         baseURL: http://api.example.com
-         tags:
-            - API
-            - Application Programming Interface
-         properties:
-            - type: Documentation
-            url: https://example.com/documentation
-            - type: OpenAPI
-            url: http://example.com/openapi.yml
-            - type: Swagger
-            url: http://example.com/swagger.yml
-            - type: JSONSchema
-            url: http://example.com/json-schema.json
-            - type: GraphQLSchema
-            url: http://example.com/graphqlql.schema
-            - type: PostmanCollection
-            url: http://example.com/postman-collection.json
-            - type: AsyncAPI
-            url: http://example.com/asyncapi.json
-            - type: RAML
-            url: http://example.com/raml.yml
-            - type: Blueprint
-            url: http://example.com/blueprint.apib
-            - type: WADL
-            url: http://example.com/wadl.xml
-            - type: WSDL
-            url: http://example.com/api.wsdl
-            - type: ALPS
-            url: http://example.com/api.alps      
-            - type: OpenAIPluginManifest
-            url: https://example.com/openaiplugin.yml
-            - type: JSONLD
-            url: https://example.com/json-ld.json 
-            - type: JSONForms
-            url: http://example.com/json-forms    
-            - type: Arazzo
-            url: http://example.com/arazzo        
-            - type: Compare
-            url: http://example.com/compare    
-            - type: RunInInsomnia
-            url: http://example.com/run-in-insomnia   
-            - type: Evolution
-            url: http://example.com/evolution  
-            - type: DataContract
-            url: http://example.com/data-contract
-            - type: ServerlessWorkflow
-            url: http://example.com/serverless-workflow                         
-         overlays:
-            - type: APIs.io Search
-            url: https://example.com/apis-io-search
-            - type: API Evangelist Rating
-            url: http://example.com/api-evangelist-ratings
-         contact:
-            - FN: APIs.json
-            email: info@apisjson.org
+        name: Example API
+        description: This provides details about a specific API, telling what is possible.
+        image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+        humanUrl: http://example.com
+        baseUrl: http://api.example.com
+        tags:
+        - API
+        - Application Programming Interface
+        properties:
+        - type: Documentation
+          url: https://example.com/documentation
+        - type: OpenAPI
+          url: http://example.com/openapi.yml
+        - type: Swagger
+          url: http://example.com/swagger.yml
+        - type: JSONSchema
+          url: http://example.com/json-schema.json
+        - type: GraphQLSchema
+          url: http://example.com/graphqlql.schema
+        - type: PostmanCollection
+          url: http://example.com/postman-collection.json
+        - type: AsyncAPI
+          url: http://example.com/asyncapi.json
+        - type: RAML
+          url: http://example.com/raml.yml
+        - type: Blueprint
+          url: http://example.com/blueprint.apib
+        - type: WADL
+          url: http://example.com/wadl.xml
+        - type: WSDL
+          url: http://example.com/api.wsdl
+        - type: ALPS
+          url: http://example.com/api.alps
+        - type: OpenAIPluginManifest
+          url: https://example.com/openaiplugin.yml
+        - type: JSONLD
+          url: https://example.com/json-ld.json
+        - type: JSONForms
+          url: http://example.com/json-forms
+        - type: Arazzo
+          url: http://example.com/arazzo
+        - type: Compare
+          url: http://example.com/compare
+        - type: InsomniaCollection
+          url: http://example.com/run-in-insomnia
+        - type: Evolution
+          url: http://example.com/evolution
+        - type: DataContract
+          url: http://example.com/data-contract
+        - type: ServerlessWorkflow
+          url: http://example.com/serverless-workflow
+        overlays:
+        - type: APIs.io Search
+          url: https://example.com/apis-io-search
+        - type: API Evangelist Rating
+          url: http://example.com/api-evangelist-ratings
+        contact:
+        - fn: APIs.json
+          email: info@apisjson.org
       common:
       - type: Signup
-         url: https://example.com/signup
+        url: https://example.com/signup
       - type: Login
-         url: https://example.com/login
+        url: https://example.com/login
       - type: Authentication
-         url: http://example.com/authentication
+        url: http://example.com/authentication
       - type: Blog
-         url: http://example.com/blog
+        url: http://example.com/blog
       - type: BlogFeed
-         url: http://example.com/blog-feed
+        url: http://example.com/blog-feed
       - type: Pricing
-         url: http://example.com/pricing
+        url: http://example.com/pricing
       - type: GettingStarted
-         url: http://example.com/getting-started
+        url: http://example.com/getting-started
       - type: Versioning
-         url: http://example.com/versioning
+        url: http://example.com/versioning
       - type: TermsOfService
-         url: http://example.com/terms-of-service
+        url: http://example.com/terms-of-service
       - type: InterfaceLicense
-         url: http://example.com/interfacce-license
+        url: http://example.com/interfacce-license
       - type: PrivacyPolicy
-         url: http://example.com/privacy-policy
+        url: http://example.com/privacy-policy
       - type: DeprecationPolicy
-         url: http://example.com/deprecation-policy
+        url: http://example.com/deprecation-policy
       - type: ServiceLevelAgreement
-         url: http://example.com/service-level-agreement
+        url: http://example.com/service-level-agreement
       - type: Security
-         url: http://example.com/security
+        url: http://example.com/security
       - type: SDKs
-         url: http://example.com/sdks
+        url: http://example.com/sdks
       - type: StatusPage
-         url: http://example.com/status-page
+        url: http://example.com/status-page
       - type: RateLimits
-         url: http://example.com/rate-limits
+        url: http://example.com/rate-limits
       - type: Forums
-         url: http://example.com/forums
+        url: http://example.com/forums
       - type: Support
-         url: http://example.com/support
+        url: http://example.com/support
       - type: ChangeLog
-         url: http://example.com/change-log
+        url: http://example.com/change-log
       - type: RoadMap
-         url: http://example.com/road-map
+        url: http://example.com/road-map
       - type: Contact
-         url: http://example.com/contact
+        url: http://example.com/contact
       - type: ErrorCodes
-         url: http://example.com/error-codes
+        url: http://example.com/error-codes
       - type: GitHubOrg
-         url: http://example.com/github-org
+        url: http://example.com/github-org
       - type: GitHubRepo
-         url: http://example.com/github-repo
+        url: http://example.com/github-repo
       - type: Twitter
-         url: http://example.com/twitter
+        url: http://example.com/twitter
       - type: AlertsTwitterHandle
-         url: http://example.com/alerts-twitter-handle
+        url: http://example.com/alerts-twitter-handle
       - type: Webhooks
-         url: http://example.com/webhooks
+        url: http://example.com/webhooks
       - type: UseCases
-         url: http://example.com/use-cases
+        url: http://example.com/use-cases
       - type: Plans
-         url: http://example.com/plans              
+        url: http://example.com/plans
       overlays:
       - type: APIs.io Search
-         url: https://example.com/apis-io-search
+        url: https://example.com/apis-io-search
       - type: API Evangelist Ratings
-         url: http://example.com/api-evangelist-ratings
+        url: http://example.com/api-evangelist-ratings
       include:
       - name: Another Example API
-         url: http://example.com/apis.json
+        url: http://example.com/apis.json
       maintainers:
-      - FN: Kin Lane
-         X-twitter: apievangelist
-         email: info@apievangelist.com
+      - fn: Kin Lane
+        x-twitter: apievangelist
+        email: info@apievangelist.com
+
 
 5. Security Considerations
 
    Deploying files compliant with this recommendation on your domain may
    generate certain security risks. The recommendation is not
-   intended to protect APIs, other types of resources or secure
+   intended to protect APIs, other types of resources, or secure
    access in any way. The objective of the recommendation is to
-   provide simple means to identify where APIs may be located on a
+   provide a simple means to identify where APIs may be located on a
    given domain.
 
-   As such external parties accessing the specification
+   As such, external parties accessing the specification
    files will be able to determine the location of the API endpoints
    referenced within the file and hence may attempt to access them.
 
-   All such visible endpoints should be secured in an appropriate manner.
+   All such visible endpoints should be secured appropriately.
 
 6.	Reserved Keywords with Definitions
 
-  This list can be found at htt://apisjson.org/format/reservedwords, and may be updated from time to time and maintenaned exernally.
+  This list can be found at https://apisjson.org/properties/ and may be updated from time to time and maintained externally.
 
 7. References
 
@@ -766,7 +597,7 @@ Table of Contents
 
 8. Acknowledgements
 
-   The specification provided here was inspired by conversation in the API Community at events such as the API Strategy and Practice Conferences, API Days conferences, Nordic APIs conferences, Gluecon, Defrag and others.
+   The specification provided here was inspired by conversation in the API Community at events such as the API Strategy and Practice Conferences, API Days conferences, Nordic APIs conferences, Gluecon, Defrag, and others.
 
 9. Authors' Address
 
@@ -785,16 +616,6 @@ Table of Contents
 Reserved Words for APIs.json / APIS.yaml Specification
 
  * Version 1
-
-Definition Elements:
-
- * Name
- * HumanURL
- * BaseURL
- * Description
- * Image
- * Version
- * Tags
 
 Properties Elements:
 
@@ -820,7 +641,6 @@ Properties Elements:
  * Evolution
  * DataContract
  * ServerlessWorkflow
-
  * GettingStarted
  * Documentation
  * Authentication
@@ -853,20 +673,3 @@ Properties Elements:
  * Webhooks
  * Integrations
  * UseCases
-
-Contact Elements:
-
- * Any vCard Element
-
-Maintainer Elements:
-
- * name
- * twitter
- * github
- * email
- * url
- * organizationName
- * organizationUrl
- * address
- * phoneNumber
- * image
