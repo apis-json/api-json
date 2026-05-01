@@ -331,7 +331,7 @@
       "description": "Common properties that apply across all APIs.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/urls"
+        "$ref": "#/$defs/urls"
       }
     },
     "overlays": {
