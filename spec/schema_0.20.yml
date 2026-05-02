@@ -144,7 +144,7 @@ $defs:
       type:
         type: string
         description: One of the designated API property types or a custom one prefixed with x-.
-        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(GraphQLSchema)$|^(PostmanCollection)$|^(PostmanWorkspace)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(GettingStarted)$|^(Documentation)$|^(Authentication)$|^(Versioning)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(DeprecationPolicy)$|^(ServiceLevelAgreement)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(GitHubOrg)$|^(GitHubRepo)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(Webhooks)$|^(Integrations)$|^(OpenAIPluginManifest)$|^(MockRestServer)$|^(MockMCPServer)$|^(BackstageApi)$|^(ModelContextProtocol)$|^(ApiExamples)$|^(ApiExamples)$|^(LlmsText)$|^(JsonStructure)$|^(Summary)$|^(AgentSkills)$|^(GitHubHttpUrl)$|^(GitHubSshUrl)$|^(GitHubIssues)$|^(GitHubDiscussions)$|^(Standards)$|^(Services)$|^(X-[A-Za-z0-9\\-]*)$"
+        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(GraphQLSchema)$|^(PostmanCollection)$|^(PostmanWorkspace)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(GettingStarted)$|^(Documentation)$|^(Authentication)$|^(Versioning)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(DeprecationPolicy)$|^(ServiceLevelAgreement)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(GitHubOrg)$|^(GitHubOrganization)$|^(GitHubRepo)$|^(GitHubRepository)$|^(GitHubHttpUrl)$|^(GitHubSshUrl)$|^(GitHubIssues)$|^(GitHubDiscussions)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(Webhooks)$|^(Integrations)$|^(OpenAIPluginManifest)$|^(MockRestServer)$|^(MockMCPServer)$|^(BackstageApi)$|^(ModelContextProtocol)$|^(ApiExamples)$|^(LlmsText)$|^(JSONStructure)$|^(Summary)$|^(AgentSkills)$|^(Standards)$|^(Services)$|^(Website)$|^(Portal)$|^(DeveloperPortal)$|^(Examples)$|^(Vocabulary)$|^(SpectralRules)$|^(JSONLD)$|^(Console)$|^(YouTube)$|^(StackOverflow)$|^(Community)$|^(FAQ)$|^(LinkedIn)$|^(X)$|^(ReleaseNotes)$|^(CLI)$|^(Compliance)$|^(Training)$|^(License)$|^(Sandbox)$|^(Slack)$|^(Discord)$|^(X-[A-Za-z0-9\\-]*)$"
       mediaType:
         type: string 
         description: IANA media type representing the property.       
@@ -280,7 +280,7 @@ properties:
     description: Date when the file was modified
   specificationVersion:
     type: string
-    description: APIs.json spec version, latest is 0.19
+    description: APIs.json spec version, latest is 0.20
   apis:
     type: array
     items:
