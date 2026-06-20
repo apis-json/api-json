@@ -278,7 +278,7 @@ Table of Contents
 	{
 	  "name": "API Evangelist",
 	  "description": "This is an inventory of APIs available as part of the API Evangelist network.",
-	  "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+	  "image": "https://kinlane-images.s3.amazonaws.com/shared/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
 	  "tags": [
 	    "application programming interface",
 	    "API",
@@ -293,7 +293,7 @@ Table of Contents
 	    {
 	      "name": "Analysis",
 	      "description": "Provides access to blog posts and analysis across the API Evangelist network.",
-	      "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+	      "image": "https://kinlane-images.s3.amazonaws.com/shared/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
 	      "humanURL": "http://developer.apievangelist.com",
 	      "baseURL": "http://api.apievangelist.com/definitions/Analysis",
 	      "tags": [
@@ -333,7 +333,7 @@ Table of Contents
 	    {
 	      "name": "APIs",
 	      "description": "Provides access to APIs that are being tracked across the API Evangelist network.",
-	      "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+	      "image": "https://kinlane-images.s3.amazonaws.com/shared/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
 	      "humanURL": "http://developer.apievangelist.com",
 	      "baseURL": "http://api.apievangelist.com/definitions/APIs",
 	      "tags": [
