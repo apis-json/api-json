@@ -1,7 +1,7 @@
 ---
 "$id": https://github.com/apis-json/api-json/blob/develop/spec/
 "$schema": https://json-schema.org/draft/2020-12/schema
-title: JSON Schema for APIs.json 0.20
+title: JSON Schema for APIs.json 0.21
 type: object
 additionalProperties: false
 patternProperties:
@@ -53,7 +53,7 @@ $defs:
       modified:
         type: string
         format: date
-        description: Date when the api was last modified        
+        description: Date when the api was last modified
       baseURL:
         type: string
         pattern: "^(http)|(https)://(.*)$"
@@ -140,28 +140,28 @@ $defs:
       description:
         type: string
         description: The description of the property.
-        minLength: 5        
+        minLength: 5
       type:
         type: string
         description: One of the designated API property types or a custom one prefixed with x-.
-        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(GraphQLSchema)$|^(PostmanCollection)$|^(PostmanWorkspace)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(ALPS)$|^(Arazzo)$|^(JSONForms)$|^(DataContract)$|^(ServerlessWorkflow)$|^(GettingStarted)$|^(Documentation)$|^(Authentication)$|^(Versioning)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(DeprecationPolicy)$|^(ServiceLevelAgreement)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(Plans)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(UseCases)$|^(GitHubOrg)$|^(GitHubOrganization)$|^(GitHubRepo)$|^(GitHubRepository)$|^(GitHubHttpUrl)$|^(GitHubSshUrl)$|^(GitHubIssues)$|^(GitHubDiscussions)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(Webhooks)$|^(Integrations)$|^(OpenAIPluginManifest)$|^(MockRestServer)$|^(MockMCPServer)$|^(BackstageApi)$|^(ModelContextProtocol)$|^(ApiExamples)$|^(LlmsText)$|^(JSONStructure)$|^(Summary)$|^(AgentSkills)$|^(Standards)$|^(Services)$|^(Website)$|^(Portal)$|^(DeveloperPortal)$|^(Examples)$|^(Vocabulary)$|^(SpectralRules)$|^(JSONLD)$|^(Console)$|^(YouTube)$|^(StackOverflow)$|^(Community)$|^(FAQ)$|^(LinkedIn)$|^(X)$|^(ReleaseNotes)$|^(CLI)$|^(Compliance)$|^(Training)$|^(License)$|^(Sandbox)$|^(Slack)$|^(Discord)$|^(InsomniaCollection)$|^(BrunoCollection)$|^(Compare)$|^(Evolution)$|^(X-[A-Za-z0-9\\-]*)$"
+        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(GraphQLSchema)$|^(PostmanCollection)$|^(PostmanWorkspace)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(ALPS)$|^(Arazzo)$|^(JSONForms)$|^(DataContract)$|^(ServerlessWorkflow)$|^(GettingStarted)$|^(Documentation)$|^(Authentication)$|^(Versioning)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(DeprecationPolicy)$|^(ServiceLevelAgreement)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(Plans)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(UseCases)$|^(GitHubOrg)$|^(GitHubOrganization)$|^(GitHubRepo)$|^(GitHubRepository)$|^(GitHubHttpUrl)$|^(GitHubSshUrl)$|^(GitHubIssues)$|^(GitHubDiscussions)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(Webhooks)$|^(Integrations)$|^(OpenAIPluginManifest)$|^(MockRestServer)$|^(MockMCPServer)$|^(BackstageApi)$|^(ModelContextProtocol)$|^(ApiExamples)$|^(LlmsText)$|^(JSONStructure)$|^(Summary)$|^(AgentSkills)$|^(Standards)$|^(Services)$|^(Website)$|^(Portal)$|^(DeveloperPortal)$|^(Examples)$|^(Vocabulary)$|^(SpectralRules)$|^(JSONLD)$|^(Console)$|^(YouTube)$|^(StackOverflow)$|^(Community)$|^(FAQ)$|^(LinkedIn)$|^(X)$|^(ReleaseNotes)$|^(CLI)$|^(Compliance)$|^(Training)$|^(License)$|^(Sandbox)$|^(Slack)$|^(Discord)$|^(InsomniaCollection)$|^(BrunoCollection)$|^(Compare)$|^(Evolution)$|^(FocusBillingExport)$|^(FocusConformanceReport)$|^(FocusContractCommitments)$|^(OpenCostSpecification)$|^(OpenCostAllocationAPI)$|^(UnitEconomics)$|^(ChargebackPolicy)$|^(TaggingPolicy)$|^(InvoiceReconciliation)$|^(FinOpsFramework)$|^(SoftwareCarbonIntensity)$|^(SCIReport)$|^(GHGProtocolReport)$|^(NaftikoCapability)$|^(NaftikoFleet)$|^(X-[A-Za-z0-9\\-]*)$"
       mediaType:
-        type: string 
-        description: IANA media type representing the property.       
+        type: string
+        description: IANA media type representing the property.
       url:
         type: string
         description: The URL for the property. * must be url or data.
       data:
         oneOf:
-          - type: object   
+          - type: object
           - type: array
-        description: The data for the property. * must be url or data  
+        description: The data for the property. * must be url or data
       tags:
         type: array
         items:
           type: string
           minLength: 1
-        description: Tags to describe the property.        
+        description: Tags to describe the property.
   tags:
     description: A consistent set of tag to apply to a description
 
@@ -209,14 +209,14 @@ properties:
 
   aid:
     type: string
-    description: unique identifier for APIs.json 
+    description: unique identifier for APIs.json
   visibility:
     type: string
     description: The visibility for the APIs.json collection.
     enum:
       - Public
       - Private
-      - Partner 
+      - Partner
   rating:
     type: string
     description: The rating for the APIs.json collection.
@@ -225,14 +225,14 @@ properties:
       - B
       - C
       - D
-      - F       
+      - F
   type:
     type: string
     description: The type of the APIs.json collection.
     enum:
       - Index
       - Template
-      - Example  
+      - Example
       - Collection
       - Sandbox
       - Knowledgebase
@@ -245,14 +245,14 @@ properties:
     description: The position of the maintainer of APIs.json.
     enum:
       - Producing
-      - Consuming    
+      - Consuming
   access:
     type: string
     description: The access level for the APIs in an APIs.json.
     enum:
       - Internal
       - 1st-Party
-      - 3rd-Party  
+      - 3rd-Party
   name:
     type: string
     description: The name of the service described
@@ -280,7 +280,7 @@ properties:
     description: Date when the file was modified
   specificationVersion:
     type: string
-    description: APIs.json spec version, latest is 0.20
+    description: APIs.json spec version, latest is 0.21
   apis:
     type: array
     items:
@@ -305,7 +305,7 @@ properties:
     description: Common properties that apply across all APIs.
     type: array
     items:
-      "$ref": "#/$defs/urls"     
+      "$ref": "#/$defs/urls"
   overlays:
     type: array
     items:
@@ -315,4 +315,4 @@ properties:
     type: array
     items:
       "$ref": "#/$defs/network"
-    description: Links to other apis.json that will be included in discovery.   
+    description: Links to other apis.json that will be included in discovery.
