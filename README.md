@@ -79,6 +79,9 @@ I doubt we will see many new additions like commons and country. In the future m
 * 
 **Next Steps**
 * Stories, stories, and more stories.
-* Next 0.20 release
-  *   Overlay
-  *   Unique Identifier
+* Current release: 0.21
+  *   prompts collection (AI prompts) at the top and API level
+  *   rules collection (Spectral / governance rulesets) at the top and API level
+  *   workflows collection (Arazzo and other workflows) at the top and API level
+  *   kind property for classifying the entity described
+  *   Reserved-word vocabulary promoted from real-world usage and the JSON Schema type list brought back in sync
