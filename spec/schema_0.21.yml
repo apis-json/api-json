@@ -147,7 +147,11 @@ $defs:
     description: A representation of a URL
     required:
     - type
-    - url
+    oneOf:
+    - required:
+      - url
+    - required:
+      - data
     properties:
       name:
         type: string
