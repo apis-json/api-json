@@ -5,7 +5,7 @@ title: JSON Schema for APIs.json 0.23
 type: object
 additionalProperties: false
 patternProperties:
-  "^X-":
+  "^[Xx]-":
     type: object
 
 $defs:
@@ -113,7 +113,7 @@ $defs:
     - FN
     additionalProperties: true
     patternProperties:
-      "^X-":
+      "^[Xx]-":
         type: string
     properties:
       FN:
