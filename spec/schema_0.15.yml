@@ -1,6 +1,6 @@
 ---
 title: A JSON Schema for apis.json, version 0.15
-"$schema": http://json-schema.org/draft-04/schema#
+$schema: http://json-schema.org/draft-04/schema#
 type: object
 additionalProperties: false
 patternProperties:
