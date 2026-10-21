@@ -1,7 +1,7 @@
 ---
-"$id": https://github.com/apis-json/api-json/blob/develop/spec/
-"$schema": https://json-schema.org/draft/2020-12/schema
-title: JSON Schema for APIs.json 0.21
+$id: https://github.com/apis-json/api-json/blob/develop/spec/
+$schema: https://json-schema.org/draft/2020-12/schema
+title: JSON Schema for APIs.json 0.22
 type: object
 additionalProperties: false
 patternProperties:
