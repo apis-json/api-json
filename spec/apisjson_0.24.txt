@@ -180,7 +180,7 @@ Table of Contents
 
    A file shall be in JSON or YAML format and contain the following elements:
 
-    * aid [Mandatory]: A unique identifier for the collection, consisting of [root domain]:[string] (ie. apis.json:spec-example)
+    * aid [Recommended]: A unique identifier for the collection, consisting of [root domain]:[string] (ie. apis.json:spec-example)
     * name [Mandatory]: text string of human readable name for the collection of APIs
     * description [Mandatory]: text human readable description of the collection of APIs.
     * image [Optional]: Web URL leading to an image to be used to represent the collection of
@@ -199,7 +199,7 @@ Table of Contents
 
     * apis (collection) [Optional]: list of APIs identified in the file, each containing:
 
-        * aid [Mandatory]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api)
+        * aid [Recommended]: A unique identifier for the api, consisting of [root domain]:[string] (ie. apis.json:spec-api)
         * name [Mandatory]: name of the API
         * description [Mandatory]: human readable text description of the API.
         * image [Optional]: URL of an image which can be used as an "icon" for the API if displayed by a search engine.
@@ -1529,6 +1529,7 @@ Maintainer Elements:
  Key, API Keys, JSON-LD Context, Java SDK, JavaScript SDK, Knowledge Base,
  Knowledge Center, KnowledgeCenter, LLMsText, LlmsTxt, Mailing List, Mailing
  Lists, MailingLists, Node.js SDK, PHP SDK, Postman Collection, Privacy,
- Python SDK, Reference, Register, Registration, Ruby SDK, SDK, Security
- Policy, Sign Up, Source Code, Spectral, Spectral Rules, SpectralRuleset,
- Terms of Service, Terms of Use, TermsOfUse, Trust
+ OpenAPI Source, OpenAPISource, Python SDK, Reference, Register,
+ Registration, Ruby SDK, SDK, Security Policy, Sign Up, Source Code,
+ Spectral, Spectral Rules, SpectralRuleset, Terms of Service, Terms of Use,
+ TermsOfUse, Trust
