@@ -1,6 +1,6 @@
 ---
-"$id": https://github.com/apis-json/api-json/blob/develop/spec/
-"$schema": https://json-schema.org/draft/2020-12/schema
+$id: https://github.com/apis-json/api-json/blob/develop/spec/
+$schema: https://json-schema.org/draft/2020-12/schema
 title: JSON Schema for APIs.json 0.21
 type: object
 additionalProperties: false
@@ -73,6 +73,21 @@ $defs:
         items:
           "$ref": "#/$defs/urls"
         description: URLs
+      prompts:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+        description: AI prompts that apply to this API
+      rules:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+        description: Governance rulesets (e.g. Spectral) that apply to this API
+      workflows:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+        description: Arazzo (or other) workflows that apply to this API
       contact:
         type: array
         items:
@@ -132,7 +147,11 @@ $defs:
     description: A representation of a URL
     required:
     - type
-    - url
+    oneOf:
+    - required:
+      - url
+    - required:
+      - data
     properties:
       name:
         type: string
@@ -143,8 +162,8 @@ $defs:
         minLength: 5
       type:
         type: string
-        description: One of the designated API property types or a custom one prefixed with x-.
-        pattern: "^(Swagger)$|^(OpenAPI)$|^(JSONSchema)$|^(GraphQLSchema)$|^(PostmanCollection)$|^(PostmanWorkspace)$|^(AsyncAPI)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(ALPS)$|^(Arazzo)$|^(JSONForms)$|^(DataContract)$|^(ServerlessWorkflow)$|^(GettingStarted)$|^(Documentation)$|^(Authentication)$|^(Versioning)$|^(Signup)$|^(Login)$|^(TermsOfService)$|^(InterfaceLicense)$|^(PrivacyPolicy)$|^(DeprecationPolicy)$|^(ServiceLevelAgreement)$|^(Security)$|^(SDKs)$|^(StatusPage)$|^(Pricing)$|^(Plans)$|^(RateLimits)$|^(Blog)$|^(BlogFeed)$|^(Forums)$|^(Support)$|^(ChangeLog)$|^(RoadMap)$|^(Contact)$|^(ErrorCodes)$|^(UseCases)$|^(GitHubOrg)$|^(GitHubOrganization)$|^(GitHubRepo)$|^(GitHubRepository)$|^(GitHubHttpUrl)$|^(GitHubSshUrl)$|^(GitHubIssues)$|^(GitHubDiscussions)$|^(Twitter)$|^(AlertsTwitterHandle)$|^(Webhooks)$|^(Integrations)$|^(OpenAIPluginManifest)$|^(MockRestServer)$|^(MockMCPServer)$|^(BackstageApi)$|^(ModelContextProtocol)$|^(ApiExamples)$|^(LlmsText)$|^(JSONStructure)$|^(Summary)$|^(AgentSkills)$|^(Standards)$|^(Services)$|^(Website)$|^(Portal)$|^(DeveloperPortal)$|^(Examples)$|^(Vocabulary)$|^(SpectralRules)$|^(JSONLD)$|^(Console)$|^(YouTube)$|^(StackOverflow)$|^(Community)$|^(FAQ)$|^(LinkedIn)$|^(X)$|^(ReleaseNotes)$|^(CLI)$|^(Compliance)$|^(Training)$|^(License)$|^(Sandbox)$|^(Slack)$|^(Discord)$|^(InsomniaCollection)$|^(BrunoCollection)$|^(Compare)$|^(Evolution)$|^(FocusBillingExport)$|^(FocusConformanceReport)$|^(FocusContractCommitments)$|^(OpenCostSpecification)$|^(OpenCostAllocationAPI)$|^(UnitEconomics)$|^(ChargebackPolicy)$|^(TaggingPolicy)$|^(InvoiceReconciliation)$|^(FinOpsFramework)$|^(SoftwareCarbonIntensity)$|^(SCIReport)$|^(GHGProtocolReport)$|^(NaftikoCapability)$|^(NaftikoFleet)$|^(X-[A-Za-z0-9\\-]*)$"
+        description: One of the designated API property types or a custom one prefixed with X-.
+        pattern: "^(Swagger|OpenAPI|JSONSchema|GraphQLSchema|GraphQL|PostmanCollection|PostmanWorkspace|InsomniaCollection|BrunoCollection|AsyncAPI|RAML|Blueprint|WADL|WSDL|ALPS|OpenAIPluginManifest|JSONLD|JSONLDContext|JSONForms|JSONStructure|Vocabulary|Arazzo|Overlay|ServerlessWorkflow|Workflow|Compare|Evolution|DataContract|SpectralRules|Rules|GovernanceRules|GettingStarted|Documentation|APIReference|Authentication|APIOnboarding|Versioning|Signup|Login|SDKs|CLI|Console|Sandbox|Examples|ApiExamples|FAQ|Summary|Features|Solutions|Tools|Careers|Prompt|AgentPrompt|PromptTemplate|AgentSkills|LlmsText|ModelContextProtocol|MCPServer|MockRestServer|MockMCPServer|BackstageApi|Standards|Conformance|Services|About|Specification|Plans|Pricing|RateLimits|StatusPage|ChangeLog|ReleaseNotes|RoadMap|DeprecationPolicy|TermsOfService|InterfaceLicense|PrivacyPolicy|ServiceLevelAgreement|Security|Compliance|License|Training|Blog|BlogFeed|Forums|Support|Contact|ErrorCodes|Webhooks|Integrations|UseCases|Community|StackOverflow|Slack|Discord|Website|Portal|DeveloperPortal|YouTube|LinkedIn|GitHubOrg|GitHubOrganization|GitHubRepo|GitHubRepository|GitHubHttpUrl|GitHubSshUrl|GitHubIssues|GitHubDiscussions|Twitter|X|AlertsTwitterHandle|FinOps|FinOpsFramework|FocusBillingExport|FocusConformanceReport|FocusContractCommitments|OpenCostSpecification|OpenCostAllocationAPI|UnitEconomics|ChargebackPolicy|TaggingPolicy|InvoiceReconciliation|SoftwareCarbonIntensity|SCIReport|GHGProtocolReport|PublicAPIsListing|Review)$|^(X-[A-Za-z0-9\\-]*)$"
       mediaType:
         type: string
         description: IANA media type representing the property.
@@ -240,6 +259,9 @@ properties:
       - Contract
       - Search
       - Network
+  kind:
+    type: string
+    description: The kind of entity the collection describes (e.g. company, government, opensource, standard, contract, topic).
   position:
     type: string
     description: The position of the maintainer of APIs.json.
@@ -303,6 +325,21 @@ properties:
     description: Links to other apis.json definitions included in this service
   common:
     description: Common properties that apply across all APIs.
+    type: array
+    items:
+      "$ref": "#/$defs/urls"
+  prompts:
+    description: AI prompts that apply across all APIs.
+    type: array
+    items:
+      "$ref": "#/$defs/urls"
+  rules:
+    description: Governance rulesets (e.g. Spectral) that apply across all APIs.
+    type: array
+    items:
+      "$ref": "#/$defs/urls"
+  workflows:
+    description: Arazzo (or other) workflows that apply across all APIs.
     type: array
     items:
       "$ref": "#/$defs/urls"

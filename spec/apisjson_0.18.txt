@@ -306,7 +306,7 @@ Table of Contents
    "name": "Example API",
    "type": "Index",
    "description": "This is an example APIs.json file, demonstrating what is possible with\nthe API discovery specification.",
-   "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+   "image": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
    "tags": [
       "Application Programming Interface",
       "API"
@@ -320,7 +320,7 @@ Table of Contents
          "aid": "apis.json:example-api",
          "name": "Example API",
          "description": "This provides details about a specific API, telling what is possible.",
-         "image": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+         "image": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
          "humanURL": "http://example.com",
          "baseURL": "http://api.example.com",
          "tags": [
@@ -547,7 +547,7 @@ Table of Contents
    description: |-
    This is an example APIs.json file, demonstrating what is possible with
    the API discovery specification.
-   image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
    tags:
    - Application Programming Interface
    - API
@@ -559,7 +559,7 @@ Table of Contents
    - aid: apis.json:example-api
    name: Example API
    description: This provides details about a specific API, telling what is possible.
-   image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
    humanURL: http://example.com
    baseURL: http://api.example.com
    tags:

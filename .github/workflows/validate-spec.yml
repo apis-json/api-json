@@ -1,0 +1,28 @@
+name: Validate the specification
+
+on:
+  pull_request:
+    paths:
+      - "spec/**"
+      - "scripts/validate_spec.py"
+      - ".github/workflows/validate-spec.yml"
+  push:
+    branches: [develop, main]
+    paths:
+      - "spec/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema==4.23.0 pyyaml==6.0.2
+      # Fails on: an invalid schema, examples that do not validate, or a reserved-words
+      # listing that disagrees with the schema. The showcase section only reports.
+      - run: python3 scripts/validate_spec.py --report

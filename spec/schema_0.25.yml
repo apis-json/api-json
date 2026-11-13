@@ -1,0 +1,308 @@
+---
+$id: https://github.com/apis-json/api-json/blob/develop/spec/
+$schema: https://json-schema.org/draft/2020-12/schema
+title: JSON Schema for APIs.json 0.25
+type: object
+patternProperties:
+  "^[Xx]-": {}
+
+$defs:
+
+  apis:
+    description: An API identified in the file
+    patternProperties:
+      "^[Xx]-": {}
+    required:
+      - name
+      - description
+    properties:
+      aid:
+        type: string
+        description: A unique identifier for the api, consisting of [root domain]:[string]
+      name:
+        type: string
+        description: name of the API
+      description:
+        type: string
+        description: human readable text description of the API
+      image:
+        type: string
+        description: URL of an image which can be used as an "icon" for the API if displayed by a search engine
+      created:
+        type: string
+        format: date
+        description: date of creation of the api
+      modified:
+        type: string
+        format: date
+        description: date of last modification of the api
+      humanURL:
+        type: string
+        description: Web URL corresponding to human readable information about the API
+      baseURL:
+        type: string
+        description: Web URL corresponding to the root URL of the API or primary endpoint
+      version:
+        type: string
+        description: String representing the version number of the API this description refers to
+      tags:
+        type: array
+        items:
+          type: string
+        description: a list of descriptive strings which identify the API
+      properties:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+      overlays:
+        type: array
+        items:
+          "$ref": "#/$defs/overlay"
+        description: an optional list of overlays to apply to individual APIs
+      prompts:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+        description: an optional list of AI prompts that apply to this API
+      rules:
+        type: array
+        items:
+          "$ref": "#/$defs/urls"
+        description: an optional list of governance rulesets that apply to this API
+      workflows:
+        type: array
+        items:
+          "$ref": "#/$defs/workflow"
+        description: an optional list of Arazzo (or other) workflows that apply to this API
+      contact:
+        type: array
+        items:
+          "$ref": "#/$defs/contact"
+  contact:
+    description: Person or Organization
+    patternProperties:
+      "^[Xx]-": {}
+    additionalProperties: true
+    properties:
+      FN:
+        type: string
+        description: String Value corresponding to the Full Name name of the individual / organization
+      email:
+        type: string
+        format: email
+        description: String Value corresponding to the email address of the individual / organization
+      url:
+        type: string
+        description: String Value corresponding to a web page about the individual / organization
+      organizationName:
+        type: string
+        description: String Value representing the name of the organization associated with the vCard
+      adr:
+        type: string
+        description: String Value corresponding to the physical address of the individual / organization
+      tel:
+        type: string
+        description: String Value corresponding to the phone number including country code of the individual / organization
+      X-twitter:
+        type: string
+        description: String Value corresponding to the twitter username of the individual / organization (convention do not use the "@" symbol)
+      X-github:
+        type: string
+        description: String Value corresponding to the github username of the individual / organization
+      photo:
+        type: string
+        description: URL corresponding to an image which could be used to represent the individual / organization
+      vCard:
+        type: string
+        description: URL pointing to a vCard Objective RFC6350
+      fn:
+        type: string
+        description: Accepted lowercase vCard spelling of FN
+      org:
+        type: string
+        description: Accepted vCard spelling of organizationName
+      x-twitter:
+        type: string
+        description: Accepted lowercase spelling of X-twitter
+      x-github:
+        type: string
+        description: Accepted lowercase spelling of X-github
+  urls:
+    description: A property
+    patternProperties:
+      "^[Xx]-": {}
+    required:
+    - type
+    oneOf:
+    - required:
+      - url
+    - required:
+      - data
+    properties:
+      name:
+        type: string
+        description: The display name of the property.
+      description:
+        type: string
+        description: human readable text description of the property.
+      type:
+        type: string
+        description: One of the reserved keywords, a recognised synonym, or a custom type prefixed x- or X-.
+        pattern: "^(Swagger|OpenAPI|OpenAPISource|OpenAPI Source|JSONSchema|GraphQLSchema|GraphQL|PostmanCollection|PostmanWorkspace|InsomniaCollection|BrunoCollection|AsyncAPI|RAML|Blueprint|WADL|WSDL|ALPS|OpenAIPluginManifest|JSONLD|JSONLDContext|JSONForms|JSONStructure|Vocabulary|Arazzo|Overlay|ServerlessWorkflow|Workflow|Compare|Evolution|DataContract|SpectralRules|Rules|GovernanceRules|GettingStarted|Documentation|APIReference|Authentication|APIKeys|APIKey|APIOnboarding|Versioning|Signup|Login|SDKs|CLI|Console|Sandbox|Examples|ApiExamples|FAQ|Summary|Features|Solutions|Tools|Careers|Prompt|AgentPrompt|PromptTemplate|AgentSkills|LlmsText|ModelContextProtocol|MCPServer|MockRestServer|MockMCPServer|BackstageApi|Standards|Standard|Conformance|Certification|Services|About|Specification|Plans|Pricing|RateLimits|StatusPage|ChangeLog|ReleaseNotes|RoadMap|DeprecationPolicy|TermsOfService|InterfaceLicense|Licensing|PrivacyPolicy|ServiceLevelAgreement|Security|Compliance|License|Training|Blog|BlogFeed|Forums|Support|Contact|ErrorCodes|Webhooks|Integrations|UseCases|Community|StackOverflow|Slack|Discord|Website|Portal|DeveloperPortal|YouTube|LinkedIn|GitHubOrg|GitHubOrganization|GitHubRepo|GitHubRepository|GitHubHttpUrl|GitHubSshUrl|GitHubIssues|GitHubDiscussions|Twitter|X|AlertsTwitterHandle|FinOps|FinOpsFramework|FocusBillingExport|FocusConformanceReport|FocusContractCommitments|OpenCostSpecification|OpenCostAllocationAPI|UnitEconomics|ChargebackPolicy|TaggingPolicy|InvoiceReconciliation|SoftwareCarbonIntensity|SCIReport|GHGProtocolReport|PublicAPIsListing|Review|DomainSecurity|LLMsTxt|AgenticAccess|ContentSignal|SignUp|VulnerabilityDisclosure|Lifecycle|TrustCenter|Conventions|WellKnown|Packages|ErrorCatalog|DataModel|AgentSkill|OAuthScopes|HelpCenter|SecurityTxt|Deprecation|Components|SourceCode|BlogRSS|Idempotency|Partners|Instagram|Postman|InvestorRelations|Facebook|Newsroom|Crunchbase|CodeExamples|Wikipedia|ContactUs|OpenIDConnect|CaseStudies|Roadmap|Tutorials|Sustainability|ParentCompany|Repository|PressReleases|Events|Protobuf|DeclineCodes|Newsletter|HelmChart|DockerImage|ContributionGuide|CodeOfConduct|SecurityPolicy|Releases|IssueTracker|Contributors|Maintainers|KubernetesOperator|AgentCard|MCPClient|A2A|SBOM|Attestation|Provenance|APICatalog|Playground|Quickstart|KnowledgeBase|MailingList|Leadership|DataSubjectRequest|Subprocessors|AITransparency|DataResidency|IncidentNotification|ExitAssistance|GlobalPrivacyControl|NoticeAndAction|SupportLifetime|AccessibilityConformance|TransparencyReport|TrainingDataSummary|AgeAssurance|BiometricDataPolicy|MCPServerCard|X402|ProtectedResourceMetadata|AuthorizationServerMetadata|API Documentation|APIDocumentation|Connect Go SDK|Connect Node\\.js SDK|Connect Python SDK|Deprecation Notice|Deprecations|Developer Portal|Discourse|Forum|GitHub|GitHub Org|Go SDK|Help Center|JSON Schema|API Key|API Keys|JSON\\-LD Context|Java SDK|JavaScript SDK|Knowledge Base|Knowledge Center|KnowledgeCenter|LLMsText|LlmsTxt|Mailing List|Mailing Lists|MailingLists|Node\\.js SDK|PHP SDK|Postman Collection|Privacy|Python SDK|Reference|Register|Registration|Ruby SDK|SDK|Security Policy|Sign Up|Source Code|Spectral|Spectral Rules|SpectralRuleset|Terms of Service|Terms of Use|TermsOfUse|Trust|LeadershipTeam|ExecutiveTeam|Management|News|Press|MCP|x402|A2AAgentCard|LLMSTxt|ContentSignals|Changelog|Privacy Policy|Status)$|^([Xx]-[A-Za-z0-9._\\-]*)$"
+      mediaType:
+        type: string
+        description: IANA media type representing the property.
+      url:
+        type: string
+        description: The URL for the property. * must be url or data
+      data:
+        description: The data for the property. * must be url or data
+      tags:
+        type: array
+        items:
+          type: string
+        description: a list of descriptive strings which identify the property.
+
+  workflow:
+    description: A workflow, which may also carry a humanURL
+    allOf:
+    - "$ref": "#/$defs/urls"
+    properties:
+      humanURL:
+        type: string
+        description: Web URL where a person can read or run the workflow
+  include:
+    description: Include other APIs.json file
+    required:
+    - name
+    - url
+    properties:
+      name:
+        type: string
+        description: name of the APIs.json file referenced
+      url:
+        type: string
+        description: Web URL of the file
+  overlay:
+    description: Overlay to apply
+    properties:
+      type:
+        type: string
+        description: The type of overlay being made available.
+      url:
+        type: string
+        description: The URL for the property.
+  network:
+    description: Related API node to search in a network
+    properties:
+      name:
+        type: string
+        description: The name of network being made available.
+      url:
+        type: string
+        description: The URL for the network search node.
+required:
+- name
+- description
+- url
+- created
+- modified
+- specificationVersion
+
+properties:
+
+  aid:
+    type: string
+    description: A unique identifier for the collection, consisting of [root domain]:[string]
+  name:
+    type: string
+    description: text string of human readable name for the collection of APIs
+  description:
+    type: string
+    description: text human readable description of the collection of APIs
+  image:
+    type: string
+    description: Web URL leading to an image to be used to represent the collection of APIs defined in this file
+  url:
+    type: string
+    description: Web URL indicating the location of the latest version of this file
+  tags:
+    type: array
+    items:
+      type: string
+    description: a list of descriptive strings which identify the contents of the APIs.json file
+  created:
+    type: string
+    format: date
+    description: date of creation of the file
+  modified:
+    type: string
+    format: date
+    description: date of last modification of the file
+  type:
+    type: string
+    description: Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API])
+    enum:
+      - Index
+      - Collection
+      - Blueprint
+  kind:
+    type: string
+    description: The kind of entity the collection describes (company, government, opensource, standard, contract, topic, etc.)
+  position:
+    type: string
+    description: The position held by the maintainer of an APIs.json
+  access:
+    type: string
+    description: The access available for the APIs.json being defined
+  specificationVersion:
+    type: string
+    description: version of the APIs.json specification in use, latest is 0.25
+  apis:
+    type: array
+    items:
+      "$ref": "#/$defs/apis"
+    description: list of APIs identified in the file
+  common:
+    type: array
+    items:
+      "$ref": "#/$defs/urls"
+    description: a list of common properties for use across all APIs and tools
+  prompts:
+    type: array
+    items:
+      "$ref": "#/$defs/urls"
+    description: a list of AI prompts for use across all APIs and tools
+  rules:
+    type: array
+    items:
+      "$ref": "#/$defs/urls"
+    description: a list of governance rulesets for use across all APIs
+  workflows:
+    type: array
+    items:
+      "$ref": "#/$defs/workflow"
+    description: a list of Arazzo (or other) workflows for use across all APIs
+  overlays:
+    type: array
+    items:
+      "$ref": "#/$defs/overlay"
+    description: an optional list of overlays to apply to primary APIs.json
+  include:
+    type: array
+    items:
+      "$ref": "#/$defs/include"
+  networks:
+    type: array
+    items:
+      "$ref": "#/$defs/network"
+    description: an optional list of related API nodes to search in a network
+  network:
+    type: array
+    items:
+      "$ref": "#/$defs/network"
+    description: Accepted earlier spelling of networks
+  maintainers:
+    type: array
+    items:
+      "$ref": "#/$defs/contact"
